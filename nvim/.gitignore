@@ -1,0 +1,8 @@
+*autoload/
+*plugged/
+spell/*
+.netrwhist
+.DS_Store
+.DS_Store
+lazy-lock.json
+Session.vim
