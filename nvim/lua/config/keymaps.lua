@@ -92,11 +92,15 @@ vim.keymap.set("n", "<leader>m", builtin.keymaps, { desc = "Telescope keymaps" }
 vim.keymap.set("n", "<leader>o", builtin.oldfiles, { desc = "Telescope old files" })
 -- LSP and symbols related keymaps
 vim.keymap.set("n", "<leader>sa", builtin.diagnostics, { desc = "Telescope diagnostic" })
+vim.keymap.set("n", "<leader>sc", builtin.lsp_incoming_calls, { desc = "Telescope lsp incoming calls" })
 vim.keymap.set("n", "<leader>sd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
 vim.keymap.set("n", "<leader>si", builtin.lsp_implementations, { desc = "Telescope lsp implementations" })
+vim.keymap.set("n", "<leader>so", builtin.lsp_outgoing_calls, { desc = "Telescope lsp outgoing calls" })
 vim.keymap.set("n", "<leader>sr", builtin.treesitter, { desc = "Telescope treesitter" })
 vim.keymap.set("n", "<leader>st", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
 vim.keymap.set("n", "<leader>sx", builtin.lsp_references, { desc = "Telescope lsp references" })
+vim.keymap.set("n", "<leader>sw", builtin.lsp_workspace_symbols, { desc = "Telescope lsp workspace symbols" })
+vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "Telescope lsp document symbols" })
 -- vim.keymap.set("n", "<leader>xx", only_document_diagnostic(), { desc = "Telescope diagnostic (current buffer)" })
 -- Git related keymaps
 vim.keymap.set("n", "<leader>gt", builtin.git_stash, { desc = "Telescope git stash" })
