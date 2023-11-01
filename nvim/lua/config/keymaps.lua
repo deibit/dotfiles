@@ -129,3 +129,7 @@ vim.keymap.set("n", "<leader>2", "<cmd>SymbolsOutline<cr>", { desc = "Toggle sym
 
 -- Nvim-tree
 vim.keymap.set("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Toogle nvim-tree" })
+
+-- ToogleTerm
+vim.keymap.set("n", "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
