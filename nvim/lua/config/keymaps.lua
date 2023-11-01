@@ -65,6 +65,7 @@ map("n", "U", "<C-r>", default_opts)
 
 -- Telescope
 local builtin = require("telescope.builtin")
+local telescope_ext = require("telescope").extensions
 
 -- local only_document_diagnostic = function()
 -- 	return function()
@@ -83,6 +84,8 @@ vim.keymap.set(
 	builtin.current_buffer_fuzzy_find,
 	{ desc = "Telescope fuzzy find current buffer" }
 )
+vim.keymap.set("n", "<leader>F", telescope_ext.file_browser.file_browser, { desc = "Telescope file broser" })
+
 -- Pickers
 vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>c", builtin.commands, { desc = "Telescope commands" })
