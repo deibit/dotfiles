@@ -133,3 +133,4 @@ vim.keymap.set("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Toogle nvi
 -- ToogleTerm
 vim.keymap.set("n", "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>T", "<cmd>ToggleTerm direction=float size=80<CR>", { noremap = true, silent = true })
