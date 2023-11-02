@@ -56,7 +56,6 @@ require("lazy").setup({
 		end,
 	},
 	{ "kylechui/nvim-surround", config = true },
-	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-obsession" },
 	{ "onsails/lspkind.nvim" },
 	{
@@ -175,6 +174,16 @@ require("lazy").setup({
 		config = function()
 			require("plugins.lualine")
 		end,
+	},
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"nvim-telescope/telescope.nvim", -- optional
+			"sindrets/diffview.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+		},
+		config = true,
 	},
 })
 
