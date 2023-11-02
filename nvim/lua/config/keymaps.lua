@@ -131,6 +131,14 @@ vim.keymap.set("n", "<leader>2", "<cmd>SymbolsOutline<cr>", { desc = "Toggle sym
 vim.keymap.set("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Toogle nvim-tree" })
 
 -- ToogleTerm
-vim.keymap.set("n", "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>T", "<cmd>ToggleTerm direction=float size=80<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Lazygit", noremap = true, silent = true })
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<CR>", { desc = "ToogleTerm", noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>T",
+	"<cmd>ToggleTerm direction=float size=80<CR>",
+	{ desc = "ToggleTerm float", noremap = true, silent = true }
+)
+
+-- Neogit
+vim.keymap.set("n", "<leader>n", "<cmd>Neogit<CR>", { desc = "Neogit" })
