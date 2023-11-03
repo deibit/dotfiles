@@ -147,3 +147,6 @@ C() {
     cd "$selected_dir"
   fi
 }
+
+# New ctrl-l
+alias cls="clear"

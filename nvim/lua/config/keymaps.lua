@@ -8,16 +8,6 @@ local default_opts = { noremap = true, silent = true }
 -- Fast saving
 map("n", "<leader>w", ":w<CR>", default_opts)
 
--- move around splits using Ctrl + {h,j,k,l}
-map("n", "<C-h>", "<C-w>h", default_opts)
-map("n", "<C-j>", "<C-w>j", default_opts)
-map("n", "<C-k>", "<C-w>k", default_opts)
-map("n", "<C-l>", "<C-w>l", default_opts)
-map("n", "<C-left>", "<C-w>h", default_opts)
-map("n", "<C-down>", "<C-w>j", default_opts)
-map("n", "<C-up>", "<C-w>k", default_opts)
-map("n", "<C-right>", "<C-w>l", default_opts)
-
 -- Splits
 map("n", '<leader>"', ":vsplit<CR>", default_opts)
 map("n", "<leader>%", ":split<CR>", default_opts)

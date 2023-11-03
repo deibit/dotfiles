@@ -32,6 +32,12 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"deibit/tmux.nvim",
+		config = function()
+			require("tmux").setup({})
+		end,
+	},
+	{
 		"mfussenegger/nvim-lint",
 		config = function()
 			require("plugins.lint")
