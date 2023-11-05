@@ -118,7 +118,7 @@ vim.keymap.set("n", "<leader>d", "<cmd>Bdelete<cr>", { desc = "bufdelete" })
 vim.keymap.set("n", "<leader>2", "<cmd>SymbolsOutline<cr>", { desc = "Toggle symbols outline window" })
 
 -- Nvim-tree
-vim.keymap.set("n", "<leader>1", "<cmd>NvimTreeToggle<cr>", { desc = "Toogle nvim-tree" })
+vim.keymap.set("n", "<leader>1", "<cmd>Neotree toggle<cr>", { desc = "Toogle Neotree" })
 
 -- ToogleTerm
 vim.keymap.set("n", "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", { desc = "Lazygit", noremap = true, silent = true })
