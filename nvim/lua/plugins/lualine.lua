@@ -9,6 +9,7 @@ local colors = {
   cyan   = '#79dac8',
   grey   = '#303030',
   lgrey  = '#bbbbbb',
+  green  = '#33ff33',
   orange = '#fc5501',
   red    = '#f70213',
   violet = '#d183e8',
@@ -43,6 +44,18 @@ local loc = function()
 	else
 		return ""
 	end
+end
+
+local function get_venv(variable)
+	local venv = os.getenv(variable)
+	if venv ~= nil and string.find(venv, "/") then
+		local orig_venv = venv
+		for w in orig_venv:gmatch("([^/]+)") do
+			venv = w
+		end
+		venv = string.format("%s", venv)
+	end
+	return venv
 end
 
 require("lualine").setup({
@@ -85,7 +98,20 @@ require("lualine").setup({
 				always_visible = false, -- Show diagnostics even if there are none.
 			},
 		},
-		lualine_y = { "filetype", "progress" },
+		lualine_y = {
+			"filetype",
+			{
+				function()
+					local venv = get_venv("CONDA_DEFAULT_ENV") or get_venv("VIRTUAL_ENV") or "no env"
+					return venv
+				end,
+				cond = function()
+					return vim.bo.filetype == "python"
+				end,
+				color = { fg = colors.green },
+			},
+			"progress",
+		},
 		lualine_z = {
 			{
 				"location",
@@ -104,7 +130,10 @@ require("lualine").setup({
 	tabline = {},
 	extensions = {
 		"fzf",
-		"nvim-tree",
+		"neo-tree",
 		"symbols-outline",
+		"trouble",
+		"lazy",
+		"toggleterm",
 	},
 })
