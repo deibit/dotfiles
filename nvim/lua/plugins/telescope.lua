@@ -7,6 +7,8 @@ require("telescope").setup({
 		build = "make",
 		config = function()
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("ui-select")
 		end,
 	},
 
@@ -68,7 +70,3 @@ require("telescope").setup({
 		},
 	},
 })
-
-require("telescope").load_extension("ui-select")
-require("telescope").load_extension("file_browser")
-require("telescope").load_extension("ui-select")

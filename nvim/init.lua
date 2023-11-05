@@ -11,6 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("config.options")
+require("config.keymaps")
+
 -- Lazy configuration
 require("lazy").setup({
 	{
@@ -49,10 +52,31 @@ require("lazy").setup({
 		config = function()
 			require("plugins.toggleterm")
 		end,
+		keys = {
+			{ "<C-t>", "<cmd>ToggleTerm<CR>", desc = "ToogleTerm", noremap = true, silent = true },
+			{
+				"<leader>T",
+				"<cmd>ToggleTerm direction=float size=80<CR>",
+				desc = "ToggleTerm float",
+				noremap = true,
+				silent = true,
+			},
+			{
+				"<leader>l",
+				"<cmd>lua _lazygit_toggle()<cr>",
+				desc = "Lazygit",
+				noremap = true,
+				silent = true,
+			},
+		},
+		lazy = false,
 	},
 	{ "sainnhe/edge" }, -- colorscheme
 	{
 		"famiu/bufdelete.nvim",
+		keys = {
+			{ "<leader>d", "<cmd>Bdelete<cr>", desc = "bufdelete" },
+		},
 	},
 	{
 		"ggandor/leap.nvim",
@@ -83,10 +107,22 @@ require("lazy").setup({
 		config = function()
 			require("plugins.trouble")
 		end,
+		lazy = false,
+		keys = {
+			{ "<leader>tt", "<cmd>TroubleToggle<cr>" },
+			{ "<leader>tw", "<cmd>Trouble workspace_diagnostics<cr>" },
+			{ "<leader>td", "<cmd>Trouble document_diagnostics<cr>" },
+			{ "<leader>tl", "<cmd>Trouble loclist<cr>" },
+			{ "<leader>tq", "<cmd>Trouble quickfix<cr>" },
+			{ "<leader>tr", "<cmd>Trouble lsp_references<cr>" },
+		},
 	},
 	{
 		"simrat39/symbols-outline.nvim",
 		config = true,
+		keys = {
+			{ "<leader>2", "<cmd>SymbolsOutline<cr>", desc = "Toggle symbols outline window" },
+		},
 	},
 	{
 		"folke/tokyonight.nvim", -- colorscheme
@@ -142,20 +178,57 @@ require("lazy").setup({
 		config = function()
 			require("plugins.telescope")
 		end,
-	},
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		lazy = false,
+		keys = {
+			-- finders
+			{ "<leader>*", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep under cursor" },
+			{ "<leader>e", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
+			{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Telescope ls" },
+			{ "<leader>r", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+			{
+				"<leader><leader>",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				desc = "Telescope fuzzy find buffer",
+			},
+			-- pickers
+			{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+			{ "<leader>c", "<cmd>Telescope commands<cr>", desc = "Telescope commands" },
+			{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
+			{ "<leader>k", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
+			{ "<leader>m", "<cmd>Telescope keymaps<cr>", desc = "Telescope keymaps" },
+			{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "Telescope old files" },
+			-- lsp
+			{ "<leader>sa", "<cmd>Telescope diagnostics<cr>", desc = "Telescope diagnostic" },
+			{ "<leader>sc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Telescope lsp incoming calls" },
+			{ "<leader>sd", "<cmd>Telescope lsp_definitions<cr>", desc = "Telescope lsp definitions" },
+			{ "<leader>si", "<cmd>Telescope lsp_implementations<cr>", desc = "Telescope lsp implementations" },
+			{ "<leader>so", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Telescope lsp outgoing calls" },
+			{ "<leader>sr", "<cmd>Telescope treesitter<cr>", desc = "Telescope treesitter" },
+			{ "<leader>st", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Telescope lsp type definitions" },
+			{ "<leader>sx", "<cmd>Telescope lsp_references<cr>", desc = "Telescope lsp references" },
+			{ "<leader>sw", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Telescope lsp workspace symbols" },
+			{ "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope lsp document symbols" },
+			-- git
+			{ "<leader>gt", "<cmd>Telescope git_stash<cr>", desc = "Telescope git stash" },
+			{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Telescope git branches" },
+			{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Telescope git commits" },
+			{ "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Telescope git ls files" },
+			{ "<leader>go", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope git buffer commits" },
+			{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Telescope git status" },
+		},
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
+		keys = {
+			{ "<leader>1", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
+		},
+		lazy = false,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -193,8 +266,8 @@ require("lazy").setup({
 			"ibhagwan/fzf-lua", -- optional
 		},
 		config = true,
+		keys = {
+			{ "<leader>n", "<cmd>Neogit<cr>", desc = "Neogit" },
+		},
 	},
 })
-
-require("config.options")
-require("config.keymaps")
