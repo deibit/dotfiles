@@ -150,3 +150,6 @@ C() {
 
 # New ctrl-l
 alias cls="clear"
+
+# Fast export from .env file
+alias superenv='export $(cat .env)'
