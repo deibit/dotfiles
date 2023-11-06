@@ -1,6 +1,7 @@
-return {	{ "kylechui/nvim-surround", config = true },
+return {
+	{ "kylechui/nvim-surround", config = true },
 	{ "tpope/vim-obsession" },
-	{ "kyazdani42/nvim-web-devicons", config = true },
+	{ "nvim-tree/nvim-web-devicons", config = true },
 	{
 		"windwp/nvim-autopairs",
 		config = true,
@@ -16,5 +17,5 @@ return {	{ "kylechui/nvim-surround", config = true },
 	{
 		"chentoast/marks.nvim",
 		config = true,
-	}
+	},
 }
