@@ -1,4 +1,7 @@
--- Utilities for creating configurations
+return {
+		"mhartington/formatter.nvim",
+		config = function()
+      -- Utilities for creating configurations
 local util = require("formatter.util")
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
@@ -66,3 +69,5 @@ augroup FormatAutogroup
 augroup END]],
 	{}
 )
+		end,
+	}
