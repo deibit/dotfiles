@@ -3,7 +3,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("completion.lsp")
+			require("config.lsp")
 		end,
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -23,7 +23,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 		},
 		config = function()
-			require("completion.cmp")
+			require("config.cmp")
 		end,
 	},
 }
