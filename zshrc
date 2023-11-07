@@ -153,3 +153,5 @@ alias c="clear"
 
 # Fast export from .env file
 alias superenv='export $(cat .env)'
+
+export XDG_CONFIG_HOME="$HOME/.config"
