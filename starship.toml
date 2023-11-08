@@ -8,7 +8,7 @@ $c\
 $golang\
 $java\
 $nodejs\
-$python\
+${custom.python}\
 $rust\
 $character
 """
@@ -49,10 +49,12 @@ style = "fg:#f7768e"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-format = '[$all_status$ahead_behind ]($style)'
-up_to_date = "[\uf00c](green)"
-ahead = "[](#2ac3de)"
-behind = "[](#ff9e64)"
+disabled = false
+ahead = "⇡(#2ac3de)"
+diverged = "(#ff9e64)"
+behind = "⇣(#ff9e64)"
+staged = "++(#9ece6a)"
+format = '[$all_status$ahead_behind]($style)'
 
 [git_metrics]
 disabled = false
@@ -74,7 +76,27 @@ symbol = ""
 style = "fg:#ff9e64"
 format = '[ $symbol ($version) ]($style)'
 
-[python]
+[custom.python]
+disabled = false
 style = "fg:#9ece6a"
 symbol = "\ue73c"
-format = '[$symbol ($pyenv_prefix) ($version) ($virtualenv)]($style)'
+detect_files = [
+  '.python-version',
+  'Pipfile',
+  '__init__.py',
+  'pyproject.toml',
+  'requirements.txt',
+  'setup.py',
+  'tox.ini',
+]
+command = """
+if [[ -e .python-version ]]; then
+  VENV=$(cat .python-version)
+elif [[ -n "$PYENV_VIRTUAL_ENV" ]]; then
+  VENV=$(basename "$PYENV_VIRTUAL_ENV")
+else
+  VENV=""
+fi
+echo $VENV
+"""
+format = '[ $symbol ($output )]($style)'
