@@ -3,6 +3,7 @@
 format = """$directory\
 $git_branch\
 $git_status\
+$git_metrics\
 $c\
 $golang\
 $java\
@@ -49,6 +50,12 @@ format = '[ $symbol $branch ]($style)'
 
 [git_status]
 format = '[$all_status$ahead_behind ]($style)'
+up_to_date = "[\uf00c](green)"
+ahead = "[](#2ac3de)"
+behind = "[](#ff9e64)"
+
+[git_metrics]
+disabled = false
 
 [golang]
 symbol = " "
