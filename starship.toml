@@ -17,8 +17,8 @@ right_format = """$time ($jobs)"""
 add_newline = false
 
 [character]
-success_symbol = '[❯](bold fg:#9ece6a)'
-error_symbol = '[✗](bold red)'
+success_symbol = ' [❯](bold fg:#9ece6a)'
+error_symbol = ' [❯](bold red)'
 
 format = "$symbol"
 
