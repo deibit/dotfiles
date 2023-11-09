@@ -51,7 +51,7 @@ format = '[ $symbol $branch ]($style)'
 
 [git_status]
 disabled = false
-ahead = "🏃(#2ac3de)"
+ahead = "🚀(#2ac3de)"
 behind = "🐌(#ff9e64)"
 conflicted = "😡(#f7768e)"
 deleted = "🗑️(#f7768e)"
