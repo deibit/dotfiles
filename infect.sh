@@ -1,4 +1,4 @@
-REPO="$HOME/.dotfiles"
+REPO="$HOME/dotfiles"
 
 ln -sfn "$REPO/tmux.conf" ~/.tmux.conf
 ln -sfn "$REPO/zshrc" ~/.zshrc
