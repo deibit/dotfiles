@@ -10,7 +10,7 @@ $java\
 $nodejs\
 ${custom.python}\
 $rust\
-$character"""
+$character """
 
 right_format = """$time ($jobs)"""
 
