@@ -60,7 +60,7 @@ modified = "✏️ (#7dcfff)"
 stashed = "📥(#bb9af7)"
 staged = "💃(#bb9af7)"
 untracked = "🥷(#e0af68)"
-up_to_date = "☕️ (#9ece6a)"
+up_to_date = "ready (#9ece6a)"
 format = '[$all_status]($style)'
 
 [git_metrics]
