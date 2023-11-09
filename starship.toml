@@ -51,17 +51,20 @@ format = '[ $symbol $branch ]($style)'
 
 [git_status]
 disabled = false
-ahead = "🚀 (#2ac3de)"
-behind = "🐌(#ff9e64)"
+# all status
 conflicted = "😡(#f7768e)"
 deleted = "🗑️(#f7768e)"
-diverged = "🔀(#ff9e64)"
 modified = "✏️ (#7dcfff)"
-stashed = "📥(#bb9af7)"
 staged = "💃(#bb9af7)"
+stashed = "📥(#bb9af7)"
 untracked = "🥷(#e0af68)"
-up_to_date = "ready (#9ece6a)"
-format = '[$all_status]($style)'
+# ahead_behind
+ahead = "🚀 (#2ac3de)"
+behind = "🐌(#ff9e64)"
+diverged = "🔀(#ff9e64)"
+up_to_date = "👍(#9ece6a)"
+# format
+format = '[$all_status $ahead_behind ]($style)'
 
 [git_metrics]
 disabled = true
