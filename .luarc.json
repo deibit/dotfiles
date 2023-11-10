@@ -1,0 +1,22 @@
+{
+    "workspace.library": [
+        "/Users/davidgarcia/.config/nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/lazy.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/neodev.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/mason-lspconfig.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/mason.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/nvim-lspconfig",
+        "/Users/davidgarcia/.local/share/nvim/lazy/fzf-lua",
+        "/Users/davidgarcia/.local/share/nvim/lazy/nvim-treesitter",
+        "/Users/davidgarcia/.local/share/nvim/lazy/aerial.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/lualine.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/toggleterm.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/gitsigns.nvim",
+        "/Users/davidgarcia/.local/share/nvim/lazy/nvim-web-devicons",
+        "/opt/homebrew/Cellar/neovim/0.9.4/share/nvim/runtime",
+        "/opt/homebrew/Cellar/neovim/0.9.4/lib/nvim",
+        "/Users/davidgarcia/.local/state/nvim/lazy/readme",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
+    ]
+}
