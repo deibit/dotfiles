@@ -7,11 +7,11 @@ return {
 			-- refer to the configuration section below
 			signs = {
 				-- icons / text used for a diagnostic
-				error = "",
-				warning = "",
-				hint = "",
+				error = "",
+				warning = "",
+				hint = "",
 				information = "",
-				other = "﫠",
+				other = "",
 			},
 			-- use_lsp_diagnostic_signs = false,
 		})
