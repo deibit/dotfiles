@@ -13,9 +13,14 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
-nvim_lsp.sourcekit.setup({ on_attach = on_attach, flags = lsp_flags })
+-- nvim_lsp.sourcekit.setup({ on_attach = on_attach, flags = lsp_flags })
 
 nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+})
+
+nvim_lsp.clangd.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })
