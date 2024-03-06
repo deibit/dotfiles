@@ -82,7 +82,8 @@ return {
 		{ "<leader>*", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep under cursor" },
 		{ "<leader>e", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
 		{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Telescope ls" },
-		{ "<leader>r", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+		{ "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+		{ "<leader>g", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live grep" },
 		{
 			"<leader><leader>",
 			"<cmd>Telescope current_buffer_fuzzy_find<cr>",

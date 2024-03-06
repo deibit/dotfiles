@@ -18,6 +18,8 @@ return {
 			yaml = { { "yamlfmt" } },
 			c = { { "clang-format" } },
 			cpp = { { "clang-format" } },
+			html = { { "prettier" } },
+			css = { { "prettier" } },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
