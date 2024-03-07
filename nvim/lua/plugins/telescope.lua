@@ -80,10 +80,11 @@ return {
 	keys = {
 		-- finders
 		{ "<leader>*", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep under cursor" },
-		{ "<leader>e", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
-		{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Telescope ls" },
+		{ "<leader>r", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
+		{ "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", desc = "Telescope find files" },
+		{ "<leader>i", "<cmd>Telescope git_files theme=dropdown<cr>", desc = "Telescope find git files" },
 		{ "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
-		{ "<leader>g", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live grep" },
+		{ "<leader>g", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live fuzzy grep" },
 		{
 			"<leader><leader>",
 			"<cmd>Telescope current_buffer_fuzzy_find<cr>",
