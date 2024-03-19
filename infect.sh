@@ -8,6 +8,8 @@ ln -sfn "$REPO/gitconfig" ~/.gitconfig
 ln -sfn "$REPO/p10k.zsh" ~/.p10k.zsh
 ln -sfn "$REPO/alacritty.toml" ~/.alacritty.toml
 
+[ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim
+
 [ -d $HOME/.config/lazygit ] || mkdir -p $HOME/.config/lazygit
 ln -sfn "$REPO/lazygit.yml" ~/.config/lazygit/config.yml
 
