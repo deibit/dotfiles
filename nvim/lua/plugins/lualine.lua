@@ -48,7 +48,7 @@ return {
 
 		require("lualine").setup({
 			options = {
-				theme = bubbles_theme,
+				theme = "tokyonight",
 				component_separators = "",
 				section_separators = "",
 			},
