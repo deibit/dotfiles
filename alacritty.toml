@@ -1,5 +1,6 @@
 [font]
-size = 15
+size = 16
+# size = 24
 normal = { family = "Hack Nerd Font Mono", style= "Regular"}
 
 [colors]

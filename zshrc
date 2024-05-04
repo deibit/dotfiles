@@ -148,6 +148,8 @@ alias c="clear"
 # Fast export from .env file
 alias superenv='export $(cat .env)'
 
+alias ll="eza -l"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

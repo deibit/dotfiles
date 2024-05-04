@@ -89,5 +89,3 @@ nvim_lsp.lua_ls.setup({
 		},
 	},
 })
-
-nvim_lsp.gdscript.setup({ on_attach = on_attach, flags = lsp_flags })
