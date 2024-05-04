@@ -34,7 +34,6 @@ return {
 				"html",
 				"jsonls",
 				"lua_ls",
-				"lua_ls",
 				"pyright",
 				"tsserver",
 			},
