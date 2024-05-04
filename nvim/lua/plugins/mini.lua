@@ -9,7 +9,7 @@ return {
 		-- require("mini.bracketed").setup()
 		require("mini.bufremove").setup()
 		require("mini.comment").setup()
-		require("mini.completion").setup()
+		-- require("mini.completion").setup()
 		-- require("mini.cursorword").setup()
 		-- require("mini.diff").setup()
 		require("mini.extra").setup()

@@ -36,6 +36,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"tsserver",
+				"vale_ls",
 			},
 		},
 	},
@@ -73,6 +74,24 @@ return {
 			require("lspconfig").html.setup({})
 			require("lspconfig").jsonls.setup({})
 			require("lspconfig").autotools_ls.setup({})
+			require("lspconfig").vale_ls.setup({})
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		-- load cmp on InsertEnter
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"onsails/lspkind.nvim",
+			"lukas-reineke/cmp-under-comparator",
+			{ "L3MON4D3/LuaSnip", version = "v2.*", run = "make install_jsregexp" },
+		},
+		config = function()
+			require("config.cmp")
 		end,
 	},
 }

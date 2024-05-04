@@ -133,7 +133,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # Make z and fzf collaborate to improve cd jumping
-C() {
+Z() {
   local selected_dir
   selected_dir=$(z | awk '{print $2}' | fzf)
 
@@ -154,6 +154,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
