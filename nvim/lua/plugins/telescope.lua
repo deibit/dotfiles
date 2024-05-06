@@ -13,6 +13,7 @@ return {
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select")
 		require("telescope").load_extension("frecency")
+		require("telescope").load_extension("aerial")
 	end,
 	opt = {
 		pickers = {
@@ -86,9 +87,10 @@ return {
 		{ "<leader>m", "<cmd>Telescope keymaps<cr>", desc = "Telescope keymaps" },
 		{ "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "Telescope old files" },
 		-- lsp
-		{ "<leader>sa", "<cmd>Telescope diagnostics<cr>", desc = "Telescope diagnostic" },
+		{ "<leader>sa", "<cmd>Telescope aerial<cr>", desc = "Telescope Aerial" },
+		{ "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Telescope Diagnostic" },
 		{ "<leader>sc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Telescope lsp incoming calls" },
-		{ "<leader>sd", "<cmd>Telescope lsp_definitions<cr>", desc = "Telescope lsp definitions" },
+		{ "<leader>sf", "<cmd>Telescope lsp_definitions<cr>", desc = "Telescope lsp definitions" },
 		{ "<leader>si", "<cmd>Telescope lsp_implementations<cr>", desc = "Telescope lsp implementations" },
 		{ "<leader>so", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Telescope lsp outgoing calls" },
 		{ "<leader>sr", "<cmd>Telescope treesitter<cr>", desc = "Telescope treesitter" },
