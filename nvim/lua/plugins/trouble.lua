@@ -13,7 +13,6 @@ return {
 				information = "",
 				other = "",
 			},
-			-- use_lsp_diagnostic_signs = false,
 		})
 	end,
 	branch = "dev",

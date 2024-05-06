@@ -1,38 +1,22 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local colors = {
-			black = "#080808",
-			blue = "#80a0ff",
-			cyan = "#79dac8",
-			grey = "#303030",
-			lgrey = "#bbbbbb",
-			green = "#33ff33",
-			orange = "#fc5501",
-			red = "#f70213",
-			violet = "#d183e8",
-			white = "#c6c6c6",
-			bwhite = "#ffffff",
-			yellow = "#edfc01",
+			bg = "#202328",
+			fg = "#bbc2cf",
+			yellow = "#ECBE7B",
+			cyan = "#008080",
+			darkblue = "#081633",
+			green = "#98be65",
+			orange = "#FF8800",
+			violet = "#a9a1e1",
+			magenta = "#c678dd",
+			blue = "#51afef",
+			red = "#ec5f67",
 		}
 
-		local bubbles_theme = {
-			normal = {
-				a = { fg = colors.bwhite, bg = colors.blue },
-				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white, bg = colors.grey },
-			},
-
-			insert = { a = { fg = colors.bwhite, bg = colors.red } },
-			visual = { a = { fg = colors.black, bg = colors.cyan } },
-			replace = { a = { fg = colors.black, bg = colors.blue } },
-
-			inactive = {
-				a = { fg = colors.white, bg = colors.black },
-				b = { fg = colors.white, bg = colors.black },
-				c = { fg = colors.white, bg = colors.black },
-			},
-		}
+		local navic = require("nvim-navic")
 
 		local function get_venv(variable)
 			local venv = os.getenv(variable)
@@ -48,20 +32,44 @@ return {
 
 		require("lualine").setup({
 			options = {
-				theme = "tokyonight",
+				theme = {
+					-- We are going to use lualine_c an lualine_x as left and
+					-- right section. Both are highlighted by c theme .  So we
+					-- are just setting default looks o statusline
+					normal = { c = { fg = colors.fg, bg = colors.bg } },
+					inactive = { c = { fg = colors.fg, bg = colors.bg } },
+				},
 				component_separators = "",
 				section_separators = "",
 			},
 			sections = {
-				lualine_a = {
-					{ "mode", right_padding = 2 },
-				},
-				lualine_b = { { "branch", color = { fg = colors.orange } }, { "diff" } },
+				lualine_a = {},
+				lualine_b = {},
 				lualine_c = {
-					{ "filename", path = 1 },
-					{ "aerial" },
+					{ "mode", right_padding = 2 },
+					{ "branch", color = { fg = colors.orange } },
+					{ "diff" },
+					{
+						function()
+							return navic.get_location()
+						end,
+						cond = function()
+							return navic.is_available()
+						end,
+					},
 				},
 				lualine_x = {
+					"filetype",
+					{
+						function()
+							local venv = get_venv("CONDA_DEFAULT_ENV") or get_venv("VIRTUAL_ENV") or "no env"
+							return venv
+						end,
+						cond = function()
+							return vim.bo.filetype == "python"
+						end,
+						color = { fg = colors.green },
+					},
 					{
 						"diagnostics",
 
@@ -75,54 +83,47 @@ return {
 
 						diagnostics_color = {
 							-- Same values as the general color option can be used here.
-							error = { fg = colors.red, bg = colors.grey }, -- Changes diagnostics' error color.
-							warn = { fg = colors.orange, bg = colors.grey }, -- Changes diagnostics' warn color.
-							info = { fg = colors.blue, bg = colors.grey }, -- Changes diagnostics' info color.
-							hint = { fg = colors.yellow, bg = colors.grey }, -- Changes diagnostics' hint color.
+							error = { fg = colors.red }, -- Changes diagnostics' error color.
+							warn = { fg = colors.orange }, -- Changes diagnostics' warn color.
+							info = { fg = colors.blue }, -- Changes diagnostics' info color.
+							hint = { fg = colors.yellow }, -- Changes diagnostics' hint color.
 						},
-						symbols = { error = " ", warn = " ", info = " ", hint = " " },
+						symbols = { error = "", warn = "", info = "", hint = "" },
 						colored = true, -- Displays diagnostics status in color if set to true.
 						update_in_insert = false, -- Update diagnostics in insert mode.
 						always_visible = false, -- Show diagnostics even if there are none.
 					},
-				},
-				lualine_y = {
-					"filetype",
-					{
-						function()
-							local venv = get_venv("CONDA_DEFAULT_ENV") or get_venv("VIRTUAL_ENV") or "no env"
-							return venv
-						end,
-						cond = function()
-							return vim.bo.filetype == "python"
-						end,
-						color = { fg = colors.green },
-					},
-					"progress",
-				},
-				lualine_z = {
 					{
 						"location",
 						left_padding = 2,
 					},
 				},
+				lualine_y = {},
+				lualine_z = {},
 			},
 			inactive_sections = {
-				lualine_a = { "filename" },
+				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = { "location" },
+				lualine_z = {},
 			},
 			tabline = {},
+			winbar = {
+				lualine_a = {},
+			},
+			inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
 			extensions = {
 				"aerial",
 				"fzf",
-				"neo-tree",
-				"trouble",
 				"lazy",
-				"toggleterm",
+				"neo-tree",
+				"quickfix",
+				"trouble",
+				"fugitive",
+				"mason",
+				"nvim-tree",
 			},
 		})
 	end,
