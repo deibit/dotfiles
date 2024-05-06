@@ -13,6 +13,7 @@ return {
 				information = "",
 				other = "",
 			},
+			use_diagnostic_signs = false,
 		})
 	end,
 	branch = "dev",
