@@ -32,13 +32,14 @@ return {
 
 		require("lualine").setup({
 			options = {
-				theme = {
-					-- We are going to use lualine_c an lualine_x as left and
-					-- right section. Both are highlighted by c theme .  So we
-					-- are just setting default looks o statusline
-					normal = { c = { fg = colors.fg, bg = colors.bg } },
-					inactive = { c = { fg = colors.fg, bg = colors.bg } },
-				},
+				theme = "catppuccin",
+				-- theme = {
+				-- 	-- We are going to use lualine_c an lualine_x as left and
+				-- 	-- right section. Both are highlighted by c theme .  So we
+				-- 	-- are just setting default looks o statusline
+				-- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
+				-- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
+				-- },
 				component_separators = "",
 				section_separators = "",
 			},
@@ -110,7 +111,7 @@ return {
 			},
 			tabline = {},
 			winbar = {
-				lualine_a = {},
+				lualine_a = { { "filename", path = 1 } },
 			},
 			inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
 			extensions = {
