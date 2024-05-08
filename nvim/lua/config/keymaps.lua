@@ -9,7 +9,8 @@ map("n", "<leader>w", ":w<CR>", default_opts)
 -- Splits
 map("n", '<leader>"', ":vsplit<CR>", default_opts)
 map("n", "<leader>%", ":split<CR>", default_opts)
-map("n", "<leader>x", "<C-w>c", default_opts)
+map("n", "<leader>x", ":bd<cr>", default_opts)
+map("n", "<leader>X", "<C-w>c", default_opts)
 
 -- Keep search matches in the middle of the window
 map("n", "n", "nzzzv", default_opts)
