@@ -12,3 +12,8 @@ function SearchGoogle()
 	end
 	print(word)
 end
+
+vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
+vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
+
+vim.api.nvim_set_keymap("n", "<Leader>gj", "ggvGgq", { noremap = true, silent = true })
