@@ -42,6 +42,11 @@ return {
 				-- },
 				component_separators = "",
 				section_separators = "",
+				disabled_filetypes = {
+					statusline = { "neo-tree", "trouble" },
+					winbar = { "neo-tree", "trouble" },
+				},
+				globalstatus = true,
 			},
 			sections = {
 				lualine_a = {},
@@ -93,6 +98,8 @@ return {
 						update_in_insert = false, -- Update diagnostics in insert mode.
 						always_visible = false, -- Show diagnostics even if there are none.
 					},
+					"progress",
+					"searchcount",
 					{
 						"location",
 						left_padding = 2,
