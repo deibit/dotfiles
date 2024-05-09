@@ -62,6 +62,7 @@ return {
 						cond = function()
 							return navic.is_available()
 						end,
+						color = { fg = colors.orange },
 					},
 				},
 				lualine_x = {
