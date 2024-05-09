@@ -1,21 +1,9 @@
+local colors = require("catppuccin.palettes.macchiato")
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local colors = {
-			bg = "#202328",
-			fg = "#bbc2cf",
-			yellow = "#ECBE7B",
-			cyan = "#008080",
-			darkblue = "#081633",
-			green = "#98be65",
-			orange = "#FF8800",
-			violet = "#a9a1e1",
-			magenta = "#c678dd",
-			blue = "#51afef",
-			red = "#ec5f67",
-		}
-
 		local navic = require("nvim-navic")
 
 		local function get_venv(variable)
@@ -32,7 +20,7 @@ return {
 
 		require("lualine").setup({
 			options = {
-				theme = "catppuccin",
+				theme = "auto",
 				-- theme = {
 				-- 	-- We are going to use lualine_c an lualine_x as left and
 				-- 	-- right section. Both are highlighted by c theme .  So we
@@ -53,7 +41,7 @@ return {
 				lualine_b = {},
 				lualine_c = {
 					{ "mode", right_padding = 2 },
-					{ "branch", color = { fg = colors.orange } },
+					{ "branch", color = { fg = colors.peach } },
 					{ "diff" },
 					{
 						function()
@@ -62,7 +50,7 @@ return {
 						cond = function()
 							return navic.is_available()
 						end,
-						color = { fg = colors.orange },
+						color = { fg = colors.peach },
 					},
 				},
 				lualine_x = {
@@ -91,7 +79,7 @@ return {
 						diagnostics_color = {
 							-- Same values as the general color option can be used here.
 							error = { fg = colors.red }, -- Changes diagnostics' error color.
-							warn = { fg = colors.orange }, -- Changes diagnostics' warn color.
+							warn = { fg = colors.peach }, -- Changes diagnostics' warn color.
 							info = { fg = colors.blue }, -- Changes diagnostics' info color.
 							hint = { fg = colors.yellow }, -- Changes diagnostics' hint color.
 						},
