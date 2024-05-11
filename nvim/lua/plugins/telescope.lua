@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
-		"nvim-telescope/telescope-frecency.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -12,7 +11,6 @@ return {
 	config = function()
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select")
-		require("telescope").load_extension("frecency")
 		require("telescope").load_extension("aerial")
 	end,
 	opt = {
@@ -73,7 +71,6 @@ return {
 		{ "<leader>i", "<cmd>Telescope git_files theme=dropdown<cr>", desc = "Telescope find git files" },
 		{ "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
 		{ "<leader>z", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live fuzzy grep" },
-		{ "<leader>r", "<cmd>Telescope frecency<cr>", desc = "Telescope frecency" },
 		{
 			"<leader><leader>",
 			"<cmd>Telescope current_buffer_fuzzy_find<cr>",
