@@ -29,7 +29,7 @@ return {
             "jsonls",
             "tailwindcss",
             "yamlls",
-            "clanggd",
+            "clangd",
             "vale_ls",
         }
 
