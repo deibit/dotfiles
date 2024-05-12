@@ -44,6 +44,15 @@ return {
                     { "branch", color = { fg = colors.peach } },
                     { "diff" },
                     { "filename", path = 1 },
+                    {
+                        function()
+                            return navic.get_location()
+                        end,
+                        cond = function()
+                            return navic.is_available()
+                        end,
+                        color = { fg = colors.blue },
+                    },
                 },
                 lualine_x = {
                     "filetype",
@@ -99,29 +108,19 @@ return {
             },
             tabline = {},
             winbar = {
-                lualine_a = {
-                    {
-                        function()
-                            return navic.get_location()
-                        end,
-                        cond = function()
-                            return navic.is_available()
-                        end,
-                        color = { fg = colors.blue, bg = colors.crust },
-                    },
-                },
+                lualine_a = { { "filename", path = 1 } },
             },
             inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
             extensions = {
                 "aerial",
+                "fugitive",
                 "fzf",
                 "lazy",
+                "mason",
                 "neo-tree",
+                "nvim-tree",
                 "quickfix",
                 "trouble",
-                "fugitive",
-                "mason",
-                "nvim-tree",
             },
         })
     end,
