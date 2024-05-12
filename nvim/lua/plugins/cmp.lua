@@ -30,7 +30,7 @@ return {
             window = {
                 completion = {
                     border = {
-                        { "󱐋", "WarningMsg" },
+                        { "╭", "Comment" },
                         { "─", "Comment" },
                         { "╮", "Comment" },
                         { "│", "Comment" },
@@ -43,7 +43,7 @@ return {
                 },
                 documentation = {
                     border = {
-                        { "", "DiagnosticHint" },
+                        { "╭", "Comment" },
                         { "─", "Comment" },
                         { "╮", "Comment" },
                         { "│", "Comment" },

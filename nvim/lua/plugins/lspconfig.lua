@@ -7,11 +7,9 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "smiteshp/nvim-navic",
+        "SmiteshP/nvim-navic",
     },
     config = function()
-        local mason_registry = require("mason-registry")
-
         -- Change icons from letters (default) to true icons
         local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
         for type, icon in pairs(signs) do
