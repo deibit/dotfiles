@@ -42,14 +42,14 @@ g.python3_host_prog = os.getenv("PYENV_ROOT") .. "/versions/pynvim/bin/python"
 
 -- Do not automcomment new lines
 api.nvim_create_autocmd("FileType", {
-	command = "setlocal formatoptions-=cro",
+    command = "setlocal formatoptions-=cro",
 })
 
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-	end,
+    callback = function()
+        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
+    end,
 })
 
 -- 2 spaces for selected filetypes
@@ -69,28 +69,32 @@ cmd([[
 
 -- disable builtins plugins
 local disabled_built_ins = {
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"gzip",
-	"zip",
-	"zipPlugin",
-	"tar",
-	"tarPlugin",
-	"getscript",
-	"getscriptPlugin",
-	"vimball",
-	"vimballPlugin",
-	"2html_plugin",
-	"logipat",
-	"rrhelper",
-	"spellfile_plugin",
-	"matchit",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "gzip",
+    "zip",
+    "zipPlugin",
+    "tar",
+    "tarPlugin",
+    "getscript",
+    "getscriptPlugin",
+    "vimball",
+    "vimballPlugin",
+    "2html_plugin",
+    "logipat",
+    "rrhelper",
+    "spellfile_plugin",
+    "matchit",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-	g["loaded_" .. plugin] = 1
+    g["loaded_" .. plugin] = 1
 end
 
 g.go_template_autocreate = 0
+
+-- Set width in python, markdown
+vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
+vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
