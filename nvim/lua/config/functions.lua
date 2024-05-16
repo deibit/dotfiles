@@ -13,14 +13,3 @@ function SearchGoogle()
     end
     print(word)
 end
-
--- Autosave
-vim.api.nvim_create_augroup("autosave_buffer", { clear = true })
-vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload", "FocusLost", "WinLeave" }, {
-
-    group = "autosave_buffer",
-
-    callback = function()
-        vim.cmd("update")
-    end,
-})

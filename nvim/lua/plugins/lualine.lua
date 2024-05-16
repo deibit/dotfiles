@@ -43,7 +43,7 @@ return {
                     { "mode", right_padding = 2 },
                     { "branch", color = { fg = colors.peach } },
                     { "diff" },
-                    { "filename", path = 1 },
+                    { "filename", path = 1, color = { fg = colors.yellow } },
                     {
                         function()
                             return navic.get_location()
