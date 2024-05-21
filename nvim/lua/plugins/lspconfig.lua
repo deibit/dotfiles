@@ -18,26 +18,24 @@ return {
         end
 
         local no_config_servers = {
-            "gopls",
             "autotools_ls",
+            "clangd",
             "cssls",
             "docker_compose_language_service",
             "dockerls",
+            "gopls",
             "html",
             "jsonls",
+            "pyright",
             "tailwindcss",
+            "tsserver",
             "yamlls",
-            "clangd",
-            "vale_ls",
         }
 
         -- Run setup for no_config_servers
         for _, server in pairs(no_config_servers) do
             require("lspconfig")[server].setup({})
         end
-
-        -- Python
-        require("lspconfig").pyright.setup({})
 
         -- Lua
         require("lspconfig").lua_ls.setup({
