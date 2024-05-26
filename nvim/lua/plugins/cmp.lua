@@ -85,7 +85,15 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp", max_items_count = max_items },
                 { name = "luasnip", max_items_count = max_items },
-                { name = "buffer", max_items_count = max_items },
+                {
+                    name = "buffer",
+                    max_items_count = max_items,
+                    option = {
+                        get_bufnrs = function()
+                            return vim.api.nvim_list_bufs()
+                        end,
+                    },
+                },
                 { name = "path", max_items_count = max_items },
                 { name = "nvim_lsp_signature_help", max_items_count = max_items },
                 { name = "nvim_lsp_document_symbol", max_items_count = max_items },
