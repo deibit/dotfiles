@@ -68,7 +68,6 @@ return {
         { "<leader>*", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep under cursor" },
         { "<leader>R", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
         { "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", desc = "Telescope find files" },
-        { "<leader>i", "<cmd>Telescope git_files theme=dropdown<cr>", desc = "Telescope find git files" },
         { "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
         { "<leader>z", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live fuzzy grep" },
         {
@@ -91,7 +90,6 @@ return {
         { "<leader>si", "<cmd>Telescope lsp_implementations<cr>", desc = "Telescope lsp implementations" },
         { "<leader>so", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Telescope lsp outgoing calls" },
         { "<leader>sr", "<cmd>Telescope treesitter<cr>", desc = "Telescope treesitter" },
-        { "<leader>st", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Telescope lsp type definitions" },
         { "<leader>sx", "<cmd>Telescope lsp_references<cr>", desc = "Telescope lsp references" },
         { "<leader>sw", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Telescope lsp workspace symbols" },
         { "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope lsp document symbols" },
@@ -102,5 +100,6 @@ return {
         { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Telescope git ls files" },
         { "<leader>go", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope git buffer commits" },
         { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Telescope git status" },
+        { "<leader>gi", "<cmd>Telescope git_files theme=dropdown<cr>", desc = "Telescope find git files" },
     },
 }

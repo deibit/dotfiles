@@ -51,10 +51,11 @@ vim.api.nvim_set_keymap("n", "<space>", "/", default_opts)
 vim.api.nvim_set_keymap("n", "U", "<C-r>", default_opts)
 
 -- DiffView
-vim.api.nvim_set_keymap("n", "<leader>d", "<cmd>DiffviewOpen<CR>", default_opts)
-vim.api.nvim_set_keymap("n", "<leader>D", "<cmd>DiffviewClose<CR>", default_opts)
+vim.api.nvim_set_keymap("n", "<leader>i", "<cmd>DiffviewOpen<CR>", default_opts)
+vim.api.nvim_set_keymap("n", "<leader>I", "<cmd>DiffviewClose<CR>", default_opts)
 
 -- Format entire buffer
 vim.api.nvim_set_keymap("n", "<Leader>gj", "ggvGgq", default_opts)
 
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition)
