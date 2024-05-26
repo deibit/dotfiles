@@ -30,8 +30,9 @@ vim.api.nvim_set_keymap("v", ">", ">gv", default_opts)
 vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", default_opts)
 vim.api.nvim_set_keymap("c", "<C-e>", "<End>", default_opts)
 
--- Nops
+-- Disable command line history
 vim.api.nvim_set_keymap("n", "Q", "<Nop>", default_opts)
+vim.api.nvim_set_keymap("n", "q:", "<Nop>", default_opts)
 
 -- Emulate windows copy/cut
 vim.api.nvim_set_keymap("v", "<LeftRelease>", '"+y<LeftRelease"', default_opts)
