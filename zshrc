@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf pyenv pdm)
+plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf pyenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
@@ -87,7 +87,6 @@ export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'
 export PATH=$PATH:"$HOME/go/bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
-export PATH=$PATH:"/usr/local/share/dotnet/dotnet"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -117,10 +116,10 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 precmd_functions+=(_fix_cursor)
 
 # ZPLUG section
-source ~/.zplug/init.zsh
+# source ~/.zplug/init.zsh
 
 # Then, source plugins and add commands to $PATH
-zplug load
+# zplug load
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -154,8 +153,3 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.1.3
