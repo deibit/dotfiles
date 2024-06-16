@@ -78,7 +78,7 @@ return {
         -- pickers
         { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
         { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Telescope commands" },
-        { "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
+        { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
         { "<leader>k", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
         { "<leader>m", "<cmd>Telescope keymaps<cr>", desc = "Telescope keymaps" },
         { "<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "Telescope old files" },

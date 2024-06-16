@@ -57,5 +57,6 @@ vim.api.nvim_set_keymap("n", "<leader>I", "<cmd>DiffviewClose<CR>", default_opts
 -- Format entire buffer
 vim.api.nvim_set_keymap("n", "<Leader>gj", "ggvGgq", default_opts)
 
+-- LSP
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition)

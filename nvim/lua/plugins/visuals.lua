@@ -13,5 +13,6 @@ return {
                 untracked = { text = "▎" },
             },
         },
+        keys = { { "<leader>h", ":Gitsigns preview_hunk<cr>", desc = "Gitsigns prev hunk" } },
     },
 }
