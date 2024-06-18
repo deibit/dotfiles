@@ -96,9 +96,9 @@ return {
         -- git
         { "<leader>gt", "<cmd>Telescope git_stash<cr>", desc = "Telescope git stash" },
         { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Telescope git branches" },
-        { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Telescope git commits" },
+        { "<leader>gC", "<cmd>Telescope git_commits<cr>", desc = "Telescope git commits" },
+        { "<leader>gc", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope git buffer commits" },
         { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Telescope git ls files" },
-        { "<leader>go", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope git buffer commits" },
         { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Telescope git status" },
         { "<leader>gi", "<cmd>Telescope git_files theme=dropdown<cr>", desc = "Telescope find git files" },
     },
