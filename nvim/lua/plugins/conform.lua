@@ -18,7 +18,6 @@ return {
                 c = { { "clang-format" } },
                 cpp = { { "clang-format" } },
                 css = { "prettier" },
-                go = { "goimports_reviser", "gofmt", "golines" },
                 html = { "prettier" },
                 javascript = { "prettier" },
                 json = { "prettier" },
