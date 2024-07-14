@@ -98,3 +98,6 @@ g.go_template_autocreate = 0
 -- Set width in python, markdown
 vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
 vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
+
+-- For 'tiny-inline-diagnostic'
+vim.diagnostic.config({ virtual_text = false })
