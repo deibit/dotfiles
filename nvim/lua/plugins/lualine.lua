@@ -58,7 +58,10 @@ return {
                     "filetype",
                     {
                         function()
-                            local venv = get_venv("CONDA_DEFAULT_ENV") or get_venv("VIRTUAL_ENV") or "no env"
+                            local venv = get_venv("CONDA_DEFAULT_ENV")
+                                or get_venv("VIRTUAL_ENV_PROMPT")
+                                or get_venv("VIRTUAL_ENV")
+                                or "no env"
                             return venv
                         end,
                         cond = function()

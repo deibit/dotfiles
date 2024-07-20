@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf pyenv)
+plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf rye)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
@@ -121,16 +121,6 @@ precmd_functions+=(_fix_cursor)
 # Then, source plugins and add commands to $PATH
 # zplug load
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# Prevent brew from linking against Pyenv provided Python
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
 # Make z and fzf collaborate to improve cd jumping
 Z() {
   local selected_dir
@@ -156,3 +146,15 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # brew
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Created by `pipx` on 2024-07-19 11:43:10
+export PATH="$PATH:/Users/davidgarcia/.local/bin"
+
+# Created by `userpath` on 2024-07-19 23:09:48
+export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.10/python/bin"
+
+# Created by `userpath` on 2024-07-19 23:32:29
+export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.11/python/bin"
+
+# Created by `userpath` on 2024-07-19 23:32:33
+export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.12/python/bin"
