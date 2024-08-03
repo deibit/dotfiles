@@ -149,12 +149,3 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Created by `pipx` on 2024-07-19 11:43:10
 export PATH="$PATH:/Users/davidgarcia/.local/bin"
-
-# Created by `userpath` on 2024-07-19 23:09:48
-export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.10/python/bin"
-
-# Created by `userpath` on 2024-07-19 23:32:29
-export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.11/python/bin"
-
-# Created by `userpath` on 2024-07-19 23:32:33
-export PATH="$PATH:/Users/davidgarcia/Library/Application Support/hatch/pythons/3.12/python/bin"

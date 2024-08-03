@@ -38,7 +38,7 @@ opt.title = true
 opt.termguicolors = true
 opt.undofile = true
 
-g.python3_host_prog = os.getenv("PYENV_ROOT") .. "/versions/pynvim/bin/python"
+-- g.python3_host_prog = os.getenv("PYENV_ROOT") .. "/versions/pynvim/bin/python"
 
 -- Do not automcomment new lines
 api.nvim_create_autocmd("FileType", {
