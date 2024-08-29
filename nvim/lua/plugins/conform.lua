@@ -15,8 +15,8 @@ return {
         vim.g.disable_autoformat = false
         require("conform").setup({
             formatters_by_ft = {
-                c = { { "clang-format" } },
-                cpp = { { "clang-format" } },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
                 css = { "prettier" },
                 html = { "prettier" },
                 javascript = { "prettier" },
@@ -26,7 +26,7 @@ return {
                 sh = { "shfmt" },
                 toml = { "taplo" },
                 yaml = { "yamlfmt" },
-                python = { "isort", "black" },
+                python = { "black", "isort" },
             },
 
             format_after_save = function()

@@ -149,3 +149,4 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Created by `pipx` on 2024-07-19 11:43:10
 export PATH="$PATH:/Users/davidgarcia/.local/bin"
+export PATH="/opt/homebrew/sbin:$PATH"
