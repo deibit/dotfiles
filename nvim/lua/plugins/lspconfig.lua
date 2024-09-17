@@ -27,7 +27,7 @@ return {
             "jsonls",
             "pyright",
             "tailwindcss",
-            "tsserver",
+            "ts_ls",
             "yamlls",
         }
 
