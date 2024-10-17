@@ -20,7 +20,7 @@ return {
                 css = { "prettier" },
                 html = { "prettier" },
                 javascript = { "prettier" },
-                json = { "prettier" },
+                json = { "jq" },
                 lua = { "stylua" },
                 markdown = { "prettier" },
                 sh = { "shfmt" },

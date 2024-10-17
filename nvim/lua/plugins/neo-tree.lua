@@ -10,6 +10,29 @@ return {
         { "<leader>1", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
     },
     opts = {
+        close_if_last_window = true,
+        filesystem = {
+            visible = true,
+            filtered_items = {
+                hide_dotfiles = true,
+                hide_gitignored = true,
+                never_show = {
+                    ".git",
+                    ".DS_Store",
+                    "thumbs.db",
+                    ".venv",
+                    ".ruff_cache",
+                    "Session.vim",
+                },
+                always_show = {
+                    ".gitignored",
+                },
+                always_show_by_pattern = {
+                    ".env*",
+                },
+            },
+            use_libuv_file_watcher = true,
+        },
         window = {
             mappings = {
                 ["<cr>"] = "open_with_window_picker",
