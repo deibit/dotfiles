@@ -18,6 +18,6 @@ return {
     end,
     lazy = false,
     keys = {
-        { "<leader>t", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>" },
+        { "<leader>t", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>", desc = "Diagnostic (trouble)" },
     },
 }

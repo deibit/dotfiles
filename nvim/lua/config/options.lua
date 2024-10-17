@@ -52,6 +52,13 @@ api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- lint
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    callback = function()
+        require("lint").try_lint()
+    end,
+})
+
 -- 2 spaces for selected filetypes
 cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
