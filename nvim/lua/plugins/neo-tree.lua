@@ -23,6 +23,7 @@ return {
                     ".venv",
                     ".ruff_cache",
                     "Session.vim",
+                    "__pycache__",
                 },
                 always_show = {
                     ".gitignored",
