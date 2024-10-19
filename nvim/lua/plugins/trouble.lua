@@ -13,11 +13,40 @@ return {
                 information = "",
                 other = "",
             },
-            use_diagnostic_signs = false,
+            modes = {
+                preview_diagnostic = {
+                    mode = "diagnostics",
+                    preview = {
+                        type = "split",
+                        relative = "win",
+                        position = "right",
+                        size = 0.5,
+                    },
+                },
+                float_symbols = {
+                    mode = "symbols",
+                    focus = true,
+                    win = {
+                        type = "float",
+                        relative = "editor",
+                        size = { width = 0.4, height = 0.5 },
+                        border = "rounded",
+                        title = "Symbols",
+                        title_pos = "center",
+                        position = { 0.5, 0.5 },
+                        zindex = 200,
+                    },
+                },
+            },
         })
     end,
     lazy = false,
     keys = {
-        { "<leader>t", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>", desc = "Diagnostic (trouble)" },
+        {
+            "<leader>t",
+            "<cmd>Trouble preview_diagnostic toggle focus=false filter.buf=0<cr>",
+            desc = "Diagnostic (trouble)",
+        },
+        { "<leader>sS", "<cmd>Trouble float_symbols toggle<cr>", desc = "Symbols (trouble)" },
     },
 }
