@@ -13,6 +13,8 @@ return {
                 information = "",
                 other = "",
             },
+            auto_close = true,
+            auto_open = true,
             modes = {
                 preview_diagnostic = {
                     mode = "diagnostics",
