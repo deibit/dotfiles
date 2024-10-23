@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf rye virtualenvwrapper)
+plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf rye activatevenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
@@ -151,3 +151,4 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$PATH:/Users/davidgarcia/.local/bin"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
