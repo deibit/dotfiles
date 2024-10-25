@@ -13,18 +13,11 @@ return {
                 information = "",
                 other = "",
             },
-            auto_close = true,
-            auto_open = true,
+            opts = {
+                auto_close = true,
+                auto_open = true,
+            },
             modes = {
-                preview_diagnostic = {
-                    mode = "diagnostics",
-                    preview = {
-                        type = "split",
-                        relative = "win",
-                        position = "right",
-                        size = 0.5,
-                    },
-                },
                 float_symbols = {
                     mode = "symbols",
                     focus = true,
@@ -46,7 +39,8 @@ return {
     keys = {
         {
             "<leader>t",
-            "<cmd>Trouble preview_diagnostic toggle focus=false filter.buf=0<cr>",
+            "<cmd>Trouble diagnostics toggle focus=false<cr>",
+            -- "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>",
             desc = "Diagnostic (trouble)",
         },
         { "<leader>sS", "<cmd>Trouble float_symbols toggle<cr>", desc = "Symbols (trouble)" },
