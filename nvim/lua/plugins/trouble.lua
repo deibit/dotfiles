@@ -39,8 +39,7 @@ return {
     keys = {
         {
             "<leader>t",
-            "<cmd>Trouble diagnostics toggle focus=false<cr>",
-            -- "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>",
+            "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>",
             desc = "Diagnostic (trouble)",
         },
         { "<leader>sS", "<cmd>Trouble float_symbols toggle<cr>", desc = "Symbols (trouble)" },

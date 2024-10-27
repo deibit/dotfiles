@@ -25,7 +25,7 @@ return {
             "dockerls",
             "html",
             "jsonls",
-            "pyright",
+            -- "pyright",
             "tailwindcss",
             "ts_ls",
             "yamlls",
@@ -55,6 +55,16 @@ return {
                     -- Do not send telemetry data containing a randomized but unique identifier
                     telemetry = {
                         enable = false,
+                    },
+                },
+            },
+        })
+
+        require("lspconfig").pyright.setup({
+            settings = {
+                python = {
+                    analysis = {
+                        diagnosticMode = "openFilesOnly",
                     },
                 },
             },
