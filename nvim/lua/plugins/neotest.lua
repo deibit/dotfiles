@@ -14,7 +14,6 @@ return {
             -- your neotest config here
             adapters = {
                 require("neotest-python"),
-                require("neotest-go"),
             },
         }
     end,
