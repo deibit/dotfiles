@@ -5,7 +5,6 @@ return {
     opts = {
         integrations = {
             aerial = true,
-            mason = true,
             neogit = true,
             native_lsp = {
                 enabled = true,

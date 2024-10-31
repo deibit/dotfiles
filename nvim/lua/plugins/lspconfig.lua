@@ -4,8 +4,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        -- "williamboman/mason.nvim",
+        -- "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "SmiteshP/nvim-navic",
     },
@@ -26,6 +26,7 @@ return {
             "html",
             "jsonls",
             -- "pyright",
+            -- "pylsp",
             "tailwindcss",
             "ts_ls",
             "yamlls",
@@ -60,14 +61,28 @@ return {
             },
         })
 
-        require("lspconfig").pyright.setup({
+        require("lspconfig").pylsp.setup({
             settings = {
-                python = {
-                    analysis = {
-                        diagnosticMode = "openFilesOnly",
+                pylsp = {
+                    configurationSources = { "ruff" },
+                    plugins = {
+                        ruff = {
+                            enabled = true,
+                            formatEnabled = false,
+                        },
                     },
                 },
             },
         })
+
+        -- require("lspconfig").pyright.setup({
+        --     settings = {
+        --         python = {
+        --             analysis = {
+        --                 diagnosticMode = "openFilesOnly",
+        --             },
+        --         },
+        --     },
+        -- })
     end,
 }

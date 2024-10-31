@@ -119,7 +119,6 @@ return {
                 "fugitive",
                 "fzf",
                 "lazy",
-                "mason",
                 "neo-tree",
                 "nvim-tree",
                 "quickfix",

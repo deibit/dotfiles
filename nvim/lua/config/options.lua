@@ -38,42 +38,6 @@ opt.title = true
 opt.termguicolors = true
 opt.undofile = true
 
--- g.python3_host_prog = os.getenv("PYENV_ROOT") .. "/versions/pynvim/bin/python"
-
--- Do not automcomment new lines
-api.nvim_create_autocmd("FileType", {
-    command = "setlocal formatoptions-=cro",
-})
-
--- Highlight on yank
-api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-    end,
-})
-
--- lint
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        require("lint").try_lint()
-    end,
-})
-
--- 2 spaces for selected filetypes
-cmd([[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
-]])
--- open a terminal pane on the right using :Term
-cmd([[command Term :botright vsplit term://$SHELL]])
--- Terminal visual tweaks
---- enter insert mode when switching to terminal
---- close terminal buffer on process exit
-cmd([[
-    autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
-    autocmd TermOpen * startinsert
-    autocmd BufLeave term://* stopinsert
-]])
-
 -- disable builtins plugins
 local disabled_built_ins = {
     "netrw",
@@ -99,12 +63,3 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
     g["loaded_" .. plugin] = 1
 end
-
-g.go_template_autocreate = 0
-
--- Set width in python, markdown
-vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
-vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
-
--- For 'tiny-inline-diagnostic'
-vim.diagnostic.config({ virtual_text = false })
