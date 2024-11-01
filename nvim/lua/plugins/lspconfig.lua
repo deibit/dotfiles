@@ -25,8 +25,6 @@ return {
             "dockerls",
             "html",
             "jsonls",
-            -- "pyright",
-            -- "pylsp",
             "tailwindcss",
             "ts_ls",
             "yamlls",
@@ -74,15 +72,5 @@ return {
                 },
             },
         })
-
-        -- require("lspconfig").pyright.setup({
-        --     settings = {
-        --         python = {
-        --             analysis = {
-        --                 diagnosticMode = "openFilesOnly",
-        --             },
-        --         },
-        --     },
-        -- })
     end,
 }
