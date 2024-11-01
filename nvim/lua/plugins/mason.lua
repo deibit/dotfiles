@@ -4,6 +4,7 @@ return {
         build = ":MasonUpdate",
         cmd = "Mason",
         keys = { { "<leader>M", ":Mason<cr>", desc = "Mason" } },
+        lazy = false,
         opts = {
             ui = {
                 icons = {

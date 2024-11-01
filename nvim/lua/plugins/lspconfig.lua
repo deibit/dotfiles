@@ -4,8 +4,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-        -- "williamboman/mason.nvim",
-        -- "williamboman/mason-lspconfig.nvim",
+        { "williamboman/mason.nvim", lazy = false },
+        { "williamboman/mason-lspconfig.nvim", lazy = false },
         "hrsh7th/cmp-nvim-lsp",
         "SmiteshP/nvim-navic",
     },
