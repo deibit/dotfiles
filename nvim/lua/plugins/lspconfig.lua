@@ -28,6 +28,7 @@ return {
             "tailwindcss",
             "ts_ls",
             "yamlls",
+            "intelephense",
         }
 
         -- Run setup for no_config_servers
