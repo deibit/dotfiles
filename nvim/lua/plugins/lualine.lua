@@ -4,8 +4,6 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local navic = require("nvim-navic")
-
         local function get_venv(variable)
             local venv = os.getenv(variable)
             if venv ~= nil and string.find(venv, "/") then
@@ -44,15 +42,6 @@ return {
                     { "branch", color = { fg = colors.peach } },
                     { "diff" },
                     { "filename", path = 1, color = { fg = colors.yellow } },
-                    {
-                        function()
-                            return navic.get_location()
-                        end,
-                        cond = function()
-                            return navic.is_available()
-                        end,
-                        color = { fg = colors.blue },
-                    },
                 },
                 lualine_x = {
                     "filetype",

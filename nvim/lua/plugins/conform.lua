@@ -27,6 +27,7 @@ return {
                 toml = { "taplo" },
                 yaml = { "yamlfmt" },
                 python = { "black", "isort" },
+                sql = { "sqlfmt" },
             },
 
             format_after_save = function()

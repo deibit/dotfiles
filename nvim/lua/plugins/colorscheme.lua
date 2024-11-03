@@ -24,13 +24,8 @@ return {
                     background = true,
                 },
             },
-            navic = {
-                enabled = false,
-                custom_bg = "NONE", -- "lualine" will set background to mantle
-            },
             telescope = {
                 enabled = true,
-                -- style = "nvchad"
             },
             which_key = true,
         },

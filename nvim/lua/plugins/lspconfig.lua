@@ -7,7 +7,6 @@ return {
         { "williamboman/mason.nvim", lazy = false },
         { "williamboman/mason-lspconfig.nvim", lazy = false },
         "hrsh7th/cmp-nvim-lsp",
-        "SmiteshP/nvim-navic",
     },
     config = function()
         -- Change icons from letters (default) to true icons
