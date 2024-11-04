@@ -1,42 +1,39 @@
 -- OPTIONS
+vim.g.mapleader = ","
 
-local cmd = vim.cmd
-local api = vim.api
-local g = vim.g
-local opt = vim.opt
+vim.opt.autoindent = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = { "menu,menuone,noselect" }
+vim.opt.cursorline = true
+vim.opt.emoji = true
+vim.opt.expandtab = true
+vim.opt.foldmethod = "marker"
+vim.opt.grepprg = "rg --vimgrep --smart-case --follow"
+vim.opt.hidden = true
+vim.opt.history = 1000
+vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.lazyredraw = true
+vim.opt.linebreak = true
+vim.opt.mouse = "a"
+vim.opt.number = true
+vim.opt.shiftwidth = 2
+vim.opt.shortmess:append("sI")
+vim.opt.showcmd = false
+vim.opt.showmatch = true
+vim.opt.smartcase = true
+vim.opt.smarttab = true
+vim.opt.softtabstop = 4
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.synmaxcol = 240
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.title = true
+vim.opt.undofile = true
 
-g.mapleader = ","
-
-opt.autoindent = true
-opt.clipboard = "unnamedplus"
-opt.completeopt = { "menu,menuone,noselect" }
-opt.cursorline = true
-opt.expandtab = true
-opt.emoji = true
-opt.foldmethod = "marker"
-opt.hidden = true
-opt.history = 1000
-opt.hlsearch = false
-opt.ignorecase = true
-opt.lazyredraw = true
-opt.linebreak = true
-opt.mouse = "a"
-opt.number = true
-opt.shiftwidth = 2
-opt.shortmess:append("sI")
-opt.showmatch = true
-opt.showcmd = false
-opt.smarttab = true
-opt.smartcase = true
-opt.softtabstop = 4
-opt.splitbelow = true
-opt.splitright = true
-opt.swapfile = false
-opt.synmaxcol = 240
-opt.tabstop = 4
-opt.title = true
-opt.termguicolors = true
-opt.undofile = true
+vim.wo.relativenumber = true
 
 -- disable builtins plugins
 local disabled_built_ins = {
@@ -61,5 +58,5 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-    g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end

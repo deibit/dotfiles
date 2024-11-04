@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]])
+
 -- open a terminal pane on the right using :Term
 vim.cmd([[command Term :botright vsplit term://$SHELL]])
 -- Terminal visual tweaks
