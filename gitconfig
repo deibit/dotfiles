@@ -1,0 +1,27 @@
+[user]
+	name = David García
+	email = david.garcianunez@telefonica.com
+
+[core]
+	editor = vim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+
+[merge]
+    conflictstyle = zdiff3
