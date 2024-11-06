@@ -24,7 +24,6 @@ return {
             "dockerls",
             "html",
             "jsonls",
-            "tailwindcss",
             "ts_ls",
             "yamlls",
             "intelephense",

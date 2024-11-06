@@ -7,7 +7,7 @@ return {
         "MunifTanjim/nui.nvim",
     },
     keys = {
-        { "<leader>1", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
+        { "<C-t>", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
     },
     opts = {
         close_if_last_window = true,

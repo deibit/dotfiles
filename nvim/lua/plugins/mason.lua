@@ -39,7 +39,6 @@ return {
                 "shfmt",
                 "stylua",
                 "stylelint",
-                "tailwindcss-language-server",
                 "typescript-language-server",
                 "vale",
                 "vale-ls",
