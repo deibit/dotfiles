@@ -67,7 +67,7 @@ return {
         -- finders
         { "<leader>*", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep under cursor" },
         { "<leader>R", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
-        { "<BS>", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
+        { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
         { "<leader>G", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
         { "<leader>z", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live fuzzy grep" },
         {
@@ -76,7 +76,7 @@ return {
             desc = "Telescope fuzzy find buffer",
         },
         -- pickers
-        { "<tab>", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+        { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
         { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Telescope commands" },
         { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
         { "<leader>k", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },

@@ -1,7 +1,9 @@
 [font]
-size = 19
+size = 16
 # size = 28
-normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+# normal = { family = "Hack Nerd Font Mono" }
+normal = { family = "JetBrainsMono Nerd Font" }
+# normal = { family = "UbuntuMono Nerd Font" }
 
 [colors.primary]
 background = "#24273a"
