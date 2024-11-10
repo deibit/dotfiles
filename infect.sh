@@ -6,7 +6,7 @@ ln -sfn "$REPO/zprofile" ~/.zprofile
 ln -sfn "$REPO/nvim" ~/.config/nvim
 ln -sfn "$REPO/gitconfig" ~/.gitconfig
 ln -sfn "$REPO/p10k.zsh" ~/.p10k.zsh
-ln -sfn "$REPO/alacritty.toml" ~/.alacritty.toml
+ln -sfn "$REPO/alacritty.toml" ~/.config/alacritty/alacritty.toml
 
 [ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim
 
