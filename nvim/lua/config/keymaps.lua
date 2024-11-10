@@ -58,20 +58,6 @@ vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, de
 -- Redo with 'U'
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })
 
--- DiffView
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>i",
-    "<cmd>DiffviewOpen<CR>",
-    { noremap = true, silent = true, desc = "Open DiffView" }
-)
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>I",
-    "<cmd>DiffviewClose<CR>",
-    { noremap = true, silent = true, desc = "Close DiffView" }
-)
-
 -- Format entire buffer
 vim.api.nvim_set_keymap(
     "n",
