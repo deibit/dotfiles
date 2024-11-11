@@ -145,3 +145,4 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # starship
 eval "$(starship init zsh)"
 
+export EZA_CONFIG_DIR="$HOME/.config/eza"
