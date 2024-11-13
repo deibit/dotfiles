@@ -26,7 +26,7 @@ return {
                 sh = { "shfmt" },
                 toml = { "taplo" },
                 yaml = { "yamlfmt" },
-                python = { "black", "isort" },
+                python = { "ruff_format", "isort" },
                 sql = { "sqlfmt" },
             },
 
