@@ -24,15 +24,46 @@ return {
             "dockerls",
             "html",
             "jsonls",
-            "ts_ls",
             "yamlls",
             "intelephense",
+            "pyright",
         }
 
         -- Run setup for no_config_servers
         for _, server in pairs(no_config_servers) do
             require("lspconfig")[server].setup({})
         end
+
+        -- https://github.com/vuejs/language-tools?tab=readme-ov-file
+        local mason_registry = require("mason-registry")
+        local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+            .. "/node_modules/@vue/language-server"
+
+        local typescript_path = mason_registry.get_package("typescript-language-server"):get_install_path()
+            .. "/node_modules/typescript/lib"
+
+        local lspconfig = require("lspconfig")
+
+        lspconfig.ts_ls.setup({
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = vue_language_server_path,
+                        languages = { "vue" },
+                    },
+                },
+            },
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+        })
+
+        lspconfig.volar.setup({
+            init_options = {
+                typescript = {
+                    tsdk = typescript_path,
+                },
+            },
+        })
 
         -- Lua
         require("lspconfig").lua_ls.setup({
@@ -58,18 +89,18 @@ return {
             },
         })
 
-        require("lspconfig").pylsp.setup({
-            settings = {
-                pylsp = {
-                    configurationSources = { "ruff" },
-                    plugins = {
-                        ruff = {
-                            enabled = true,
-                            formatEnabled = false,
-                        },
-                    },
-                },
-            },
-        })
+        -- require("lspconfig").pylsp.setup({
+        --     settings = {
+        --         pylsp = {
+        --             configurationSources = { "ruff" },
+        --             plugins = {
+        --                 ruff = {
+        --                     enabled = true,
+        --                     formatEnabled = false,
+        --                 },
+        --             },
+        --         },
+        --     },
+        -- })
     end,
 }

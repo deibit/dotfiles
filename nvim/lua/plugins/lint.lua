@@ -7,6 +7,7 @@ return {
             c = { "clangtidy", "cppcheck" },
             cpp = { "clangtidy", "cppcheck" },
             javascript = { "eslint" },
+            python = { "ruff" },
         }
     end,
 }

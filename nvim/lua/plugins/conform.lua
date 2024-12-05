@@ -28,6 +28,7 @@ return {
                 yaml = { "yamlfmt" },
                 python = { "ruff_format", "isort" },
                 sql = { "sqlfmt" },
+                vue = { "prettier" },
             },
 
             format_after_save = function()

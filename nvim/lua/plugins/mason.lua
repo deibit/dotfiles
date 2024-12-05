@@ -42,6 +42,7 @@ return {
                 "typescript-language-server",
                 "vale",
                 "vale-ls",
+                "vue-language-server",
                 "yaml-language-server",
                 "yamlfmt",
             },
