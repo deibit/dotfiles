@@ -44,10 +44,9 @@ vim.api.nvim_set_keymap(
     '"+y<LeftRelease"',
     { noremap = true, silent = true, desc = "clipboard ala Windows" }
 )
-vim.api.nvim_set_keymap("v", "<C-c>", '"+y<CR>', { noremap = true, silent = true, desc = "clipboard ala Windows" })
-vim.api.nvim_set_keymap("v", "<C-x>", '"+d<CR>', { noremap = true, silent = true, desc = "clipboard ala Windows" })
-vim.api.nvim_set_keymap("n", "<leader>p", "o<Esc>p", { noremap = true, silent = true, desc = "clipboard ala Windows" })
-vim.api.nvim_set_keymap("n", "<leader>P", "O<Esc>p", { noremap = true, silent = true, desc = "clipboard ala Windows" })
+vim.api.nvim_set_keymap("v", "<C-c>", '"+y<CR>', { noremap = true, silent = true, desc = "copy to clipboard" })
+vim.api.nvim_set_keymap("v", "<C-x>", '"+d<CR>', { noremap = true, silent = true, desc = "cut to clipboard" })
+vim.api.nvim_set_keymap("n", "<leader>p", "o<Esc>p", { noremap = true, silent = true, desc = "paste from clipboard" })
 
 -- Fast escape
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "fast escape" })
@@ -85,5 +84,13 @@ vim.api.nvim_set_keymap(
     "n",
     "<leader>C",
     "<cmd>CopyAbsPath<cr>",
+    { noremap = true, silent = true, desc = "Copy absolute filepath to clipboard" }
+)
+
+-- Copy buffer to clipboard
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>P",
+    "<cmd>%y*<cr>",
     { noremap = true, silent = true, desc = "Copy absolute filepath to clipboard" }
 )
