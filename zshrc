@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf rye direnv)
+plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf direnv pyenv poetry)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
@@ -149,3 +149,12 @@ export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
+
+# Make poetry use .venv by default
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

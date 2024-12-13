@@ -4,6 +4,8 @@
 # Sets user-defined palette
 palette = "catppuccin_macchiato"
 
+command_timeout = 1500
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
