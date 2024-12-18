@@ -82,7 +82,7 @@ vim.api.nvim_set_keymap(
 -- Copy filepath to clipboard
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>C",
+    "<leader>P",
     "<cmd>CopyAbsPath<cr>",
     { noremap = true, silent = true, desc = "Copy absolute filepath to clipboard" }
 )
@@ -90,7 +90,7 @@ vim.api.nvim_set_keymap(
 -- Copy buffer to clipboard
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>P",
+    "<leader>C",
     "<cmd>%y*<cr>",
-    { noremap = true, silent = true, desc = "Copy absolute filepath to clipboard" }
+    { noremap = true, silent = true, desc = "Copy buffer to clipboard" }
 )
