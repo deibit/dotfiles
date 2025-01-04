@@ -6,7 +6,8 @@ return {
         { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
         { "williamboman/mason.nvim", lazy = false },
         { "williamboman/mason-lspconfig.nvim", lazy = false },
-        "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp",
     },
     config = function()
         -- Change icons from letters (default) to true icons
@@ -29,9 +30,12 @@ return {
             "pyright",
         }
 
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
+        local lspconfig = require("lspconfig")
+
         -- Run setup for no_config_servers
         for _, server in pairs(no_config_servers) do
-            require("lspconfig")[server].setup({})
+            lspconfig[server].setup({ capabilities = capabilities })
         end
 
         -- https://github.com/vuejs/language-tools?tab=readme-ov-file
@@ -42,9 +46,8 @@ return {
         local typescript_path = mason_registry.get_package("typescript-language-server"):get_install_path()
             .. "/node_modules/typescript/lib"
 
-        local lspconfig = require("lspconfig")
-
         lspconfig.ts_ls.setup({
+            capabilities = capabilities,
             init_options = {
                 plugins = {
                     {
@@ -58,6 +61,7 @@ return {
         })
 
         lspconfig.volar.setup({
+            capabilities = capabilities,
             init_options = {
                 typescript = {
                     tsdk = typescript_path,
@@ -67,6 +71,7 @@ return {
 
         -- Lua
         require("lspconfig").lua_ls.setup({
+            capabilities = capabilities,
             settings = {
                 Lua = {
                     runtime = {
@@ -88,19 +93,5 @@ return {
                 },
             },
         })
-
-        -- require("lspconfig").pylsp.setup({
-        --     settings = {
-        --         pylsp = {
-        --             configurationSources = { "ruff" },
-        --             plugins = {
-        --                 ruff = {
-        --                     enabled = true,
-        --                     formatEnabled = false,
-        --                 },
-        --             },
-        --         },
-        --     },
-        -- })
     end,
 }
