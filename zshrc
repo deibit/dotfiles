@@ -69,18 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf direnv pyenv poetry)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $ZSH/oh-my-zsh.sh
-export GOPATH="/Users/davidgarcia/go"
-alias vim=nvim
-PATH="/opt/homebrew/bin:$GOPATH:$PATH"
-export EDITOR="nvim"
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'
-export PATH=$PATH:"$HOME/go/bin"
-export PATH=$PATH:"$HOME/.cargo/bin"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -113,6 +102,17 @@ precmd_functions+=(_fix_cursor)
 
 # Then, source plugins and add commands to $PATH
 # zplug load
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $ZSH/oh-my-zsh.sh
+export GOPATH="/Users/davidgarcia/go"
+alias vim=nvim
+export PATH="/opt/homebrew/bin:$GOPATH:$PATH"
+export EDITOR="nvim"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'
+export PATH=$PATH:"$HOME/go/bin"
+export PATH=$PATH:"$HOME/.cargo/bin"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
 
 # Make z and fzf collaborate to improve cd jumping
 Z() {
@@ -123,9 +123,6 @@ Z() {
     cd "$selected_dir"
   fi
 }
-
-# New ctrl-l
-alias c="clear"
 
 # Fast export from .env file
 alias superenv='export $(cat .env)'
@@ -154,7 +151,9 @@ export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+# direnv hook
+eval "$(direnv hook zsh)"
+

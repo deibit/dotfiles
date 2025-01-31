@@ -44,4 +44,3 @@ symbol = ' '
 format = '[ $version](bold blue) '
 
 [python]
-format = '[ $version (\($virtualenv\) )](bold green) '

@@ -32,6 +32,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.undofile = true
+vim.opt.wrap = true
 
 vim.wo.relativenumber = true
 
