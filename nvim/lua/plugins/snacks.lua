@@ -11,13 +11,17 @@ return {
         bufdelete = { enabled = true },
         explorer = { enabled = true },
         indent = { enabled = true },
+        gitbrowse = { enabled = true },
         input = { enabled = true },
+        lazygit = { enabled = true },
         picker = { enabled = true },
         notifier = { enabled = true },
+        rename = { enabled = true },
         quickfile = { enabled = true },
         scroll = { enabled = true },
         scope = { enabled = true },
         statuscolumn = { enabled = true },
+        toggle = { enabled = true },
         words = { enabled = true },
     },
     keys = {
@@ -176,6 +180,13 @@ return {
                 Snacks.picker.keymaps()
             end,
             desc = "Keymaps",
+        },
+        {
+            "<leader>l",
+            function()
+                Snacks.lazygit.open()
+            end,
+            desc = "Lazygit",
         },
     },
 }
