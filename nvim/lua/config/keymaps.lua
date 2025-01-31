@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap("n", "<leader>X", "<C-w>c", { noremap = true, silent = t
 vim.api.nvim_set_keymap(
     "n",
     "<leader>x",
-    "<cmd>lua MiniBufremove.delete()<CR>",
+    "<cmd>lua Snacks.bufdelete()<CR>",
     { noremap = true, silent = true, desc = "Remove buffer" }
 )
 

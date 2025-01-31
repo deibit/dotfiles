@@ -3,7 +3,7 @@ return {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         cmd = "Mason",
-        keys = { { "<leader>M", ":Mason<cr>", desc = "Mason" } },
+        keys = { { "<leader>m", ":Mason<cr>", desc = "Mason" } },
         lazy = false,
         opts = {
             ui = {

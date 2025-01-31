@@ -7,7 +7,7 @@ return {
         require("mini.align").setup()
         -- require('mini.animate').setup()
         -- require("mini.bracketed").setup()
-        require("mini.bufremove").setup()
+        -- require("mini.bufremove").setup()
         require("mini.comment").setup()
         -- require("mini.completion").setup()
         require("mini.cursorword").setup()

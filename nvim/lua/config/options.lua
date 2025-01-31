@@ -24,6 +24,7 @@ vim.opt.showmatch = true
 vim.opt.smartcase = true
 vim.opt.smarttab = true
 vim.opt.softtabstop = 4
+vim.opt.statuscolumn = ""
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
