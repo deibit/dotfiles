@@ -156,4 +156,3 @@ eval "$(uvx --generate-shell-completion zsh)"
 
 # direnv hook
 eval "$(direnv hook zsh)"
-
