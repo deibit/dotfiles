@@ -97,14 +97,14 @@ return {
             desc = "Gitstatus picker",
         },
         {
-            "<leader>M",
+            "<leader>m",
             function()
                 Snacks.picker.marks()
             end,
             desc = "Marks",
         },
         {
-            "<leader>C",
+            "<leader>cc",
             function()
                 Snacks.picker.commands()
             end,
