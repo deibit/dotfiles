@@ -4,7 +4,7 @@ return {
     priority = 1000,
     opts = {
         integrations = {
-            aerial = true,
+            -- blink = true,
             neogit = true,
             native_lsp = {
                 enabled = true,
@@ -24,10 +24,12 @@ return {
                     background = true,
                 },
             },
-            telescope = {
-                enabled = true,
-            },
             which_key = true,
+            gitsigns = true,
+            mason = true,
+            treesitter = true,
+            snacks = true,
+            -- trouble = true,
         },
     },
 }

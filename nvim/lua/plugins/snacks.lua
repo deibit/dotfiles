@@ -21,12 +21,13 @@ return {
         scroll = { enabled = true },
         scope = { enabled = true },
         statuscolumn = { enabled = true },
+        terminal = { enabled = true },
         toggle = { enabled = true },
         words = { enabled = true },
     },
     keys = {
         {
-            "<leader>t",
+            "<leader>e",
             function()
                 Snacks.explorer()
             end,
@@ -187,6 +188,13 @@ return {
                 Snacks.lazygit.open()
             end,
             desc = "Lazygit",
+        },
+        {
+            "<leader>t",
+            function()
+                Snacks.terminal.toggle()
+            end,
+            desc = "Toggle terminal",
         },
     },
 }

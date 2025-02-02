@@ -82,6 +82,7 @@ return {
                     },
                     "progress",
                     "searchcount",
+                    "selectioncount",
                     {
                         "location",
                         left_padding = 2,
@@ -104,7 +105,6 @@ return {
             },
             inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
             extensions = {
-                "aerial",
                 "fugitive",
                 "fzf",
                 "lazy",

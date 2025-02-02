@@ -70,7 +70,7 @@ vim.api.nvim_set_keymap(
     "n",
     "<leader>ca",
     "",
-    { callback = vim.lsp.buf.code_action, noremap = true, silent = true, desc = "Format the entire buffer" }
+    { callback = vim.lsp.buf.code_action, noremap = true, silent = true, desc = "Code action" }
 )
 vim.api.nvim_set_keymap(
     "n",
