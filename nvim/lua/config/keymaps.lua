@@ -72,12 +72,6 @@ vim.api.nvim_set_keymap(
     "",
     { callback = vim.lsp.buf.code_action, noremap = true, silent = true, desc = "Code action" }
 )
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>d",
-    "",
-    { callback = vim.lsp.buf.definition, noremap = true, silent = true, desc = "go to definition" }
-)
 
 -- Copy filepath to clipboard
 vim.api.nvim_set_keymap(

@@ -112,6 +112,20 @@ return {
             desc = "Commands",
         },
         {
+            "<leader>d",
+            function()
+                Snacks.picker.diagnostics_buffer()
+            end,
+            desc = "Diagnostics (buffer)",
+        },
+        {
+            "<leader>D",
+            function()
+                Snacks.picker.diagnostics()
+            end,
+            desc = "Diagnostics",
+        },
+        {
             "<leader>:",
             function()
                 Snacks.picker.command_history()
