@@ -48,21 +48,21 @@ return {
             desc = "Buffer picker",
         },
         {
-            "<leader>gg",
+            "<leader>S",
             function()
                 Snacks.picker.grep()
             end,
             desc = "Grep picker",
         },
         {
-            "<leader>gb",
+            "<leader>s",
             function()
                 Snacks.picker.grep_buffers()
             end,
             desc = "Grep Open Buffers",
         },
         {
-            "<leader>gw",
+            "<leader>sw",
             function()
                 Snacks.picker.grep_word()
             end,
@@ -105,7 +105,7 @@ return {
             desc = "Marks",
         },
         {
-            "<leader>cc",
+            "<leader>c",
             function()
                 Snacks.picker.commands()
             end,
@@ -192,7 +192,7 @@ return {
         {
             "<leader>t",
             function()
-                Snacks.terminal.toggle()
+                Snacks.terminal.open()
             end,
             desc = "Toggle terminal",
         },
