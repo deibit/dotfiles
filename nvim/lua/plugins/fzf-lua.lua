@@ -13,19 +13,22 @@ return {
         { "<leader>j", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
         { "<leader>K", "<cmd>FzfLua manpages<cr>", desc = "Man pages" },
         { "<leader>r", "<cmd>FzfLua registers<cr>", desc = "Registers" },
-        { "<leader>l", "<cmd>FzfLua blines<cr>", desc = "Buffer lines" },
-        { "<leader>L", "<cmd>FzfLua lines<cr>", desc = "Lines (buffers)" },
-        { "<leader>s", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep (buffer)" },
+        -- Search
         { "<leader>S", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep (dir)" },
+        { "<leader>ss", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep (buffer)" },
+        { "<leader>sL", "<cmd>FzfLua lines<cr>", desc = "Lines (buffers)" },
+        { "<leader>sl", "<cmd>FzfLua blines<cr>", desc = "Buffer lines" },
         { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "Grep word" },
+        -- Git
         { "<leader>gf", "<cmd>FzfLua git_files<cr>", desc = "Git files" },
         { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Git status" },
         { "<leader>gc", "<cmd>FzfLua git_bcommits<cr>", desc = "Git commits (buffer)" },
         { "<leader>gC", "<cmd>FzfLua git_commits<cr>", desc = "Git commits" },
         { "<leader>gb", "<cmd>FzfLua git_blame<cr>", desc = "Git blame" },
         -- <leader>gl is LazyGit on snacks
-        { "<leader>d", "<cmd>FzfLua diagnostic_document<cr>", desc = "Diagnostic (buffer)" },
-        { "<leader>D", "<cmd>FzfLua diagnostic_workspace<cr>", desc = "Diagnostic" },
+        -- Diagnostic and LSP
+        { "<leader>d", "<cmd>FzfLua diagnostics_document<cr>", desc = "Diagnostic (buffer)" },
+        { "<leader>D", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Diagnostic" },
         { "<leader>r", "<cmd>FzfLua lsp_references<cr>", desc = "lsp references" },
         { "<leader>rd", "<cmd>FzfLua lsp_definitions<cr>", desc = "lsp definitions" },
         { "<leader>re", "<cmd>FzfLua lsp_declarations<cr>", desc = "lsp declarations" },
@@ -36,10 +39,11 @@ return {
         { "<leader>rc", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "lsp incoming calls" },
         { "<leader>rC", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "lsp outgoing calls" },
         { "<leader>ra", "<cmd>FzfLua lsp_code_actions<cr>", desc = "lsp code actions" },
+        -- Misc
         { "<leader>H", "<cmd>FzfLua helptags<cr>", desc = "Help tags" },
         { "<leader>jp", "<cmd>FzfLua complete_path<cr>", desc = "Complete path" },
         { "<leader>jf", "<cmd>FzfLua complete_file<cr>", desc = "Complete file" },
-        { "<leader>jb", "<cmd>FzfLua complete_bline<cr>", desc = "Complete buffer line" },
-        { "<leader>jl", "<cmd>FzfLua complete_line<cr>", desc = "Complete buffer" },
+        { "<leader>l", "<cmd>FzfLua complete_bline<cr>", desc = "Complete buffer line" },
+        { "<leader>L", "<cmd>FzfLua complete_line<cr>", desc = "Complete line" },
     },
 }
