@@ -27,7 +27,7 @@ return {
         },
     },
     keys = {
-        { "<leader>e", "<cmd>Neotree<cr>", desc = "Neotree" },
+        { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
     },
     config = function()
         -- If you want icons for diagnostic errors, you'll need to define them somewhere:
