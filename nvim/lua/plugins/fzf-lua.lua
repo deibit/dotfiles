@@ -5,7 +5,7 @@ return {
     opts = {},
     keys = {
         { "<leader>f", "<cmd>FzfLua files<cr>", desc = "Files" },
-        { "<leader>F", "<cmd>FzfLua old_files<cr>", desc = "Files (history)" },
+        { "<leader>F", "<cmd>FzfLua oldfiles<cr>", desc = "Files (history)" },
         { "<leader>b", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
         { "<leader>k", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
         { "<leader>c", "<cmd>FzfLua commands<cr>", desc = "Commands" },
