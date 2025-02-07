@@ -13,6 +13,7 @@ return {
         { "<leader>j", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
         { "<leader>K", "<cmd>FzfLua manpages<cr>", desc = "Man pages" },
         { "<leader>r", "<cmd>FzfLua registers<cr>", desc = "Registers" },
+        { "<leader>T", "<cmd>TodoFzfLua<cr>", desc = "View TODOs" },
         -- Search
         { "<leader>S", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep (dir)" },
         { "<leader>ss", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep (buffer)" },
