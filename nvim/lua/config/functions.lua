@@ -14,8 +14,8 @@ function SearchGoogle()
     print(word)
 end
 
-vim.api.nvim_set_keymap("n", "<leader>gw", ":lua SearchGoogle()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader>gw", ":<C-U>lua SearchGoogle(true)<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>sw", ":lua SearchGoogle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>sw", ":<C-U>lua SearchGoogle(true)<CR>", { noremap = true, silent = true })
 
 function SearchGoogle(is_visual)
     local search_term = ""

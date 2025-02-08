@@ -68,9 +68,9 @@ vim.api.nvim_set_keymap(
 -- LSP
 vim.api.nvim_set_keymap(
     "n",
-    "<leader>ca",
+    "gd",
     "",
-    { callback = vim.lsp.buf.code_action, noremap = true, silent = true, desc = "Code action" }
+    { callback = vim.lsp.buf.definition, noremap = true, silent = true, desc = "Goto definition" }
 )
 
 -- Copy filepath to clipboard
