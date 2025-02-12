@@ -28,8 +28,12 @@ return {
         { "<leader>gb", "<cmd>FzfLua git_blame<cr>", desc = "Git blame" },
         -- <leader>gl is LazyGit on snacks
         -- Diagnostic and LSP
-        { "<leader>d", "<cmd>FzfLua diagnostics_document<cr>", desc = "Diagnostic (buffer)" },
-        { "<leader>D", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Diagnostic" },
+        {
+            "<leader>d",
+            "<cmd>FzfLua diagnostics_document winopts.preview.layout='vertical'<cr>",
+            desc = "Diagnostic (buffer)",
+        },
+        { "<leader>D", "<cmd>FzfLua diagnostics_workspace winopts.preview.layout='vertical'<cr>", desc = "Diagnostic" },
         { "<leader>r", "<cmd>FzfLua lsp_references<cr>", desc = "lsp references" },
         { "<leader>rd", "<cmd>FzfLua lsp_definitions<cr>", desc = "lsp definitions" },
         { "<leader>re", "<cmd>FzfLua lsp_declarations<cr>", desc = "lsp declarations" },
