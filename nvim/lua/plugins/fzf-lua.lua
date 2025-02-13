@@ -30,10 +30,14 @@ return {
         -- Diagnostic and LSP
         {
             "<leader>d",
-            "<cmd>FzfLua diagnostics_document winopts.preview.layout='vertical'<cr>",
+            "<cmd>FzfLua diagnostics_document winopts.preview.layout='vertical' diag_source=true<cr> ",
             desc = "Diagnostic (buffer)",
         },
-        { "<leader>D", "<cmd>FzfLua diagnostics_workspace winopts.preview.layout='vertical'<cr>", desc = "Diagnostic" },
+        {
+            "<leader>D",
+            "<cmd>FzfLua diagnostics_workspace winopts.preview.layout='vertical' diag_source=true<cr>",
+            desc = "Diagnostic",
+        },
         { "<leader>r", "<cmd>FzfLua lsp_references<cr>", desc = "lsp references" },
         { "<leader>rd", "<cmd>FzfLua lsp_definitions<cr>", desc = "lsp definitions" },
         { "<leader>re", "<cmd>FzfLua lsp_declarations<cr>", desc = "lsp declarations" },
