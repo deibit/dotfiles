@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf vi-mode)
+plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf vi-mode)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -113,21 +113,14 @@ export PATH=$PATH:"$HOME/go/bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-
-# Make z and fzf collaborate to improve cd jumping
-Z() {
-  local selected_dir
-  selected_dir=$(z | awk '{print $2}' | fzf)
-
-  if [ -n "$selected_dir" ]; then
-    cd "$selected_dir"
-  fi
-}
-
 # Fast export from .env file
 alias superenv='export $(cat .env)'
 
+# Some alias
 alias ll="eza -l"
+alias lg="lazygit"
+alias lc="lazydocker"
+alias z="zoxide"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -156,3 +149,6 @@ eval "$(uvx --generate-shell-completion zsh)"
 
 # direnv hook
 eval "$(direnv hook zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
