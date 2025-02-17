@@ -136,6 +136,7 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 eval "$(starship init zsh)"
 
 export EZA_CONFIG_DIR="$HOME/.config/eza"
+export EZA_ICONS_AUTO=1
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
