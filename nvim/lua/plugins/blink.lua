@@ -63,6 +63,7 @@ return {
 
         completion = {
             ghost_text = { enabled = true },
+            list = { selection = { preselect = false } },
             menu = {
                 draw = {
                     treesitter = { "lsp" },
