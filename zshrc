@@ -105,7 +105,6 @@ precmd_functions+=(_fix_cursor)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
 export GOPATH="/Users/davidgarcia/go"
-alias vim=nvim
 export PATH="/opt/homebrew/bin:$GOPATH:$PATH"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'
@@ -117,9 +116,11 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 alias superenv='export $(cat .env)'
 
 # Some alias
-alias ll="eza -l"
-alias lg="lazygit"
+alias c="clear"
 alias lc="lazydocker"
+alias lg="lazygit"
+alias ll="eza -l"
+alias vim="nvim"
 alias z="zoxide"
 
 export XDG_CONFIG_HOME="$HOME/.config"
