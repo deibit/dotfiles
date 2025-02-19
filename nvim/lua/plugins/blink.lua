@@ -18,21 +18,21 @@ return {
         -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            preset = "default",
+            preset = "enter",
             ["<Tab>"] = { "select_next", "fallback" },
             ["<S-Tab>"] = { "select_prev", "fallback" },
-            ["<CR>"] = { "accept" },
-            ["<C-c"] = { "cancel" },
+            -- ["<CR>"] = { "accept" },
+            -- ["<C-c>"] = { "cancel" },
         },
-        cmdline = {
-            keymap = {
-                preset = "default",
-                ["<Tab>"] = { "select_next", "fallback" },
-                ["<S-Tab>"] = { "select_prev", "fallback" },
-                ["<CR>"] = { "accept_and_enter", "fallback" },
-                ["<C-c"] = { "cancel" },
-            },
-        },
+        -- cmdline = {
+        --     keymap = {
+        --         preset = "default",
+        --         ["<Tab>"] = { "select_next", "fallback" },
+        --         ["<S-Tab>"] = { "select_prev", "fallback" },
+        --         ["<CR>"] = { "accept_and_enter", "fallback" },
+        --         ["<C-c>"] = { "cancel" },
+        --     },
+        -- },
 
         appearance = {
             -- Sets the fallback highlight groups to nvim-cmp's highlight groups
