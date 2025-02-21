@@ -1,118 +1,226 @@
-local colors = require("catppuccin.palettes.macchiato")
-
 return {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        local function get_venv(variable)
-            local venv = os.getenv(variable)
-            if venv ~= nil and string.find(venv, "/") then
-                local orig_venv = venv
-                for w in orig_venv:gmatch("([^/]+)") do
-                    venv = w
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            theme = "auto",
+            -- theme = {
+            -- 	-- We are going to use lualine_c an lualine_x as left and
+            -- 	-- right section. Both are highlighted by c theme .  So we
+            -- 	-- are just setting default looks o statusline
+            -- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
+            -- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
+            -- },
+            icons_enabled = true,
+            component_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
+            disabled_filetypes = {
+                statusline = { "neo-tree", "trouble" },
+                winbar = { "neo-tree", "trouble" },
+            },
+            globalstatus = true,
+            ignore_focus = {},
+            always_divide_middle = true,
+        },
+
+        config = function()
+            local function get_venv(variable)
+                local venv = os.getenv(variable)
+                if venv ~= nil and string.find(venv, "/") then
+                    local orig_venv = venv
+                    for w in orig_venv:gmatch("([^/]+)") do
+                        venv = w
+                    end
+                    venv = string.format("%s", venv)
                 end
-                venv = string.format("%s", venv)
+                return venv
             end
-            return venv
-        end
 
-        require("lualine").setup({
-            options = {
-                theme = "auto",
-                -- theme = {
-                -- 	-- We are going to use lualine_c an lualine_x as left and
-                -- 	-- right section. Both are highlighted by c theme .  So we
-                -- 	-- are just setting default looks o statusline
-                -- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
-                -- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
-                -- },
-                component_separators = "",
-                section_separators = "",
-                disabled_filetypes = {
-                    statusline = { "neo-tree", "trouble" },
-                    winbar = { "neo-tree", "trouble" },
-                },
-                globalstatus = true,
-            },
-            sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {
-                    { "mode", right_padding = 2 },
-                    { "branch", color = { fg = colors.peach } },
-                    { "diff" },
-                    { "filename", path = 1, color = { fg = colors.yellow } },
-                },
-                lualine_x = {
-                    "filetype",
-                    {
-                        function()
-                            local venv = get_venv("CONDA_DEFAULT_ENV")
-                                or get_venv("VIRTUAL_ENV_PROMPT")
-                                or get_venv("VIRTUAL_ENV")
-                                or "no env"
-                            return venv
-                        end,
-                        cond = function()
-                            return vim.bo.filetype == "python"
-                        end,
-                        color = { fg = colors.green },
-                    },
-                    {
-                        "diagnostics",
+            local colors = require("catppuccin.palettes.macchiato")
 
-                        -- Table of diagnostic sources, available sources are:
-                        --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
-                        -- or a function that returns a table as such:
-                        --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
-                        sources = { "nvim_diagnostic" },
-                        -- Displays diagnostics for the defined severity types
-                        sections = { "error", "warn", "info", "hint" },
+            local modecolor = {
+                n = colors.red,
+                i = colors.green,
+                v = colors.mauve,
+                [""] = colors.mauve,
+                V = colors.mauve,
+                c = colors.yellow,
+                no = colors.red,
+                s = colors.yellow,
+                S = colors.yellow,
+                [""] = colors.yellow,
+                ic = colors.yellow,
+                R = colors.green,
+                Rv = colors.mauve,
+                cv = colors.red,
+                ce = colors.red,
+                r = colors.mauve,
+                rm = colors.sky,
+                ["r?"] = colors.sky,
+                ["!"] = colors.red,
+                t = colors.maroon,
+            }
 
-                        diagnostics_color = {
-                            -- Same values as the general color option can be used here.
-                            error = { fg = colors.red }, -- Changes diagnostics' error color.
-                            warn = { fg = colors.peach }, -- Changes diagnostics' warn color.
-                            info = { fg = colors.blue }, -- Changes diagnostics' info color.
-                            hint = { fg = colors.yellow }, -- Changes diagnostics' hint color.
-                        },
-                        colored = true, -- Displays diagnostics status in color if set to true.
-                        update_in_insert = false, -- Update diagnostics in insert mode.
-                        always_visible = false, -- Show diagnostics even if there are none.
-                    },
-                    "progress",
-                    "searchcount",
-                    "selectioncount",
-                    {
-                        "location",
-                        left_padding = 2,
-                    },
+            local space = {
+                function()
+                    return " "
+                end,
+                color = { bg = colors.base, fg = colors.blue },
+                separator = {},
+            }
+
+            local filename = {
+                "filename",
+                color = { bg = colors.blue, fg = colors.surface0, gui = "bold" },
+                separator = { left = "", right = "" },
+                path = 1,
+            }
+
+            local filetype = {
+                "filetype",
+                icons_enabled = true,
+                color = { bg = colors.gray2, fg = colors.blue, gui = "italic,bold" },
+                separator = { left = "", right = "" },
+            }
+
+            local branch = {
+                "branch",
+                icon = "",
+                color = { bg = colors.mauve, fg = colors.base, gui = "bold" },
+                separator = { left = "", right = "" },
+            }
+
+            local location = {
+                "location",
+                color = { bg = colors.sapphire, fg = colors.surface0, gui = "bold" },
+                separator = { left = "", right = "" },
+            }
+
+            local diff = {
+                "diff",
+                color = { bg = colors.base, fg = colors.teal, gui = "bold" },
+                separator = { left = "", right = "" },
+                symbols = { added = " ", modified = " ", removed = " " },
+
+                diff_color = {
+                    added = { fg = colors.green },
+                    modified = { fg = colors.yellow },
+                    removed = { fg = colors.red },
                 },
-                lualine_y = {},
-                lualine_z = {},
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = {},
-            },
-            tabline = {},
-            winbar = {
-                lualine_a = { { "filename", path = 1 } },
-            },
-            inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
-            extensions = {
-                "fugitive",
-                "fzf",
-                "lazy",
-                "neo-tree",
-                "nvim-tree",
-                "quickfix",
-                "trouble",
-            },
-        })
-    end,
+            }
+
+            local modes = {
+                "mode",
+                color = function()
+                    local mode_color = modecolor
+                    return { bg = mode_color[vim.fn.mode()], fg = colors.base, gui = "bold" }
+                end,
+                separator = { left = "", right = "" },
+            }
+
+            local function getLspName()
+                local bufnr = vim.api.nvim_get_current_buf()
+                local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+                local buf_ft = vim.bo.filetype
+                if next(buf_clients) == nil then
+                    return "  No servers"
+                end
+                local buf_client_names = {}
+
+                for _, client in pairs(buf_clients) do
+                    table.insert(buf_client_names, client.name)
+                end
+                local hash = {}
+                local unique_client_names = {}
+
+                for _, v in ipairs(buf_client_names) do
+                    if not hash[v] then
+                        unique_client_names[#unique_client_names + 1] = v
+                        hash[v] = true
+                    end
+                end
+                local language_servers = table.concat(unique_client_names, ", ")
+
+                return "  " .. language_servers
+            end
+
+            local dia = {
+                "diagnostics",
+                sources = { "nvim_diagnostic" },
+                symbols = { error = " ", warn = " ", info = " ", hint = " " },
+                diagnostics_color = {
+                    error = { fg = colors.red },
+                    warn = { fg = colors.yellow },
+                    info = { fg = colors.maeve },
+                    hint = { fg = colors.sapphire },
+                },
+                color = { bg = colors.surface1, fg = colors.blue, gui = "bold" },
+                separator = { left = "" },
+            }
+
+            local lsp = {
+                function()
+                    return getLspName()
+                end,
+                separator = { left = "", right = "" },
+                color = { bg = colors.purple, fg = colors.bg, gui = "italic,bold" },
+            }
+
+            local python = {
+                function()
+                    local python_version = get_venv("PYTHON_VERSION")
+                    local venv_name = get_venv("VIRTUAL_ENV_NAME")
+                    return string.format("%s (%s)", python_version, venv_name)
+                end,
+                cond = function()
+                    return vim.bo.filetype == "python"
+                end,
+                color = { fg = colors.surface0, bg = colors.green, gui = "bold" },
+                icon = "",
+                separator = { left = "", right = "" },
+            }
+
+            require("lualine").setup({
+                sections = {
+                    lualine_a = { modes },
+                    lualine_b = { space },
+                    lualine_c = {
+                        branch,
+                        filetype,
+                        filename,
+                        location,
+                    },
+                    lualine_x = {
+                        "overseer",
+                        "searchcount",
+                        "selectioncount",
+                    },
+                    lualine_y = { diff },
+                    lualine_z = { dia, lsp, python },
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = { "filename" },
+                    lualine_x = { "location" },
+                    lualine_y = {},
+                    lualine_z = {},
+                },
+                tabline = {},
+                winbar = {
+                    lualine_a = { { "filename", path = 1 } },
+                },
+                inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
+                extensions = {
+                    "fugitive",
+                    "fzf",
+                    "lazy",
+                    "neo-tree",
+                    "nvim-tree",
+                    "quickfix",
+                    "trouble",
+                },
+            })
+        end,
+    },
 }

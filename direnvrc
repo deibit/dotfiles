@@ -12,4 +12,16 @@ layout_uv() {
     PATH_add "$VIRTUAL_ENV/bin"
     export UV_ACTIVE=1  # or VENV_ACTIVE=1
     export VIRTUAL_ENV
+
+    if [ -f .venv/pyvenv.cfg ]; then
+        prompt=$(grep "^prompt" .venv/pyvenv.cfg | cut -d "=" -f2 | tr -d ' ')
+        if [ -n "$prompt" ]; then
+            export VIRTUAL_ENV_NAME=$prompt
+        fi
+    fi
+
+    if [ -f .python-version ]; then
+        python_version=$(cat .python-version)
+        export PYTHON_VERSION=$python_version
+    fi
 }
