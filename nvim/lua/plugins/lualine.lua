@@ -86,18 +86,37 @@ return {
             local branch = {
                 "branch",
                 icon = "",
+                source = "b:gitsigns_head",
                 color = { bg = colors.mauve, fg = colors.base, gui = "bold" },
                 separator = { left = "", right = "" },
             }
 
             local location = {
                 "location",
+                color = { bg = colors.peach, fg = colors.surface0, gui = "bold" },
+                separator = { left = "", right = "" },
+            }
+
+            local progress = {
+                "progress",
                 color = { bg = colors.sapphire, fg = colors.surface0, gui = "bold" },
                 separator = { left = "", right = "" },
             }
 
+            local function diff_source()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                    return {
+                        added = gitsigns.added,
+                        modified = gitsigns.changed,
+                        removed = gitsigns.removed,
+                    }
+                end
+            end
+
             local diff = {
                 "diff",
+                source = diff_source,
                 color = { bg = colors.base, fg = colors.teal, gui = "bold" },
                 separator = { left = "", right = "" },
                 symbols = { added = " ", modified = " ", removed = " " },
@@ -189,6 +208,7 @@ return {
                         filetype,
                         filename,
                         location,
+                        progress,
                     },
                     lualine_x = {
                         "overseer",
@@ -212,6 +232,7 @@ return {
                 },
                 inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
                 extensions = {
+                    "mason",
                     "fugitive",
                     "fzf",
                     "lazy",
