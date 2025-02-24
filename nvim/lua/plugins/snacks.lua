@@ -9,7 +9,7 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         bufdelete = { enabled = true },
-        explorer = { enabled = true },
+        -- explorer = { enabled = true },
         indent = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
@@ -26,13 +26,13 @@ return {
         words = { enabled = true },
     },
     keys = {
-        {
-            "<leader>e",
-            function()
-                Snacks.explorer()
-            end,
-            desc = "Explorer",
-        },
+        -- {
+        --     "<leader>e",
+        --     function()
+        --         Snacks.explorer()
+        --     end,
+        --     desc = "Explorer",
+        -- },
         {
             "<leader>x",
             function()
