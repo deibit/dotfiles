@@ -32,10 +32,10 @@ return {
     },
     config = function()
         -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-        vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-        vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-        vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-        vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+        vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
         require("neo-tree").setup({
             close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -54,6 +54,20 @@ return {
             --       end
             --   end , -- this sorts files and directories descendantly
             default_component_configs = {
+                diagnostics = {
+                    symbols = {
+                        hint = "",
+                        info = "",
+                        warn = "",
+                        error = "",
+                    },
+                    highlights = {
+                        hint = "DiagnosticSignHint",
+                        info = "DiagnosticSignInfo",
+                        warn = "DiagnosticSignWarn",
+                        error = "DiagnosticSignError",
+                    },
+                },
                 container = {
                     enable_character_fade = true,
                 },
@@ -245,7 +259,7 @@ return {
                     },
                 },
                 follow_current_file = {
-                    enabled = false, -- This will find and focus the file in the active buffer every time
+                    enabled = true, -- This will find and focus the file in the active buffer every time
                     --               -- the current file is changed while the tree is open.
                     leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                 },
@@ -255,7 +269,7 @@ return {
                 -- "open_current",  -- netrw disabled, opening a directory opens within the
                 -- window like netrw would, regardless of window.position
                 -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-                use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+                use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                 -- instead of relying on nvim autocmd events.
                 window = {
                     mappings = {

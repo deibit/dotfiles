@@ -166,7 +166,7 @@ return {
             local dia = {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
-                symbols = { error = " ", warn = " ", info = " ", hint = " " },
+                symbols = { error = " ", warn = " ", info = " ", hint = " " },
                 diagnostics_color = {
                     error = { fg = colors.red },
                     warn = { fg = colors.yellow },
