@@ -55,7 +55,7 @@ return {
             desc = "Grep picker",
         },
         {
-            "<leader>s",
+            "<leader><leader>",
             function()
                 Snacks.picker.grep_buffers()
             end,

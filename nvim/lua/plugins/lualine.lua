@@ -182,7 +182,7 @@ return {
                     return getLspName()
                 end,
                 separator = { left = "", right = "" },
-                color = { bg = colors.purple, fg = colors.bg, gui = "italic,bold" },
+                color = { bg = colors.rosewater, fg = colors.bg, gui = "italic,bold" },
             }
 
             local python = {
