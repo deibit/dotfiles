@@ -14,7 +14,6 @@ return {
         gitbrowse = { enabled = true },
         input = { enabled = true },
         lazygit = { enabled = true },
-        picker = { enabled = true },
         notifier = { enabled = true },
         rename = { enabled = true },
         quickfile = { enabled = true },
@@ -24,6 +23,17 @@ return {
         terminal = { enabled = true },
         toggle = { enabled = true },
         words = { enabled = true },
+        picker = {
+            enabled = true,
+            icons = {
+                diagnostics = {
+                    Error = " ",
+                    Warn = " ",
+                    Hint = " ",
+                    Info = " ",
+                },
+            },
+        },
     },
     keys = {
         -- {
@@ -187,6 +197,13 @@ return {
                 Snacks.picker.registers()
             end,
             desc = "Registers",
+        },
+        {
+            "<leader>rt",
+            function()
+                Snacks.picker.treesitter()
+            end,
+            desc = "Treesitter picker",
         },
         {
             "<leader>rd",
