@@ -44,3 +44,5 @@ symbol = ' '
 format = '[ $version](bold blue) '
 
 [python]
+
+[direnv]
