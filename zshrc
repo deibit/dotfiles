@@ -69,7 +69,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf vi-mode)
+plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -114,6 +114,10 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Fast export from .env file
 alias superenv='export $(cat .env)'
+
+# Bind some needed keys
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
 
 # Some alias
 
