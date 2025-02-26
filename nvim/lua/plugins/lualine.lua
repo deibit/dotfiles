@@ -231,6 +231,8 @@ return {
                         branch,
                         filetype,
                         filename,
+                        location,
+                        progress,
                     },
                     lualine_x = {
                         "overseer",
