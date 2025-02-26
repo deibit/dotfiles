@@ -39,7 +39,7 @@ return {
             local colors = require("catppuccin.palettes.macchiato")
 
             local modecolor = {
-                n = colors.red,
+                n = colors.sky,
                 i = colors.green,
                 v = colors.mauve,
                 [""] = colors.mauve,
@@ -58,7 +58,7 @@ return {
                 rm = colors.sky,
                 ["r?"] = colors.sky,
                 ["!"] = colors.red,
-                t = colors.maroon,
+                t = colors.green,
             }
 
             local space = {
@@ -128,8 +128,31 @@ return {
                 },
             }
 
+            local mode_map = {
+                ["NORMAL"] = "NORM",
+                ["O-PENDING"] = "N?",
+                ["INSERT"] = "INS",
+                ["VISUAL"] = "V",
+                ["V-BLOCK"] = "VB",
+                ["V-LINE"] = "VL",
+                ["V-REPLACE"] = "VR",
+                ["REPLACE"] = "R",
+                ["COMMAND"] = "$",
+                ["SHELL"] = "",
+                ["TERMINAL"] = "",
+                ["EX"] = "X",
+                ["S-BLOCK"] = "SB",
+                ["S-LINE"] = "SL",
+                ["SELECT"] = "S",
+                ["CONFIRM"] = "Y?",
+                ["MORE"] = "M",
+            }
+
             local modes = {
                 "mode",
+                fmt = function(s)
+                    return mode_map[s] or s
+                end,
                 color = function()
                     local mode_color = modecolor
                     return { bg = mode_color[vim.fn.mode()], fg = colors.base, gui = "bold" }
@@ -138,9 +161,10 @@ return {
             }
 
             local function getLspName()
-                local bufnr = vim.api.nvim_get_current_buf()
-                local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
-                local buf_ft = vim.bo.filetype
+                -- local bufnr = vim.api.nvim_get_current_buf()
+                local buf_clients = vim.lsp.get_clients()
+                -- local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+                -- local buf_ft = vim.bo.filetype
                 if next(buf_clients) == nil then
                     return "  No servers"
                 end
