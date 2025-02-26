@@ -117,7 +117,7 @@ return {
             local diff = {
                 "diff",
                 source = diff_source,
-                color = { bg = colors.base, fg = colors.teal, gui = "bold" },
+                color = { bg = colors.gray1, fg = colors.teal, gui = "bold" },
                 separator = { left = "", right = "" },
                 symbols = { added = " ", modified = " ", removed = " " },
 
@@ -173,8 +173,8 @@ return {
                     info = { fg = colors.maeve },
                     hint = { fg = colors.sapphire },
                 },
-                color = { bg = colors.surface1, fg = colors.blue, gui = "bold" },
-                separator = { left = "" },
+                color = { bg = colors.base, fg = colors.blue, gui = "bold" },
+                separator = { left = "", right = "" },
             }
 
             local lsp = {
