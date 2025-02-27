@@ -243,7 +243,7 @@ return {
                     lualine_z = { dia, lsp, python },
                 },
                 inactive_sections = {
-                    lualine_a = {},
+                    lualine_a = { { "filename", path = 1 } },
                     lualine_b = {},
                     lualine_c = {},
                     lualine_x = {},
@@ -251,10 +251,8 @@ return {
                     lualine_z = {},
                 },
                 tabline = {},
-                winbar = {
-                    lualine_a = { { "filename", path = 1 } },
-                },
-                inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
+                winbar = {},
+                inactive_winbar = {},
                 extensions = {
                     "mason",
                     "fugitive",
