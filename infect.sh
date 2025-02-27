@@ -1,28 +1,37 @@
 # FZF
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  brew install fzf
+  echo "Brewing..."
+  # brew install fzf tmux neovim zsh lazygit delta git wezterm starchip eza direnv uv
 
 # Asuming Linux
+
+#TODO: apt install <list_of_packages>
 else
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
 fi
 
 # Oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-REPO="$HOME/dotfiles"
+directories=(lazygit wezterm eza tmux direnv)
 
-ln -sfn "$REPO/tmux.conf" ~/.tmux.conf
-ln -sfn "$REPO/zshrc" ~/.zshrc
-ln -sfn "$REPO/zprofile" ~/.zprofile
-ln -sfn "$REPO/nvim" ~/.config/nvim
-ln -sfn "$REPO/gitconfig" ~/.gitconfig
+function makedirs() {
+  for i in "${directories[@]}"; do
+    d="$XDG_CONFIG_HOME/$i"
+    echo "Making $d"
+    mkdir $d
+  done
+}
 
-[ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim
+makedirs
 
-[ -d $HOME/.config/lazygit ] || mkdir -p $HOME/.config/lazygit
-ln -sfn "$REPO/lazygit.yml" ~/.config/lazygit/config.yml
+echo "Making links..."
+ln -sfn ./tmux.conf $HOME/.tmux.conf
+ln -sfn ./zshrc $HOME/.zshrc
+ln -sfn ./zprofile $HOME/.zprofile
+ln -sfn ./nvim $XDG_CONFIG_HOME/nvim
+ln -sfn ./gitconfig $HOME/.gitconfig
+ln -sfn ./lazygit.yml $XDG_CONFIG_HOME/lazygit/config.yml
 
-[ -d $HOME/.config/wezterm ] || mkdir -p $HOME/.config/wezterm
-ln -sfn "$REPO/wezterm.lua" ~/.config/wezterm/wezterm.lua
+echo "Done."
