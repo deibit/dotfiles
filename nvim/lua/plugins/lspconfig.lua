@@ -18,6 +18,7 @@ return {
 
         local no_config_servers = {
             "autotools_ls",
+            "bashls",
             "clangd",
             "cssls",
             "docker_compose_language_service",

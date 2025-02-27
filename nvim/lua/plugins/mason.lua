@@ -26,6 +26,7 @@ return {
             },
             ensure_installed = {
                 "autotools-language-server",
+                "bash-language-server",
                 "clangd",
                 "clang-format",
                 "css-lsp",
