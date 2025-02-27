@@ -34,6 +34,6 @@ ln -sfn ./nvim $XDG_CONFIG_HOME/nvim
 ln -sfn ./gitconfig $HOME/.gitconfig
 ln -sfn ./lazygit.yml $XDG_CONFIG_HOME/lazygit/config.yml
 ln -sfn ./lazygit.yml $XDG_CONFIG_HOME/lazygit/config.yml
-ln -sfn ./direnvrc $XDG_CONFIG_HOME/direnv/direnvr
+ln -sfn ./direnvrc $XDG_CONFIG_HOME/direnv/direnvrc
 
 echo "Done."

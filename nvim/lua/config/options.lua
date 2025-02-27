@@ -13,7 +13,6 @@ vim.opt.hidden = true
 vim.opt.history = 1000
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
-vim.opt.lazyredraw = true
 vim.opt.linebreak = true
 vim.opt.mouse = "a"
 vim.opt.number = true
