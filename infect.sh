@@ -1,19 +1,3 @@
-# FZF
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  echo "Brewing..."
-  # brew install fzf tmux neovim zsh lazygit delta git wezterm starchip eza direnv uv
-
-# Asuming Linux
-
-#TODO: apt install <list_of_packages>
-else
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-fi
-
-# Oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 directories=(lazygit wezterm eza tmux direnv)
 
 function makedirs() {
