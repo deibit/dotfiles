@@ -46,3 +46,9 @@ format = '[ $version](bold blue) '
 [python]
 
 [direnv]
+
+[git_branch]
+symbol = ' '
+
+[git_status]
+up_to_date = '󰸞(green)'
