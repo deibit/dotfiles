@@ -51,4 +51,6 @@ format = '[ $version](bold blue) '
 symbol = ' '
 
 [git_status]
-up_to_date = '󰸞(green)'
+up_to_date = '[󰸞](green)'
+modified = '[!](blue)'
+stashed = '[](blue)'
