@@ -19,4 +19,4 @@ require("config.functions")
 -- Lazy configuration
 require("lazy").setup("plugins")
 
-vim.cmd([[colorscheme catppuccin-macchiato]])
+vim.cmd([[colorscheme tokyonight-storm]])

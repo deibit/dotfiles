@@ -3,7 +3,7 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-            theme = "auto",
+            theme = "tokyonight",
             -- theme = {
             -- 	-- We are going to use lualine_c an lualine_x as left and
             -- 	-- right section. Both are highlighted by c theme .  So we
@@ -36,14 +36,14 @@ return {
                 return venv
             end
 
-            local colors = require("catppuccin.palettes.macchiato")
+            local colors = require("tokyonight.colors").setup({ style = "storm" })
 
             local modecolor = {
-                n = colors.sky,
+                n = colors.red,
                 i = colors.green,
-                v = colors.mauve,
-                [""] = colors.mauve,
-                V = colors.mauve,
+                v = colors.purple,
+                [""] = colors.purple,
+                V = colors.purple,
                 c = colors.yellow,
                 no = colors.red,
                 s = colors.yellow,
@@ -51,56 +51,56 @@ return {
                 [""] = colors.yellow,
                 ic = colors.yellow,
                 R = colors.green,
-                Rv = colors.mauve,
+                Rv = colors.purple,
                 cv = colors.red,
                 ce = colors.red,
-                r = colors.mauve,
-                rm = colors.sky,
-                ["r?"] = colors.sky,
+                r = colors.purple,
+                rm = colors.blue,
+                ["r?"] = colors.blue,
                 ["!"] = colors.red,
                 t = colors.green,
-            }
-
-            local space = {
-                function()
-                    return " "
-                end,
-                color = { bg = colors.base, fg = colors.blue },
-                separator = {},
-            }
-
-            local filename = {
-                "filename",
-                color = { bg = colors.blue, fg = colors.surface0, gui = "bold" },
-                separator = { left = "", right = "" },
-                path = 1,
-            }
-
-            local filetype = {
-                "filetype",
-                icons_enabled = true,
-                color = { bg = colors.gray2, fg = colors.blue, gui = "italic,bold" },
-                separator = { left = "", right = "" },
             }
 
             local branch = {
                 "branch",
                 icon = "",
                 source = "b:gitsigns_head",
-                color = { bg = colors.mauve, fg = colors.base, gui = "bold" },
-                separator = { left = "", right = "" },
+                color = { bg = colors.blue1, fg = colors.bg, gui = "bold" },
+                separator = { right = "" },
+            }
+
+            local space = {
+                function()
+                    return " "
+                end,
+                color = { bg = colors.bg, fg = colors.blue },
+                separator = {},
+            }
+
+            local filetype = {
+                "filetype",
+                icons_enabled = true,
+                color = { bg = colors.bg, fg = colors.blue, gui = "italic,bold" },
+                separator = { right = "" },
+            }
+
+            local filename = {
+                "filename",
+                color = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+                separator = { right = "" },
+                path = 1,
             }
 
             local location = {
                 "location",
-                color = { bg = colors.peach, fg = colors.surface0, gui = "bold" },
-                separator = { left = "", right = "" },
+                color = { bg = colors.bg, fg = colors.teal },
+                separator = { right = "" },
             }
 
             local progress = {
                 "progress",
-                color = { bg = colors.sapphire, fg = colors.surface0, gui = "bold" },
-                separator = { left = "", right = "" },
+                color = { bg = colors.bg, fg = colors.orange },
+                separator = { right = "" },
             }
 
             local function diff_source()
@@ -117,8 +117,8 @@ return {
             local diff = {
                 "diff",
                 source = diff_source,
-                color = { bg = colors.gray1, fg = colors.teal, gui = "bold" },
-                separator = { left = "", right = "" },
+                color = { bg = colors.bg_dark, gui = "bold" },
+                separator = { left = "" },
                 symbols = { added = " ", modified = " ", removed = " " },
 
                 diff_color = {
@@ -155,9 +155,9 @@ return {
                 end,
                 color = function()
                     local mode_color = modecolor
-                    return { bg = mode_color[vim.fn.mode()], fg = colors.base, gui = "bold" }
+                    return { bg = mode_color[vim.fn.mode()], fg = colors.bg, gui = "bold" }
                 end,
-                separator = { left = "", right = "" },
+                separator = { right = "" },
             }
 
             local function getLspName()
@@ -193,20 +193,20 @@ return {
                 symbols = { error = " ", warn = " ", info = " ", hint = " " },
                 diagnostics_color = {
                     error = { fg = colors.red },
-                    warn = { fg = colors.yellow },
-                    info = { fg = colors.maeve },
-                    hint = { fg = colors.sapphire },
+                    warn = { fg = colors.warning },
+                    info = { fg = colors.info },
+                    hint = { fg = colors.hint },
                 },
-                color = { bg = colors.base, fg = colors.blue, gui = "bold" },
-                separator = { left = "", right = "" },
+                color = { bg = colors.bg, fg = colors.blue, gui = "bold" },
+                separator = { left = "" },
             }
 
             local lsp = {
                 function()
                     return getLspName()
                 end,
-                separator = { left = "", right = "" },
-                color = { bg = colors.rosewater, fg = colors.bg, gui = "italic,bold" },
+                separator = { left = "" },
+                color = { bg = colors.green1, fg = colors.bg, gui = "italic,bold" },
             }
 
             local python = {
@@ -218,15 +218,15 @@ return {
                 cond = function()
                     return vim.bo.filetype == "python"
                 end,
-                color = { fg = colors.surface0, bg = colors.green, gui = "bold" },
+                color = { fg = colors.bg, bg = colors.green, gui = "bold" },
                 icon = "",
-                separator = { left = "", right = "" },
+                separator = { right = "" },
             }
 
             require("lualine").setup({
                 sections = {
                     lualine_a = { modes },
-                    lualine_b = { space },
+                    lualine_b = {},
                     lualine_c = {
                         branch,
                         filetype,
@@ -239,8 +239,8 @@ return {
                         "searchcount",
                         "selectioncount",
                     },
-                    lualine_y = { diff },
-                    lualine_z = { dia, lsp, python },
+                    lualine_y = {},
+                    lualine_z = { lsp, python, diff, dia },
                 },
                 inactive_sections = {
                     lualine_a = { { "filename", path = 1 } },

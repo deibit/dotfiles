@@ -37,6 +37,9 @@ crust = "#181926"
 [package]
 disabled = true
 
+[cmd_duration]
+disabled = true
+
 [jobs]
 symbol = ' '
 
@@ -51,6 +54,7 @@ format = '[ $version](bold blue) '
 symbol = ' '
 
 [git_status]
+format = '[\[$all_status$ahead_behind\]](blue) '
 up_to_date = '[󰸞](green)'
 modified = '[!](blue)'
 stashed = '[](blue)'
