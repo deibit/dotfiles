@@ -104,7 +104,8 @@ precmd_functions+=(_fix_cursor)
 # zplug load
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
-export GOPATH="/Users/davidgarcia/go"
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/go/bin"
 export PATH="/opt/homebrew/bin:$GOPATH:$PATH"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'

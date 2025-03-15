@@ -48,9 +48,8 @@ vim.api.nvim_set_keymap("v", "<C-c>", '"+y<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap("v", "<C-x>", '"+d<CR>', { noremap = true, silent = true, desc = "cut to clipboard" })
 vim.api.nvim_set_keymap("n", "<leader>p", "o<Esc>p", { noremap = true, silent = true, desc = "paste from clipboard" })
 
--- Fast escape and write
-vim.api.nvim_set_keymap("i", "jj", "<Esc>:w<cr>", { noremap = true, silent = true, desc = "fast escape / write" })
-vim.api.nvim_set_keymap("i", "<Esc>", "<Esc>:w<cr>", { noremap = true, silent = true, desc = "fast escape / write" })
+-- Fast escape
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "fast escape / write" })
 
 -- Fast search / and ?
 vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "fast /" })
