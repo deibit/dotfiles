@@ -57,14 +57,6 @@ vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, de
 -- Redo with 'U'
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })
 
--- Format entire buffer
-vim.api.nvim_set_keymap(
-    "n",
-    "<Leader>gj",
-    "ggvGgq",
-    { noremap = true, silent = true, desc = "Format the entire buffer" }
-)
-
 -- LSP
 vim.api.nvim_set_keymap(
     "n",
