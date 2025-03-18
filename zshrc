@@ -164,6 +164,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # brew
 export HOMEBREW_NO_AUTO_UPDATE=1
+alias brewup="brew update && brew upgrade && brew cleanup"
 
 # Created by `pipx` on 2024-07-19 11:43:10
 export PATH="$PATH:/Users/davidgarcia/.local/bin"
