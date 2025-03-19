@@ -28,6 +28,7 @@ return {
             "yamlls",
             "intelephense",
             "pyright",
+            "zls",
         }
 
         local capabilities = require("blink.cmp").get_lsp_capabilities()
