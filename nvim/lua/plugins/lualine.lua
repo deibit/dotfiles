@@ -161,9 +161,9 @@ return {
             }
 
             local function getLspName()
-                -- local bufnr = vim.api.nvim_get_current_buf()
-                local buf_clients = vim.lsp.get_clients()
-                -- local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+                local bufnr = vim.api.nvim_get_current_buf()
+                -- local buf_clients = vim.lsp.get_clients()
+                local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
                 -- local buf_ft = vim.bo.filetype
                 if next(buf_clients) == nil then
                     return "  No servers"
