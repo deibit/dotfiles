@@ -2,26 +2,6 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            theme = "tokyonight",
-            -- theme = {
-            -- 	-- We are going to use lualine_c an lualine_x as left and
-            -- 	-- right section. Both are highlighted by c theme .  So we
-            -- 	-- are just setting default looks o statusline
-            -- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
-            -- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
-            -- },
-            icons_enabled = true,
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
-            disabled_filetypes = {
-                statusline = { "neo-tree", "trouble" },
-                winbar = { "neo-tree", "trouble" },
-            },
-            globalstatus = true,
-            ignore_focus = {},
-            always_divide_middle = true,
-        },
 
         config = function()
             local function get_venv(variable)
@@ -65,7 +45,7 @@ return {
                 "branch",
                 icon = "",
                 source = "b:gitsigns_head",
-                color = { bg = colors.blue1, fg = colors.bg, gui = "bold" },
+                color = { bg = colors.blue1, fg = colors.bg, gui = "" },
                 separator = { right = "" },
             }
 
@@ -80,13 +60,13 @@ return {
             local filetype = {
                 "filetype",
                 icons_enabled = true,
-                color = { bg = colors.bg, fg = colors.blue, gui = "italic,bold" },
+                color = { bg = colors.bg, fg = colors.blue, gui = "italic" },
                 separator = { right = "" },
             }
 
             local filename = {
                 "filename",
-                color = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+                color = { bg = colors.blue, fg = colors.bg, gui = "" },
                 separator = { right = "" },
                 path = 1,
             }
@@ -117,7 +97,7 @@ return {
             local diff = {
                 "diff",
                 source = diff_source,
-                color = { bg = colors.bg_dark, gui = "bold" },
+                color = { bg = colors.bg_dark, gui = "" },
                 separator = { left = "" },
                 symbols = { added = " ", modified = " ", removed = " " },
 
@@ -155,7 +135,7 @@ return {
                 end,
                 color = function()
                     local mode_color = modecolor
-                    return { bg = mode_color[vim.fn.mode()], fg = colors.bg, gui = "bold" }
+                    return { bg = mode_color[vim.fn.mode()], fg = colors.bg, gui = "" }
                 end,
                 separator = { right = "" },
             }
@@ -197,7 +177,7 @@ return {
                     info = { fg = colors.info },
                     hint = { fg = colors.hint },
                 },
-                color = { bg = colors.bg, fg = colors.blue, gui = "bold" },
+                color = { bg = colors.bg, fg = colors.blue, gui = "" },
                 separator = { left = "" },
             }
 
@@ -206,7 +186,7 @@ return {
                     return getLspName()
                 end,
                 separator = { left = "" },
-                color = { bg = colors.green1, fg = colors.bg, gui = "italic,bold" },
+                color = { bg = colors.green1, fg = colors.bg, gui = "italic" },
             }
 
             local python = {
@@ -218,12 +198,32 @@ return {
                 cond = function()
                     return vim.bo.filetype == "python"
                 end,
-                color = { fg = colors.bg, bg = colors.green, gui = "bold" },
+                color = { fg = colors.bg, bg = colors.green, gui = "" },
                 icon = "",
                 separator = { right = "" },
             }
 
             require("lualine").setup({
+                options = {
+                    theme = "tokyonight",
+                    -- theme = {
+                    -- 	-- We are going to use lualine_c an lualine_x as left and
+                    -- 	-- right section. Both are highlighted by c theme .  So we
+                    -- 	-- are just setting default looks o statusline
+                    -- 	normal = { c = { fg = colors.fg, bg = colors.bg } },
+                    -- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
+                    -- },
+                    icons_enabled = true,
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                    disabled_filetypes = {
+                        "neo-tree",
+                        "trouble",
+                    },
+                    globalstatus = true,
+                    ignore_focus = { "neo-tree" },
+                    always_divide_middle = true,
+                },
                 sections = {
                     lualine_a = { modes },
                     lualine_b = {},
@@ -259,7 +259,6 @@ return {
                     "fzf",
                     "lazy",
                     "neo-tree",
-                    "nvim-tree",
                     "quickfix",
                     "trouble",
                 },
