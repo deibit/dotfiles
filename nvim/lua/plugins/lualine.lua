@@ -230,9 +230,7 @@ return {
                     lualine_c = {
                         branch,
                         filetype,
-                        filename,
-                        location,
-                        progress,
+                        -- filename,
                     },
                     lualine_x = {
                         "overseer",
@@ -240,10 +238,11 @@ return {
                         "selectioncount",
                     },
                     lualine_y = {},
-                    lualine_z = { lsp, python, diff, dia },
+                    lualine_z = { lsp, python, diff, dia, progress },
                 },
                 inactive_sections = {
-                    lualine_a = { { "filename", path = 1 } },
+                    -- lualine_a = { { "filename", path = 1 } },
+                    lualine_a = {},
                     lualine_b = {},
                     lualine_c = {},
                     lualine_x = {},
@@ -251,8 +250,8 @@ return {
                     lualine_z = {},
                 },
                 tabline = {},
-                winbar = {},
-                inactive_winbar = {},
+                winbar = { lualine_a = { { "filename", path = 1 } } },
+                inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
                 extensions = {
                     "mason",
                     "fugitive",
