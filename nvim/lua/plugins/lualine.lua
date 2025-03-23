@@ -16,6 +16,8 @@ return {
                 return venv
             end
 
+            -- colors
+
             local colors = require("tokyonight.colors").setup({ style = "storm" })
 
             local modecolor = {
@@ -41,6 +43,8 @@ return {
                 t = colors.green,
             }
 
+            -- git branch
+
             local branch = {
                 "branch",
                 icon = "",
@@ -48,6 +52,8 @@ return {
                 color = { bg = colors.blue1, fg = colors.bg, gui = "" },
                 separator = { right = "" },
             }
+
+            -- simple space
 
             local space = {
                 function()
@@ -57,6 +63,8 @@ return {
                 separator = {},
             }
 
+            -- filetype
+
             local filetype = {
                 "filetype",
                 icons_enabled = true,
@@ -64,12 +72,16 @@ return {
                 separator = { right = "" },
             }
 
+            -- filename
+
             local filename = {
                 "filename",
                 color = { bg = colors.blue, fg = colors.bg, gui = "" },
                 separator = { right = "" },
                 path = 1,
             }
+
+            -- location and progress
 
             local location = {
                 "location",
@@ -82,6 +94,8 @@ return {
                 color = { bg = colors.bg, fg = colors.orange },
                 separator = { right = "" },
             }
+
+            -- git diff component
 
             local function diff_source()
                 local gitsigns = vim.b.gitsigns_status_dict
@@ -107,6 +121,8 @@ return {
                     removed = { fg = colors.red },
                 },
             }
+
+            -- custom modes
 
             local mode_map = {
                 ["NORMAL"] = "NORM",
@@ -140,6 +156,8 @@ return {
                 separator = { right = "" },
             }
 
+            -- LSP
+
             local function getLspName()
                 local bufnr = vim.api.nvim_get_current_buf()
                 -- local buf_clients = vim.lsp.get_clients()
@@ -167,6 +185,16 @@ return {
                 return "  " .. language_servers
             end
 
+            local lsp = {
+                function()
+                    return getLspName()
+                end,
+                separator = { left = "" },
+                color = { bg = colors.green1, fg = colors.bg, gui = "italic" },
+            }
+
+            -- diagnostics
+
             local dia = {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
@@ -181,13 +209,7 @@ return {
                 separator = { left = "" },
             }
 
-            local lsp = {
-                function()
-                    return getLspName()
-                end,
-                separator = { left = "" },
-                color = { bg = colors.green1, fg = colors.bg, gui = "italic" },
-            }
+            -- python virtualenv name
 
             local python = {
                 function()
@@ -200,6 +222,18 @@ return {
                 end,
                 color = { fg = colors.bg, bg = colors.green, gui = "" },
                 icon = "",
+                separator = { right = "" },
+            }
+
+            -- treesitter info
+
+            local ts = require("nvim-treesitter")
+            local breadcrumb = {
+                function()
+                    local bc = ts.statusline(90)
+                    return bc
+                end,
+                color = { fg = colors.bg, bg = colors.green, gui = "" },
                 separator = { right = "" },
             }
 
@@ -231,6 +265,7 @@ return {
                         branch,
                         filetype,
                         -- filename,
+                        breadcrumb,
                     },
                     lualine_x = {
                         "overseer",
