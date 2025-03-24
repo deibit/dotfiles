@@ -255,7 +255,7 @@ return {
                         "trouble",
                     },
                     globalstatus = true,
-                    ignore_focus = { "neo-tree" },
+                    ignore_focus = { "neo-tree", "snacks_picker_list" },
                     always_divide_middle = true,
                 },
                 sections = {

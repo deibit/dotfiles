@@ -15,6 +15,8 @@ local diagnostics_layout = {
     },
 }
 
+local explorer_window_picker = { win = { list = { keys = { ["<CR>"] = { { "pick_win", "jump" } } } } } }
+
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -26,7 +28,7 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         bufdelete = { enabled = true },
-        -- explorer = { enabled = true },
+        explorer = { enabled = true },
         indent = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
@@ -53,13 +55,13 @@ return {
         },
     },
     keys = {
-        -- {
-        --     "<leader>e",
-        --     function()
-        --         Snacks.explorer()
-        --     end,
-        --     desc = "Explorer",
-        -- },
+        {
+            "<leader>e",
+            function()
+                Snacks.explorer(explorer_window_picker)
+            end,
+            desc = "Explorer",
+        },
         {
             "<leader>x",
             function()
