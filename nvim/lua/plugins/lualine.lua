@@ -111,8 +111,8 @@ return {
             local diff = {
                 "diff",
                 source = diff_source,
-                color = { bg = colors.bg_dark, gui = "" },
-                separator = { left = "" },
+                color = { bg = "#414868", gui = "" },
+                separator = { right = "" },
                 symbols = { added = " ", modified = " ", removed = " " },
 
                 diff_color = {
@@ -253,8 +253,9 @@ return {
                     disabled_filetypes = {
                         "neo-tree",
                         "trouble",
+                        "snacks_picker_list",
                     },
-                    globalstatus = true,
+                    globalstatus = false,
                     ignore_focus = { "neo-tree", "snacks_picker_list" },
                     always_divide_middle = true,
                 },
@@ -263,6 +264,7 @@ return {
                     lualine_b = {},
                     lualine_c = {
                         branch,
+                        diff,
                         filetype,
                         -- filename,
                         breadcrumb,
@@ -272,8 +274,8 @@ return {
                         "searchcount",
                         "selectioncount",
                     },
-                    lualine_y = {},
-                    lualine_z = { lsp, python, diff, dia, progress },
+                    lualine_y = { dia },
+                    lualine_z = { lsp, python },
                 },
                 inactive_sections = {
                     -- lualine_a = { { "filename", path = 1 } },

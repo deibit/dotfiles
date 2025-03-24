@@ -15,7 +15,7 @@ local diagnostics_layout = {
     },
 }
 
-local explorer_window_picker = { win = { list = { keys = { ["<CR>"] = { { "pick_win", "jump" } } } } } }
+local explorer_window_picker = { win = { list = { keys = { ["w"] = { { "pick_win", "jump" } } } } } }
 
 return {
     "folke/snacks.nvim",
