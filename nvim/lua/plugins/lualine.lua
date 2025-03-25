@@ -122,6 +122,14 @@ return {
                 },
             }
 
+            -- navic
+
+            local navic = {
+                "navic",
+                color = { fg = colors.red },
+                separator = { right = "" },
+            }
+
             -- custom modes
 
             local mode_map = {
@@ -267,7 +275,7 @@ return {
                         diff,
                         filetype,
                         -- filename,
-                        breadcrumb,
+                        navic,
                     },
                     lualine_x = {
                         "overseer",
@@ -290,6 +298,7 @@ return {
                 winbar = { lualine_a = { { "filename", path = 1 } } },
                 inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
                 extensions = {
+                    "navic",
                     "mason",
                     "fugitive",
                     "fzf",
