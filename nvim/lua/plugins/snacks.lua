@@ -32,7 +32,7 @@ return {
         indent = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
-        lazygit = { enabled = true },
+        lazygit = { enabled = false },
         notifier = { enabled = true },
         rename = { enabled = true },
         quickfile = { enabled = true },
@@ -266,13 +266,6 @@ return {
                 Snacks.picker.keymaps()
             end,
             desc = "Keymaps",
-        },
-        {
-            "<leader>lg",
-            function()
-                Snacks.lazygit.open()
-            end,
-            desc = "Lazygit",
         },
         {
             "<leader>t",

@@ -298,7 +298,6 @@ return {
                 winbar = { lualine_a = { { "filename", path = 1 } } },
                 inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
                 extensions = {
-                    "navic",
                     "mason",
                     "fugitive",
                     "fzf",

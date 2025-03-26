@@ -10,13 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- lint
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        require("lint").try_lint()
-    end,
-})
-
 -- 2 spaces for selected filetypes
 vim.cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
@@ -38,7 +31,7 @@ vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
 vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
 
 -- For 'tiny-inline-diagnostic'
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ virtual_text = true })
 
 -- Copy filepath to clipboard
 vim.api.nvim_create_user_command("CopyAbsPath", function()
