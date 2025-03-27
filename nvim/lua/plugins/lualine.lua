@@ -113,7 +113,7 @@ return {
                 source = diff_source,
                 color = { bg = "#414868", gui = "" },
                 separator = { right = "" },
-                symbols = { added = " ", modified = " ", removed = " " },
+                symbols = { added = " ", modified = " ", removed = " " },
 
                 diff_color = {
                     added = { fg = colors.green },

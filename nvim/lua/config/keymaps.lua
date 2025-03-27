@@ -58,12 +58,12 @@ vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, de
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })
 
 -- LSP
-vim.api.nvim_set_keymap(
-    "n",
-    "gd",
-    "",
-    { callback = vim.lsp.buf.definition, noremap = true, silent = true, desc = "Goto definition" }
-)
+-- vim.api.nvim_set_keymap(
+--     "n",
+--     "gd",
+--     "",
+--     { callback = vim.lsp.buf.definition, noremap = true, silent = true, desc = "Goto definition" }
+-- )
 
 -- Copy filepath to clipboard
 vim.api.nvim_set_keymap(

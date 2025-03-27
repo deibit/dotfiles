@@ -30,9 +30,6 @@ vim.cmd([[
 vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal textwidth=80]])
 vim.cmd([[autocmd BufRead,BufNewFile *.py setlocal textwidth=80]])
 
--- For 'tiny-inline-diagnostic'
-vim.diagnostic.config({ virtual_text = true })
-
 -- Copy filepath to clipboard
 vim.api.nvim_create_user_command("CopyAbsPath", function()
     local path = vim.fn.expand("%:p")
