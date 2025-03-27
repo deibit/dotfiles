@@ -10,7 +10,6 @@ end
 
 return {
     "stevearc/conform.nvim",
-    event = "BufReadPre",
     config = function()
         vim.g.disable_autoformat = false
         require("conform").setup({
