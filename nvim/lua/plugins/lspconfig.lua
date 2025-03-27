@@ -5,7 +5,6 @@ return {
     dependencies = {
         { "williamboman/mason.nvim", lazy = false },
         { "williamboman/mason-lspconfig.nvim", lazy = false },
-        -- "hrsh7th/cmp-nvim-lsp",
         "saghen/blink.cmp",
     },
     config = function()
