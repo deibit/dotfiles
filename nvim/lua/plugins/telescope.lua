@@ -83,15 +83,36 @@ return {
         { "<leader>K", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
         { "<leader>k", "<cmd>Telescope keymaps<cr>", desc = "Telescope keymaps" },
         { "<leader>o", "<cmd>Teleskope oldfiles<cr>", desc = "Telescope old files" },
-        -- lsp
+        -- lsp diagnostics
         {
             "<leader>d",
             "<cmd>Telescope diagnostics bufnr=0 layout_strategy=vertical<cr>",
             desc = "Telescope diagnostic buffer",
         },
         { "<leader>D", "<cmd>Telescope diagnostics layout_strategy=vertical<cr>", desc = "Telescope diagnostic" },
-        { "<leader>sw", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Telescope lsp workspace symbols" },
+        -- lsp
+        {
+            "<leader>sd",
+            "<cmd>Telescope lsp_definitions<cr>",
+            desc = "Telescope lsp definitions",
+        },
+        {
+            "<leader>si",
+            "<cmd>Telescope lsp_incoming_calls<cr>",
+            desc = "Telescope lsp incoming calls",
+        },
+        {
+            "<leader>so",
+            "<cmd>Telescope lsp_outgoing_calls<cr>",
+            desc = "Telescope lsp outgoing calls",
+        },
+        {
+            "<leader>sr",
+            "<cmd>Telescope lsp_references<cr>",
+            desc = "Telescope lsp references",
+        },
         { "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope lsp document symbols" },
+        { "<leader>sw", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Telescope lsp workspace symbols" },
         -- git
         { "<leader>gt", "<cmd>Telescope git_stash<cr>", desc = "Telescope git stash" },
         { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Telescope git branches" },
