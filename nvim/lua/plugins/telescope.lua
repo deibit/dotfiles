@@ -70,6 +70,7 @@ return {
         { "<leader>R", "<cmd>Telescope registers<cr>", desc = "Telescope registers" },
         { "<leader>f", "<cmd>Telescope find_files layout_strategy=vertical<cr>", desc = "Telescope find files" },
         { "<leader>j", "<cmd>Telescope jumplist<cr>", desc = "Telescope jumplist" },
+        { "<leader>m", "<cmd>Telescope marks<cr>", desc = "Telescope marks" },
         { "<leader>z", '<cmd>Telescope grep_string search="" <cr>', desc = "Telescope live fuzzy grep" },
         {
             "<leader><leader>",
@@ -82,7 +83,6 @@ return {
         { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
         { "<leader>K", "<cmd>Telescope man_pages<cr>", desc = "Telescope man pages" },
         { "<leader>k", "<cmd>Telescope keymaps<cr>", desc = "Telescope keymaps" },
-        { "<leader>o", "<cmd>Teleskope oldfiles<cr>", desc = "Telescope old files" },
         -- lsp diagnostics
         {
             "<leader>d",
