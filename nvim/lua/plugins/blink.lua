@@ -18,10 +18,10 @@ return {
         -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            preset = "enter",
-            ["<Tab>"] = { "select_next", "fallback" },
+            preset = "super-tab",
+            -- ["<Tab>"] = { "select_next", "fallback" },
             -- ["<Down>"] = { "select_next" },
-            ["<S-Tab>"] = { "select_prev", "fallback" },
+            -- ["<S-Tab>"] = { "select_prev", "fallback" },
             -- ["<Up>"] = { "select_prev" },
             -- ["<CR>"] = { "accept" },
             -- ["<C-c>"] = { "cancel" },
@@ -65,7 +65,7 @@ return {
 
         completion = {
             ghost_text = { enabled = true },
-            list = { selection = { preselect = false } },
+            list = { selection = { preselect = true } },
             menu = {
                 draw = {
                     treesitter = { "lsp" },
