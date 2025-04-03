@@ -64,7 +64,10 @@ end
 
 -- Diagnostics
 vim.diagnostic.config({
-    virtual_text = { source = true, current_line = true },
+    virtual_text = false,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = " ",
@@ -74,3 +77,26 @@ vim.diagnostic.config({
         },
     },
 })
+
+vim.cmd([[
+  highlight DiagnosticUnderlineError gui=undercurl guisp=Red
+  highlight DiagnosticUnderlineWarn  gui=undercurl guisp=Orange
+  highlight DiagnosticUnderlineInfo  gui=undercurl guisp=LightBlue
+  highlight DiagnosticUnderlineHint  gui=undercurl guisp=Gray
+]])
+
+-- Abre automáticamente una ventana flotante de diagnóstico al detenerse el cursor
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        vim.diagnostic.open_float(nil, {
+            focusable = false,
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+            border = "rounded",
+            source = "always",
+            prefix = " ",
+            scope = "cursor",
+        })
+    end,
+})
+
+vim.opt.updatetime = 500 -- 500ms
