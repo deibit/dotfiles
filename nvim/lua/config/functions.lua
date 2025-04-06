@@ -1,37 +1,50 @@
--- Search in google word under cursor (pending visual selection)
-vim.api.nvim_set_keymap("n", "<Leader>sg", ":lua SearchGoogle()<CR>", { noremap = true, silent = true })
-
-function SearchGoogle()
-    local word = vim.fn.expand("<cword>")
-    local google_search_url = '"https://www.google.com/search?q=' .. vim.fn.escape(word, "&") .. '"'
-    if vim.fn.has("mac") then
-        vim.cmd("silent !open " .. google_search_url)
-    elseif vim.fn.has("unix") then
-        vim.cmd("silent !xdg-open " .. google_search_url)
-    else
-        print("Cannot open a browser")
+local function urlencode(str)
+    if not str then
+        return ""
     end
-    print(word)
+    str = str:gsub("\n", " ")
+    str = str:gsub("([^%w%-_.~ ])", function(c)
+        return string.format("%%%02X", string.byte(c))
+    end)
+    return str:gsub(" ", "+")
 end
 
-vim.api.nvim_set_keymap("n", "<leader>sw", ":lua SearchGoogle()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader>sw", ":<C-U>lua SearchGoogle(true)<CR>", { noremap = true, silent = true })
-
-function SearchGoogle(is_visual)
-    local search_term = ""
-    if is_visual then
-        -- Obtener la selección visual
-        vim.cmd('normal! "vy')
-        search_term = vim.fn.getreg("v")
-    else
-        -- Obtener la palabra bajo el cursor en modo normal
-        search_term = vim.fn.expand("<cword>")
+local function get_visual_selection()
+    local mode = vim.fn.mode()
+    if mode ~= "v" and mode ~= "V" and mode ~= "\22" then
+        return nil
     end
-    -- Reemplazar espacios con '+'
-    search_term = search_term:gsub(" ", "+")
-    -- Construir la URL de búsqueda
-    local url = "https://www.google.com/search?q=" .. search_term
-    print(url)
-    -- Abrir la URL en el navegador
-    os.execute('open "' .. url .. '"')
+
+    local save_reg = vim.fn.getreg('"')
+    vim.cmd('normal! "vy')
+    local selected_text = vim.fn.getreg('"')
+    vim.fn.setreg('"', save_reg)
+
+    return selected_text
 end
+
+local function get_url_launcher()
+    local uname = jit.os
+    if uname == "OSX" then
+        return "open"
+    else
+        return "xdg-open"
+    end
+end
+
+local function google_search()
+    local query = get_visual_selection() or vim.fn.expand("<cword>")
+    query = vim.trim(query or "")
+
+    if query == "" then
+        vim.notify("No hay texto para buscar", vim.log.levels.WARN)
+        return
+    end
+
+    local url = "https://www.google.com/search?q=" .. urlencode(query)
+    local launcher = get_url_launcher()
+
+    vim.fn.jobstart({ launcher, url }, { detach = true })
+end
+
+vim.keymap.set({ "n", "v" }, "<leader>sg", google_search, { desc = "Buscar en Google" })
