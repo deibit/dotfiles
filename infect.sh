@@ -1,10 +1,11 @@
+typeset -a directories
 directories=("lazygit" "wezterm" "eza" "tmux" "direnv")
 
 function makedirs() {
   for i in "${directories[@]}"; do
     d="$XDG_CONFIG_HOME/$i"
     echo "Making $d"
-    mkdir $d
+    mkdir -p "$d"
   done
 }
 
