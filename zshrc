@@ -192,3 +192,8 @@ eval "$(direnv hook zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# If we are in ssh session set term to xterm
+if [ -n "$SSH_CONNECTION" ] && [ "$TERM" = "xterm-ghostty" ]; then
+  export TERM="xterm-256color"
+fi
