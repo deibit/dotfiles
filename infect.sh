@@ -1,4 +1,4 @@
-directories=(lazygit wezterm eza tmux direnv)
+directories=("lazygit" "wezterm" "eza" "tmux" "direnv")
 
 function makedirs() {
   for i in "${directories[@]}"; do
@@ -16,7 +16,6 @@ ln -sfn ./zshrc $HOME/.zshrc
 ln -sfn ./zprofile $HOME/.zprofile
 ln -sfn ./nvim $XDG_CONFIG_HOME/nvim
 ln -sfn ./gitconfig $HOME/.gitconfig
-ln -sfn ./lazygit.yml $XDG_CONFIG_HOME/lazygit/config.yml
 ln -sfn ./lazygit.yml $XDG_CONFIG_HOME/lazygit/config.yml
 ln -sfn ./direnvrc $XDG_CONFIG_HOME/direnv/direnvrc
 
