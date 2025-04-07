@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 typeset -a directories
 directories=("lazygit" "wezterm" "eza" "tmux" "direnv")
 
