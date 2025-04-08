@@ -21,6 +21,21 @@ fi
 # Ruta absoluta del directorio donde está este script
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# Detectar sistema operativo
+OS="$(uname)"
+case "$OS" in
+Darwin)
+  SUFFIX="macos"
+  ;;
+Linux)
+  SUFFIX="linux"
+  ;;
+*)
+  echo "${RED}❌ Sistema operativo no reconocido: $OS${RESET}"
+  exit 1
+  ;;
+esac
+
 # Crear directorios
 for i in lazygit wezterm eza tmux direnv; do
   d="$XDG_CONFIG_HOME/$i"
@@ -28,13 +43,25 @@ for i in lazygit wezterm eza tmux direnv; do
   mkdir -p "$d"
 done
 
-# Crear enlaces simbólicos con rutas absolutas
-echo "${INFO} ${BLUE}Creando enlaces simbólicos...${RESET}"
-ln -sfn "$SCRIPT_DIR/tmux.conf" "$HOME/.tmux.conf" && echo "$LINK $HOME/.tmux.conf $CHECK"
+# Crear enlaces simbólicos fijos
+echo "${INFO} ${BLUE}Creando enlaces simbólicos comunes...${RESET}"
 ln -sfn "$SCRIPT_DIR/zshrc" "$HOME/.zshrc" && echo "$LINK $HOME/.zshrc $CHECK"
+ln -sfn "$SCRIPT_DIR/tmux.conf" "$HOME/.tmux.conf" && echo "$LINK $HOME/.tmux.conf $CHECK"
 ln -sfn "$SCRIPT_DIR/nvim" "$XDG_CONFIG_HOME/nvim" && echo "$LINK $XDG_CONFIG_HOME/nvim $CHECK"
 ln -sfn "$SCRIPT_DIR/gitconfig" "$HOME/.gitconfig" && echo "$LINK $HOME/.gitconfig $CHECK"
 ln -sfn "$SCRIPT_DIR/lazygit.yml" "$XDG_CONFIG_HOME/lazygit/config.yml" && echo "$LINK $XDG_CONFIG_HOME/lazygit/config.yml $CHECK"
 ln -sfn "$SCRIPT_DIR/direnvrc" "$XDG_CONFIG_HOME/direnv/direnvrc" && echo "$LINK $XDG_CONFIG_HOME/direnv/direnvrc $CHECK"
+
+# Crear enlaces simbólicos variables (zshenv, zprofile)
+echo "${INFO} ${BLUE}Creando enlaces según el sistema: $SUFFIX...${RESET}"
+for file in zshenv zprofile; do
+  SOURCE="$SCRIPT_DIR/${file}.${SUFFIX}"
+  TARGET="$HOME/.${file}"
+  if [ -f "$SOURCE" ]; then
+    ln -sfn "$SOURCE" "$TARGET" && echo "$LINK $TARGET → ${file}.${SUFFIX} $CHECK"
+  else
+    echo "${RED}⚠️  No se encontró $SOURCE. Omitido.${RESET}"
+  fi
+done
 
 echo "${GREEN}🎉 Todo listo.${RESET}"

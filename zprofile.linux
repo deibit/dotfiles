@@ -1,0 +1,6 @@
+# ~/.zprofile
+
+# If we are ssh to a ghostty sys we do not want to mess the $TERM
+if [ -n "$SSH_CONNECTION" ] && [ "$TERM" = "xterm-ghostty" ]; then
+  export TERM="xterm-256color"
+fi
