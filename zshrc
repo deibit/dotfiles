@@ -156,7 +156,6 @@ alias ......="cd ../../../../.."
 alias c="clear"
 alias lc="lazydocker"
 alias lg="lazygit"
-alias ll="eza -l"
 alias vim="nvim"
 alias z="zoxide"
 
@@ -173,9 +172,6 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 # starship
 eval "$(starship init zsh)"
-
-export EZA_CONFIG_DIR="$HOME/.config/eza"
-export EZA_ICONS_AUTO=1
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"

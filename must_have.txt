@@ -2,7 +2,6 @@ curl
 delta
 direnv
 docker
-eza
 fd
 fzf
 ghostty
