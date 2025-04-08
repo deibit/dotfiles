@@ -12,18 +12,39 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclu
 # Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Alias
+# cd alias
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+
+# ls alias
+alias l="ls -lh"
+alias la="ls -A"
+alias ll="ls -lhA"
+
+# cmds alias
+alias c="clear"
+alias t="tree -L 2"
+alias k9="kill -9"
+alias top10mem="ps aux --sort=-%mem | head -n 10"
+alias top10cpu="ps aux --sort=-%cpu | head -n 10"
+
+# Git alias
 alias gc="git commit -m"
 alias gca="git commit -a -m"
 alias gp="git push origin HEAD"
 alias gpu="git pull origin"
 alias gst="git status"
 alias glog="git log --graph ..."
+
+# Docker alias
+alias dco="docker compose"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker ps -l -q"
+alias dx="docker exec -it"
+
+# Misc alias
 alias vim="nvim"
 alias z="zoxide"
 alias superenv='export $(cat .env)'
