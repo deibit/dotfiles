@@ -1,0 +1,18 @@
+# ~/.zshenv (Linux)
+
+export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR="nvim"
+export LANG="en_US.UTF-8"
+
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$HOME/go/bin"
+export PATH="$PATH:$GOBIN"
+
+# Rust (cargo)
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# Poetry
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
