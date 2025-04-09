@@ -28,6 +28,7 @@ alias t="tree -L 2"
 alias k9="kill -9"
 alias top10mem="ps aux --sort=-%mem | head -n 10"
 alias top10cpu="ps aux --sort=-%cpu | head -n 10"
+alias brewup='brew update && brew upgrade && brew cleanup'
 
 # Git alias
 alias gc="git commit -m"
