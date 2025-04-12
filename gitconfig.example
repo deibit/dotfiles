@@ -1,0 +1,29 @@
+[user]
+	name = <user name>
+	email = <user email>
+
+[core]
+	editor = vim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
+
+[delta]
+    navigate = true
+    line-numbers = true
+    true-color = always
+
+[merge]
+    conflictstyle = zdiff3
+[pull]
+	rebase = true
