@@ -37,7 +37,7 @@ Linux)
 esac
 
 # Crear directorios
-for i in lazygit wezterm eza tmux direnv; do
+for i in lazygit wezterm eza tmux direnv yazi; do
   d="$XDG_CONFIG_HOME/$i"
   echo "${FOLDER} ${GREEN}Creando directorio:${RESET} $d"
   mkdir -p "$d"
@@ -51,6 +51,8 @@ ln -sfn "$SCRIPT_DIR/nvim" "$XDG_CONFIG_HOME/nvim" && echo "$LINK $XDG_CONFIG_HO
 ln -sfn "$SCRIPT_DIR/gitconfig" "$HOME/.gitconfig" && echo "$LINK $HOME/.gitconfig $CHECK"
 ln -sfn "$SCRIPT_DIR/lazygit.yml" "$XDG_CONFIG_HOME/lazygit/config.yml" && echo "$LINK $XDG_CONFIG_HOME/lazygit/config.yml $CHECK"
 ln -sfn "$SCRIPT_DIR/direnvrc" "$XDG_CONFIG_HOME/direnv/direnvrc" && echo "$LINK $XDG_CONFIG_HOME/direnv/direnvrc $CHECK"
+ln -sfn "$SCRIPT_DIR/yazi/yazi.toml" "$XDG_CONFIG_HOME/yazi/yazi.toml" && echo "$LINK $XDG_CONFIG_HOME/yazi/yazi.toml $CHECK"
+ln -sfn "$SCRIPT_DIR/yazi/init.lua" "$XDG_CONFIG_HOME/yazi/init.lua" && echo "$LINK $XDG_CONFIG_HOME/yazi/init.lua $CHECK"
 
 # Crear enlaces simbólicos variables (zshenv, zprofile)
 echo "${INFO} ${BLUE}Creando enlaces según el sistema: $SUFFIX...${RESET}"

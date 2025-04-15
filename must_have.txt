@@ -13,5 +13,5 @@ ripgrep
 starchip
 tmux
 uv
-uv
+yazi
 zsh
