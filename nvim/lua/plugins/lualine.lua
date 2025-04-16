@@ -233,6 +233,16 @@ return {
                 separator = { right = "" },
             }
 
+            -- macro recording
+            local function macro_recording()
+                local recording_register = vim.fn.reg_recording()
+                if recording_register == "" then
+                    return ""
+                else
+                    return "🔴 @" .. recording_register
+                end
+            end
+
             -- treesitter info
 
             local ts = require("nvim-treesitter")
@@ -268,7 +278,7 @@ return {
                     always_divide_middle = true,
                 },
                 sections = {
-                    lualine_a = { modes },
+                    lualine_a = { macro_recording, modes },
                     lualine_b = {},
                     lualine_c = {
                         branch,
@@ -302,7 +312,6 @@ return {
                     "fugitive",
                     "fzf",
                     "lazy",
-                    "neo-tree",
                     "quickfix",
                     "trouble",
                 },

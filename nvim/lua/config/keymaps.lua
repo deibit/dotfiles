@@ -35,7 +35,6 @@ vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true, silent = true, 
 
 -- Disable command line history
 vim.api.nvim_set_keymap("n", "Q", "<Nop>", { noremap = true, silent = true, desc = "Q-nopped" })
-vim.api.nvim_set_keymap("n", "q:", "<Nop>", { noremap = true, silent = true, desc = "q:-nopped" })
 
 -- Emulate windows copy/cut
 vim.api.nvim_set_keymap(
