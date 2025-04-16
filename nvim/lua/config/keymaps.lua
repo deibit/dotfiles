@@ -1,5 +1,10 @@
 vim.g.mapleader = ","
 
+vim.keymap.set("n", "<M-Left>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<M-Down>", "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<M-Up>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<M-Right>", "<C-w>l", { noremap = true })
+
 -- Fast saving
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Write buffer to file" })
 
