@@ -12,6 +12,10 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclu
 # Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# rm alias
+# If you want the non-confirmation version just invoque as: /bin/rm ...
+alias rm="rm -I"
+
 # cd alias
 alias ..="cd .."
 alias ...="cd ../.."

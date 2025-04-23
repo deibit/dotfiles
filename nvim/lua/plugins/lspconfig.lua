@@ -26,7 +26,7 @@ return {
             "jsonls",
             "yamlls",
             "intelephense",
-            "pyright",
+            "basedpyright",
             "zls",
         }
 

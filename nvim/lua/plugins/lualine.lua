@@ -43,6 +43,13 @@ return {
                 t = colors.green,
             }
 
+            -- separators
+
+            -- local right_separator = ""
+            -- local left_separator = ""
+            local right_separator = ""
+            local left_separator = ""
+
             -- git branch
 
             local branch = {
@@ -50,7 +57,7 @@ return {
                 icon = "",
                 source = "b:gitsigns_head",
                 color = { bg = colors.blue1, fg = colors.bg, gui = "" },
-                separator = { right = "" },
+                separator = { right = right_separator },
             }
 
             -- simple space
@@ -69,7 +76,7 @@ return {
                 "filetype",
                 icons_enabled = true,
                 color = { bg = colors.bg, fg = colors.blue, gui = "italic" },
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             -- filename
@@ -77,7 +84,7 @@ return {
             local filename = {
                 "filename",
                 color = { bg = colors.blue, fg = colors.bg, gui = "" },
-                separator = { right = "" },
+                separator = { right_separator },
                 path = 1,
             }
 
@@ -86,13 +93,13 @@ return {
             local location = {
                 "location",
                 color = { bg = colors.bg, fg = colors.teal },
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             local progress = {
                 "progress",
                 color = { bg = colors.bg, fg = colors.orange },
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             -- git diff component
@@ -112,7 +119,7 @@ return {
                 "diff",
                 source = diff_source,
                 color = { bg = "#414868", gui = "" },
-                separator = { right = "" },
+                separator = { right_separator },
                 symbols = { added = " ", modified = " ", removed = " " },
 
                 diff_color = {
@@ -127,7 +134,7 @@ return {
             local navic = {
                 "navic",
                 color = { fg = colors.red },
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             -- custom modes
@@ -161,7 +168,7 @@ return {
                     local mode_color = modecolor
                     return { bg = mode_color[vim.fn.mode()], fg = colors.bg, gui = "" }
                 end,
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             -- LSP
@@ -197,7 +204,7 @@ return {
                 function()
                     return getLspName()
                 end,
-                separator = { left = "" },
+                separator = { left_separator },
                 color = { bg = colors.green1, fg = colors.bg, gui = "italic" },
             }
 
@@ -214,7 +221,7 @@ return {
                     hint = { fg = colors.hint },
                 },
                 color = { bg = colors.bg, fg = colors.blue, gui = "" },
-                separator = { left = "" },
+                separator = { left_separator },
             }
 
             -- python virtualenv name
@@ -230,7 +237,7 @@ return {
                 end,
                 color = { fg = colors.bg, bg = colors.green, gui = "" },
                 icon = "",
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             -- macro recording
@@ -252,7 +259,7 @@ return {
                     return bc
                 end,
                 color = { fg = colors.bg, bg = colors.green, gui = "" },
-                separator = { right = "" },
+                separator = { right_separator },
             }
 
             require("lualine").setup({
