@@ -84,3 +84,6 @@ vim.api.nvim_set_keymap(
     "<cmd>%y*<cr>",
     { noremap = true, silent = true, desc = "Copy buffer to clipboard" }
 )
+
+-- Delete buffer
+vim.api.nvim_set_keymap("n", "<leader>B", "<cmd>ggdG<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
