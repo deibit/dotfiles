@@ -36,3 +36,13 @@ vim.api.nvim_create_user_command("CopyAbsPath", function()
     vim.fn.setreg("+", path)
     vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
+
+vim.keymap.set("n", "<leader>z", function()
+    vim.diagnostic.open_float(nil, {
+        focusable = true,
+        border = "rounded",
+        source = "always",
+        prefix = " ",
+        scope = "cursor",
+    })
+end, { desc = "Show diagnostic in float" })
