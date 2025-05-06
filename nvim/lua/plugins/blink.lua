@@ -64,7 +64,6 @@ return {
         },
 
         completion = {
-            ghost_text = { enabled = true },
             list = { selection = { preselect = true } },
             menu = {
                 draw = {
