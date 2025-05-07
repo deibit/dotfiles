@@ -38,13 +38,9 @@ return {
             lspconfig[server].setup({ capabilities = capabilities })
         end
 
-        -- https://github.com/vuejs/language-tools?tab=readme-ov-file
-        local mason_registry = require("mason-registry")
-        local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-            .. "/node_modules/@vue/language-server"
-
-        local typescript_path = mason_registry.get_package("typescript-language-server"):get_install_path()
-            .. "/node_modules/typescript/lib"
+        local vue_lsp_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server/")
+        local typescript_lsp_path =
+            vim.fn.expand("$MASON/packages/typescript-language-server/node_modules/typescript-language-server/")
 
         lspconfig.ts_ls.setup({
             capabilities = capabilities,
@@ -52,7 +48,7 @@ return {
                 plugins = {
                     {
                         name = "@vue/typescript-plugin",
-                        location = vue_language_server_path,
+                        location = vue_lsp_path,
                         languages = { "vue" },
                     },
                 },
@@ -64,7 +60,7 @@ return {
             capabilities = capabilities,
             init_options = {
                 typescript = {
-                    tsdk = typescript_path,
+                    tsdk = typescript_lsp_path,
                 },
             },
         })
