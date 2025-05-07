@@ -3,17 +3,17 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "williamboman/mason.nvim", lazy = false },
-        { "williamboman/mason-lspconfig.nvim", lazy = false },
+        { "mason-org/mason.nvim", lazy = false },
+        { "mason-org/mason-lspconfig.nvim", lazy = false },
         "saghen/blink.cmp",
     },
     config = function()
         -- Change icons from letters (default) to true icons
-        local signs = { Error = " ", Warn = " ", Hint = " ", Info = "" }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-        end
+        -- local signs = { Error = " ", Warn = " ", Hint = " ", Info = "" }
+        -- for type, icon in pairs(signs) do
+        --     local hl = "DiagnosticSign" .. type
+        --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+        -- end
 
         local no_config_servers = {
             "autotools_ls",
