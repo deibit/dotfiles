@@ -16,8 +16,8 @@ return {
         { "<leader>T", "<cmd>TodoFzfLua<cr>", desc = "View TODOs" },
         -- Search
         { "<leader>S", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep (dir)" },
-        { "<leader>ss", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep (buffer)" },
-        { "<leader>sL", "<cmd>FzfLua lines<cr>", desc = "Lines (buffers)" },
+        { "<leader><leader>", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Grep (buffer)" },
+        { "<leader>ss", "<cmd>FzfLua lines<cr>", desc = "Lines (buffers)" },
         { "<leader>sl", "<cmd>FzfLua blines<cr>", desc = "Buffer lines" },
         { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "Grep word" },
         -- Git

@@ -1,6 +1,29 @@
+-- colors
+
+local colors = {
+    red = "#A52A2A",
+    green = "#7FFF00",
+    purple = "#8A2BE2",
+    yellow = "#FFD700",
+    blue = "#1E90FF",
+    teal = "#20B2AA",
+    bg = "#242640",
+    fg = "#A9A9A9",
+}
+
+local theme = {
+    normal = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+    insert = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+    inactive = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+    command = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+    visual = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+    replace = { a = { bg = colors.bg }, b = { bg = colors.bg }, c = { bg = colors.bg } },
+}
+
 return {
     {
         "nvim-lualine/lualine.nvim",
+        options = { theme = theme },
         dependencies = { "nvim-tree/nvim-web-devicons" },
 
         config = function()
@@ -15,10 +38,6 @@ return {
                 end
                 return venv
             end
-
-            -- colors
-
-            local colors = require("tokyonight.colors").setup({ style = "storm" })
 
             local modecolor = {
                 n = colors.red,
@@ -55,8 +74,7 @@ return {
             local branch = {
                 "branch",
                 icon = "",
-                source = "b:gitsigns_head",
-                color = { bg = colors.blue1, fg = colors.bg, gui = "" },
+                color = { bg = colors.bg },
                 separator = { right = right_separator },
             }
 
@@ -118,8 +136,8 @@ return {
             local diff = {
                 "diff",
                 source = diff_source,
-                color = { bg = "#414868", gui = "" },
                 separator = { right_separator },
+                color = { bg = colors.bg },
                 symbols = { added = " ", modified = " ", removed = " " },
 
                 diff_color = {
@@ -127,14 +145,6 @@ return {
                     modified = { fg = colors.yellow },
                     removed = { fg = colors.red },
                 },
-            }
-
-            -- navic
-
-            local navic = {
-                "navic",
-                color = { fg = colors.red },
-                separator = { right_separator },
             }
 
             -- custom modes
@@ -205,7 +215,7 @@ return {
                     return getLspName()
                 end,
                 separator = { left_separator },
-                color = { bg = colors.green1, fg = colors.bg, gui = "italic" },
+                color = { bg = colors.bg, fg = colors.purple, gui = "italic" },
             }
 
             -- diagnostics
@@ -214,13 +224,13 @@ return {
                 "diagnostics",
                 sources = { "nvim_diagnostic" },
                 symbols = { error = " ", warn = " ", info = " ", hint = " " },
+                color = { bg = colors.bg },
                 diagnostics_color = {
                     error = { fg = colors.red },
                     warn = { fg = colors.warning },
                     info = { fg = colors.info },
                     hint = { fg = colors.hint },
                 },
-                color = { bg = colors.bg, fg = colors.blue, gui = "" },
                 separator = { left_separator },
             }
 
@@ -235,7 +245,7 @@ return {
                 cond = function()
                     return vim.bo.filetype == "python"
                 end,
-                color = { fg = colors.bg, bg = colors.green, gui = "" },
+                color = { bg = colors.bg, fg = colors.green, gui = "" },
                 icon = "",
                 separator = { right_separator },
             }
@@ -249,18 +259,6 @@ return {
                     return "🔴 @" .. recording_register
                 end
             end
-
-            -- treesitter info
-
-            local ts = require("nvim-treesitter")
-            local breadcrumb = {
-                function()
-                    local bc = ts.statusline(90)
-                    return bc
-                end,
-                color = { fg = colors.bg, bg = colors.green, gui = "" },
-                separator = { right_separator },
-            }
 
             require("lualine").setup({
                 options = {
@@ -292,7 +290,6 @@ return {
                         diff,
                         filetype,
                         -- filename,
-                        navic,
                     },
                     lualine_x = {
                         "overseer",

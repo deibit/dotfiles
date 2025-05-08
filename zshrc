@@ -73,3 +73,8 @@ eval "$(zoxide init zsh)"
 
 # precmd fix
 precmd_functions+=(_fix_cursor)
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
