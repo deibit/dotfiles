@@ -1,7 +1,3 @@
--- Partially taken from https://github.com/scottmckendry/Windots/blob/main/nvim/lua/plugins/lspconfig.lua
--- https://github.com/rijulkap/dotfiles/blob/master/nvim/lua/plugins/lsp.lua
-local vue_lsp_path = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server/")
-
 local typescript_lsp_path =
     vim.fn.expand("$MASON/packages/typescript-language-server/node_modules/typescript-language-server/")
 
@@ -14,18 +10,6 @@ vim.g.lsp_servers = {
             vue = { hybridMode = false },
         },
         filetypes = { "vue" },
-    },
-    ts_ls = {
-        init_options = {
-            plugins = {
-                {
-                    name = "@vue/typescript-plugin",
-                    location = vue_lsp_path,
-                    languages = { "javascript", "typescript" },
-                },
-            },
-        },
-        filetypes = { "typescript", "javascript" },
     },
     lua_ls = {
         settings = {
@@ -67,14 +51,15 @@ return {
         --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         -- end
 
+        -- Make a table for lps's install and vim.lsp.config
         local lsp_server_names = {}
         for lsp_server_name, _ in pairs(vim.g.lsp_servers) do
             local lsp_server_settings = vim.g.lsp_servers[lsp_server_name] or {}
             vim.lsp.config(lsp_server_name, lsp_server_settings)
-
             table.insert(lsp_server_names, lsp_server_name)
         end
 
+        -- Ensure install and enable installed lsp's
         require("mason-lspconfig").setup({
             ensure_installed = lsp_server_names,
             automatic_enable = true,
