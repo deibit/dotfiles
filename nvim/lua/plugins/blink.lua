@@ -1,5 +1,6 @@
 return {
     "saghen/blink.cmp",
+    dependencies = { "onsails/lspkind.nvim" },
     -- optional: provides snippets for the snippet source
     -- dependencies = 'rafamadriz/friendly-snippets',
 
