@@ -12,7 +12,7 @@ return {
         { "<leader>m", "<cmd>FzfLua marks<cr>", desc = "Marks" },
         { "<leader>j", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
         { "<leader>K", "<cmd>FzfLua manpages<cr>", desc = "Man pages" },
-        { "<leader>r", "<cmd>FzfLua registers<cr>", desc = "Registers" },
+        { "<leader>R", "<cmd>FzfLua registers<cr>", desc = "Registers" },
         { "<leader>T", "<cmd>TodoFzfLua<cr>", desc = "View TODOs" },
         -- Search
         { "<leader>S", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep (dir)" },
@@ -37,7 +37,7 @@ return {
             "<cmd>FzfLua diagnostics_workspace winopts.preview.layout='vertical' diag_source=true<cr>",
             desc = "Diagnostic",
         },
-        { "<leader>r", "<cmd>FzfLua lsp_references<cr>", desc = "lsp references" },
+        { "<leader>rr", "<cmd>FzfLua lsp_references<cr>", desc = "lsp references" },
         { "<leader>rd", "<cmd>FzfLua lsp_definitions<cr>", desc = "lsp definitions" },
         { "<leader>re", "<cmd>FzfLua lsp_declarations<cr>", desc = "lsp declarations" },
         { "<leader>ri", "<cmd>FzfLua lsp_implementations<cr>", desc = "lsp implementations" },
