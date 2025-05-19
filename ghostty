@@ -1,8 +1,8 @@
 font-family = "IosevkaTerm Nerd Font Mono"
 
-theme = "tokyonight-storm"
+theme = PaleNightHC
 
-font-size = 19
+font-size = 22
 
 cursor-style = "bar"
 font-thicken = true
