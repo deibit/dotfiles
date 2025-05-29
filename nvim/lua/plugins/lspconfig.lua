@@ -1,15 +1,24 @@
 local typescript_lsp_path =
     vim.fn.expand("$MASON/packages/typescript-language-server/node_modules/typescript-language-server/")
 
+local vue_language_server_path = vim.fn.expand("$MASON/packages")
+    .. "/vue-language-server"
+    .. "/node_modules/@vue/language-server"
+
 vim.g.lsp_servers = {
-    volar = {
-        init_options = {
-            typescript = {
-                tsdk = typescript_lsp_path,
+    ts_ls = {
+        settings = {
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = vue_language_server_path,
+                        languages = { "vue" },
+                    },
+                },
             },
-            vue = { hybridMode = false },
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         },
-        filetypes = { "vue" },
     },
     lua_ls = {
         settings = {
@@ -33,6 +42,7 @@ vim.g.lsp_servers = {
             },
         },
     },
+    basedpyright = { settings = { analysis = { typeCheckingMode = "basic" } } },
 }
 
 return {
