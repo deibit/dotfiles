@@ -6,9 +6,9 @@ return {
     keys = {
         {
             "<leader>i",
-            "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>",
-            desc = "Diagnostic (trouble)",
+            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+            desc = "Diagnostic buf (trouble)",
         },
-        { "<leader>I", "<cmd>Trouble float_symbols toggle<cr>", desc = "Symbols (trouble)" },
+        { "<leader>I", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics all (trouble)" },
     },
 }
