@@ -1,0 +1,12 @@
+# On MacOS due to lazy load of /etc/profile the $PATH is smashed and all prepended paths are put at the end.
+
+typeset -U path
+
+path=(${path:#/opt/homebrew/bin})
+path=(${path:#/opt/homebrew/sbin})
+
+# Añadir al principio
+path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+
+# Unir correctamente con :
+export PATH="${(j.:.)path}"

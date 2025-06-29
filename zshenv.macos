@@ -1,5 +1,9 @@
 # ~/.zshenv
 
+export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
@@ -13,19 +17,6 @@ export PATH="$PATH:$GOBIN"
 # Cargo
 export PATH="$PATH:$HOME/.cargo/bin"
 
-# Homebrew
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# curl
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
 # Poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
-
-# LM Studio CLI
-export PATH="$PATH:$HOME/.cache/lm-studio/bin"
-
-# binutils
-export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
