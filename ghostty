@@ -2,7 +2,7 @@ font-family = "IosevkaTerm Nerd Font Mono"
 
 theme = Monokai Pro Machine
 
-font-size = 19
+font-size = 16
 
 cursor-style = "bar"
 font-thicken = true

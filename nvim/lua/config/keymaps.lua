@@ -85,12 +85,12 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, desc = "Copy buffer to clipboard" }
 )
 
--- Delete buffer and copy clipboard
+-- Delete buffer and paste clipboard
 vim.api.nvim_set_keymap(
     "n",
     "<leader>B",
     "<cmd>1,$d | 0put +<cr>",
-    { noremap = true, silent = true, desc = "Delete buffer and copy clipboard" }
+    { noremap = true, silent = true, desc = "Delete buffer and paste clipboard" }
 )
 
 -- Delete inside "<content>" and replace it with the clipboard
