@@ -84,7 +84,7 @@ local filetype = {
 
 local filename = {
     "filename",
-    color = { bg = colors.blue, fg = colors.bg, gui = "" },
+    color = { fg = colors.yellow, gui = "" },
     separator = { right_separator },
     path = 1,
 }
@@ -307,13 +307,12 @@ return {
                 },
                 sections = {
                     lualine_a = { macro_recording, modes },
-                    lualine_b = {},
-                    lualine_c = {
+                    lualine_b = {
                         branch,
                         diff,
                         filetype,
-                        -- filename,
                     },
+                    lualine_c = { filename },
                     lualine_x = {
                         "overseer",
                         "searchcount",
@@ -323,8 +322,7 @@ return {
                     lualine_z = { lsp, python },
                 },
                 inactive_sections = {
-                    -- lualine_a = { { "filename", path = 1 } },
-                    lualine_a = {},
+                    lualine_a = { { "filename", path = 1 } },
                     lualine_b = {},
                     lualine_c = {},
                     lualine_x = {},
@@ -332,8 +330,8 @@ return {
                     lualine_z = {},
                 },
                 tabline = {},
-                winbar = { lualine_a = { { "filename", path = 1 } } },
-                inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
+                -- winbar = { lualine_a = { { "filename", path = 1 } } },
+                -- inactive_winbar = { lualine_a = { { "filename", path = 1 } } },
                 extensions = {
                     "mason",
                     "fugitive",
