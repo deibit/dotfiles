@@ -9,6 +9,7 @@ return {
         lint.linters_by_ft = {
             c = { "clangtidy", "cppcheck" },
             cpp = { "clangtidy", "cppcheck" },
+            go = { "golangcilint" },
             javascript = { "eslint" },
             vue = { "eslint" },
             python = { "ruff" },

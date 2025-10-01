@@ -77,3 +77,7 @@ precmd_functions+=(_fix_cursor)
 export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
 # End of LM Studio CLI section
 
+# for completions (as rustup)
+fpath=("$HOME/.zfunc" $fpath)
+autoload -Uz compinit
+compinit

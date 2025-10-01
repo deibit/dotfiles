@@ -10,7 +10,7 @@ local function get_venv(variable)
     return venv
 end
 
-local background_color = "#2c2d30"
+local background_color = "#34373c"
 local colors = {
     red = "#A52A2A",
     green = "#7FFF00",
