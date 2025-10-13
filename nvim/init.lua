@@ -19,4 +19,4 @@ require("config.searchingoogle")
 -- Lazy configuration
 require("lazy").setup("plugins")
 
-vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme kanagawa-wave]])

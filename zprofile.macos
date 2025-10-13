@@ -10,3 +10,5 @@ path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
 
 # Unir correctamente con :
 export PATH="${(j.:.)path}"
+
+alias cap="screencapture -i -c"

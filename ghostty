@@ -2,7 +2,7 @@ font-family = "IosevkaTerm NFM"
 
 theme = Monokai Pro
 
-font-size = 18
+font-size = 16
 
 cursor-style = "bar"
 font-thicken = true
