@@ -31,7 +31,7 @@ return {
         indent = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
-        lazygit = { enabled = false },
+        -- lazygit = { enabled = true },
         notifier = { enabled = true },
         rename = { enabled = true },
         quickfile = { enabled = true },
@@ -255,6 +255,20 @@ return {
         --     end,
         --     desc = "Keymaps",
         -- },
+        {
+            "<leader>gu",
+            function()
+                Snacks.gitbrowse.open()
+            end,
+            desc = "Open line in browser",
+        },
+        {
+            "<leader>gU",
+            function()
+                Snacks.gitbrowse()
+            end,
+            desc = "Open file in browser",
+        },
         {
             "<leader>t",
             function()

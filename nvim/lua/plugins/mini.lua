@@ -1,5 +1,5 @@
 return {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     version = false,
     config = function()
         require("mini.basics").setup()
@@ -14,6 +14,7 @@ return {
         -- require("mini.diff").setup()
         require("mini.extra").setup()
         require("mini.fuzzy").setup()
+        require("mini.git").setup()
         -- require("mini.indentscope").setup({ draw = { animation = require("mini.indentscope").gen_animation.none() } })
         -- require("mini.jump").setup()
         -- require("mini.jump2d").setup()
