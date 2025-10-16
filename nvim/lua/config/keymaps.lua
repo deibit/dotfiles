@@ -1,9 +1,9 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<M-Left>", "<C-w>h", { noremap = true })
-vim.keymap.set("n", "<M-Down>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<M-Up>", "<C-w>k", { noremap = true })
-vim.keymap.set("n", "<M-Right>", "<C-w>l", { noremap = true })
+vim.keymap.set("n", "<C-Left>", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<C-Down>", "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<C-Up>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<C-Right>", "<C-w>l", { noremap = true })
 
 -- Fast saving
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Write buffer to file" })
@@ -100,3 +100,7 @@ vim.api.nvim_set_keymap(
     '"_di"P',
     { noremap = true, silent = true, desc = 'Replace "<txt>" with clipboard' }
 )
+
+-- Space as /, Space as #
+vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "<space> as /" })
+vim.api.nvim_set_keymap("n", "<C-space>", "?", { noremap = true, silent = true, desc = "C-<space> as #" })
