@@ -15,8 +15,29 @@ require("config.options")
 require("config.commands")
 require("config.keymaps")
 require("config.searchingoogle")
+require("config.lspcommands") -- for Lsp*Commands*
 
 -- Lazy configuration
 require("lazy").setup("plugins")
 
 vim.cmd([[colorscheme kanagawa-wave]])
+
+-- LSP
+vim.lsp.enable({
+    "bashls",
+    "rust_analyzer",
+    "gopls",
+    "lua_ls",
+    "pyright",
+    "tsserver",
+    "html",
+    "css",
+    "tailwindcss",
+    "clangd",
+    "jsonls",
+    "docker_compose",
+    "dockerls",
+    "yamlls",
+    "taplo",
+    "dotls",
+})

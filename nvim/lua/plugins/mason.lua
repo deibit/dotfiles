@@ -47,7 +47,8 @@ return {
                 "vue-language-server",
                 "yaml-language-server",
                 "yamlfmt",
-                "zls",
+                "marksman",
+                "taplo",
             },
         },
         config = function(_, opts)
