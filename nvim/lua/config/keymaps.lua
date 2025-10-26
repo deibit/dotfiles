@@ -12,12 +12,6 @@ vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = t
 vim.api.nvim_set_keymap("n", '<leader>"', ":vsplit<CR>", { noremap = true, silent = true, desc = "Vertical split" })
 vim.api.nvim_set_keymap("n", "<leader>%", ":split<CR>", { noremap = true, silent = true, desc = "Horizontal split" })
 vim.api.nvim_set_keymap("n", "<leader>X", "<C-w>c", { noremap = true, silent = true, desc = "Close pane" })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>x",
-    "<cmd>lua Snacks.bufdelete()<CR>",
-    { noremap = true, silent = true, desc = "Remove buffer" }
-)
 
 -- Keep search matches in the middle of the window
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Keep match in the middle" })
