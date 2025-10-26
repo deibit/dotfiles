@@ -5,10 +5,10 @@ return {
     cmd = "Trouble",
     keys = {
         {
-            "<leader>i",
+            "<leader>d",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
             desc = "Diagnostic buf (trouble)",
         },
-        { "<leader>I", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics all (trouble)" },
+        { "<leader>D", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics all (trouble)" },
     },
 }

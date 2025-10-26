@@ -1,15 +1,3 @@
--- local M = {}
---
--- function M.set_keymap(client, bufnr)
---     local opts = { noremap = true, silent = true }
---     local keymap = vim.api.nvim_buf_set_keymap
---
---     keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
---     keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
---     keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
---     keymap(bufnr, "n", "<C-o>", "<C-o>", opts)
--- end
-
 return {
     name = "pyright",
     cmd = { "basedpyright-langserver", "--stdio" },
@@ -26,5 +14,4 @@ return {
             },
         },
     },
-    -- on_attach = M.set_keymap,
 }

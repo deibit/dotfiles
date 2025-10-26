@@ -43,8 +43,8 @@ return {
         { "<leader>S", ":Pick grep_live<cr>", desc = "Pick live grep" },
         { "<leader>sw", ":Pick grep pattern='<cword>'<cr>", desc = "Pick grep cword" },
         { "<leader>ss", ":Pick grep<cr>", desc = "Pick grep" },
-        { "<leader>d", ":Pick diagnostic scope='current'<cr>", desc = "Pick diagnostic (buffer)" },
-        { "<leader>D", ":Pick diagnostic<cr>", desc = "Pick diagnostic (workspace)" },
+        -- { "<leader>d", ":Pick diagnostic scope='current'<cr>", desc = "Pick diagnostic (buffer)" }, -- Use "Trouble" here
+        -- { "<leader>D", ":Pick diagnostic<cr>", desc = "Pick diagnostic (workspace)" }, -- Use "Trouble" here
         { "<leader>R", ":Pick registers<cr>", desc = "Pick registers" },
         { "<leader>k", ":Pick keymaps<cr>", desc = "Pick keymaps" },
         { "<leader>H", ":Pick help<cr>", desc = "Pick help" },
