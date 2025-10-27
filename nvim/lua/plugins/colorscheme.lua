@@ -9,4 +9,6 @@ return -- Using Lazy
     --     require("onedark").load()
     -- end,
     "rebelot/kanagawa.nvim",
+    priority = 1000,
+    lazy = false,
 }
