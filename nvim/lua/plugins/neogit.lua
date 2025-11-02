@@ -5,4 +5,8 @@ return {
         "sindrets/diffview.nvim", -- optional - Diff integration
         "folke/snacks.nvim", -- optional
     },
+
+    keys = {
+        { "<leader>n", "<cmd>Neogit kind=floating<cr>", desc = "Neo Git" },
+    },
 }
