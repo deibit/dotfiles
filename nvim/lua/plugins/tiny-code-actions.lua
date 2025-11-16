@@ -13,7 +13,7 @@ return {
     opts = {},
     keys = {
         {
-            "<leader>ra",
+            "<leader>la",
             function()
                 require("tiny-code-action").code_action()
             end,
