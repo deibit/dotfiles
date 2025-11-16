@@ -41,6 +41,7 @@ return {
         terminal = { enabled = true },
         toggle = { enabled = true },
         words = { enabled = true },
+        picker = { enabled = true },
     },
     keys = {
 
@@ -175,7 +176,7 @@ return {
             desc = "Grep Open Buffers",
         },
         {
-            "<leader>sl",
+            "<leader><leader>",
             function()
                 Snacks.picker.lines()
             end,
@@ -190,17 +191,17 @@ return {
             mode = { "n", "x" },
         },
 
-        -- Picker symbols
+        -- Picker LSP
 
         {
-            "<leader>rd",
+            "<leader>ld",
             function()
                 Snacks.picker.lsp_definitions()
             end,
             desc = "Goto Definition",
         },
         {
-            "<leader>rr",
+            "<leader>lr",
             function()
                 Snacks.picker.lsp_references()
             end,
@@ -208,28 +209,28 @@ return {
             desc = "References",
         },
         {
-            "<leader>rI",
+            "<leader>lI",
             function()
                 Snacks.picker.lsp_implementations()
             end,
             desc = "Goto Implementation",
         },
         {
-            "<leader>re",
+            "<leader>le",
             function()
                 Snacks.picker.lsp_type_definitions()
             end,
             desc = "Goto T[y]pe Definition",
         },
         {
-            "<leader>rs",
+            "<leader>ls",
             function()
                 Snacks.picker.lsp_symbols()
             end,
             desc = "LSP Symbols",
         },
         {
-            "<leader>rt",
+            "<leader>lt",
             function()
                 Snacks.picker.treesitter()
             end,
@@ -274,7 +275,7 @@ return {
             desc = "Man Pages",
         },
         {
-            "<leader>R",
+            "<leader>r",
             function()
                 Snacks.picker.registers()
             end,
