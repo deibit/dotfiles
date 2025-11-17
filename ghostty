@@ -1,8 +1,8 @@
-font-family = "IosevkaTerm NFM"
+font-family = "JetBrainsMono Nerd Font"
 
 theme = Monokai Pro
 
-font-size = 18
+font-size = 14
 
 cursor-style = "bar"
 font-thicken = true
