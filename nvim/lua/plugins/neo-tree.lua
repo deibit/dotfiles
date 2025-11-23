@@ -30,9 +30,11 @@ return {
     },
     keys = {
         { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
+        { "<leader>E", "<cmd>Neotree document symbols<cr>", desc = "Neotree symbols" },
     },
     config = function()
         require("neo-tree").setup({
+            sources = { "filesystem", "document_symbols" },
             close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
             popup_border_style = "rounded",
             enable_git_status = true,
@@ -104,8 +106,8 @@ return {
                         renamed = "󰁕", -- this can only be used in the git_status source
                         -- Status type
                         untracked = "",
-                        ignored = "",
-                        unstaged = "󰄱",
+                        ignored = "",
+                        unstaged = "",
                         staged = "",
                         conflict = "",
                     },

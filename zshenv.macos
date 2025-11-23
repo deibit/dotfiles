@@ -6,7 +6,13 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR="nvim"
+
+# Man pages
+export MANPAGER='nvim +Man!'
+
+# Set up neovim as the default editor.
+export EDITOR="$(which nvim)"
+export VISUAL="$EDITOR"
 export LANG="en_US.UTF-8"
 
 # GOPATH y GOBIN
@@ -17,6 +23,5 @@ export PATH="$PATH:$GOBIN"
 # Cargo
 export PATH="$PATH:$HOME/.cargo/bin"
 
-# Poetry
-export POETRY_VIRTUALENVS_IN_PROJECT=true
-export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
+# Disable Apple's save/restore mechanism.
+export SHELL_SESSIONS_DISABLE=1

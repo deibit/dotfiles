@@ -9,9 +9,13 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
-vim.opt.rtp:prepend(lazypath)
 
-require("config.options")
+vim.opt.rtp:prepend(lazypath)
+-- Open the package manager.
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+require("config.settings")
+require("config.autocommands")
 require("config.commands")
 require("config.keymaps")
 require("config.searchingoogle")

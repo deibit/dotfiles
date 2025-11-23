@@ -1,15 +1,3 @@
--- Do not autocomment new lines
-vim.api.nvim_create_autocmd("FileType", {
-    command = "setlocal formatoptions-=cro",
-})
-
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
-    end,
-})
-
 -- 2 spaces for selected filetypes
 vim.cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
