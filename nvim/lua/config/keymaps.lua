@@ -1,15 +1,18 @@
 vim.g.mapleader = ","
 
+-- Package manager
+vim.api.nvim_set_keymap("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
 -- Move through panes
-vim.keymap.set("n", "<C-Left>", "<C-w>h", { noremap = true })
-vim.keymap.set("n", "<C-Down>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<C-Up>", "<C-w>k", { noremap = true })
-vim.keymap.set("n", "<C-Right>", "<C-w>l", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-Left>", "<C-w>h", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-Down>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-Up>", "<C-w>k", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-Right>", "<C-w>l", { noremap = true })
 -- Alternate keys
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Fast saving
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Write buffer to file" })
