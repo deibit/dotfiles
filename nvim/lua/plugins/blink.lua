@@ -1,6 +1,8 @@
 return {
     "saghen/blink.cmp",
     dependencies = { "onsails/lspkind.nvim" },
+    build = "cargo +nightly build --release",
+    event = "InsertEnter",
     -- optional: provides snippets for the snippet source
     -- dependencies = 'rafamadriz/friendly-snippets',
 
@@ -52,7 +54,7 @@ return {
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 
             providers = {
                 lazydev = {
@@ -61,13 +63,26 @@ return {
                     -- make lazydev completions top priority (see `:h blink.cmp`)
                     score_offset = 100,
                 },
+                path = {
+                    opts = {
+                        get_cwd = function(_)
+                            return vim.fn.getcwd()
+                        end,
+                    },
+                },
             },
         },
 
+        fuzzy = { implementation = "prefer_rust_with_warning" },
         completion = {
             list = { selection = { preselect = true } },
             menu = {
                 draw = {
+                    gap = 2,
+                    columns = {
+                        { "kind_icon", "kind", gap = 1 },
+                        { "label", "label_description", gap = 1 },
+                    },
                     treesitter = { "lsp" },
                     -- from https://main.cmp.saghen.dev/recipes#nvim-web-devicons-lspkin
                     -- later, from: https://github.com/onsails/lspkind.nvim/issues/90#issuecomment-2547614143

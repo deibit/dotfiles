@@ -23,8 +23,8 @@ local colors = {
 }
 
 local modecolor = {
-    n = colors.red,
-    i = colors.green,
+    n = colors.green,
+    i = colors.red,
     v = colors.purple,
     [""] = colors.purple,
     V = colors.purple,
@@ -310,15 +310,14 @@ return {
                     lualine_b = {
                         branch,
                         diff,
-                        filetype,
                     },
-                    lualine_c = { filename },
+                    lualine_c = { filename, dia },
                     lualine_x = {
                         "overseer",
                         "searchcount",
                         "selectioncount",
                     },
-                    lualine_y = { dia },
+                    lualine_y = { filetype },
                     lualine_z = { lsp, python },
                 },
                 inactive_sections = {
