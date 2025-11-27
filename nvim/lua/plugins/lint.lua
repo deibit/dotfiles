@@ -7,8 +7,8 @@ return {
     config = function()
         local lint = require("lint")
         lint.linters_by_ft = {
-            c = { "clangtidy", "cppcheck" },
-            cpp = { "clangtidy", "cppcheck" },
+            c = { "cppcheck" },
+            cpp = { "cppcheck" },
             go = { "golangcilint" },
             javascript = { "eslint" },
             vue = { "eslint" },
