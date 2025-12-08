@@ -7,8 +7,8 @@ return {
         {
             "<leader>d",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-            desc = "Diagnostic buf (trouble)",
+            desc = "Trouble (buffer)",
         },
-        { "<leader>D", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics all (trouble)" },
+        { "<leader>D", "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble (project)" },
     },
 }

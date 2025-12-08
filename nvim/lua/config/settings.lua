@@ -70,17 +70,18 @@ vim.diagnostic.config({
     severity_sort = true,
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
         },
     },
 })
 
 vim.cmd([[
-  highlight DiagnosticUnderlineError gui=undercurl guisp=Red
-  highlight DiagnosticUnderlineWarn  gui=undercurl guisp=Orange
-  highlight DiagnosticUnderlineInfo  gui=undercurl guisp=LightBlue
-  highlight DiagnosticUnderlineHint  gui=undercurl guisp=Gray
+  highlight DiagnosticUnderlineError gui=undercurl guisp=Red guibg=NONE
+  highlight DiagnosticUnderlineWarn  gui=undercurl guisp=Orange guibg=NONE
+  highlight DiagnosticUnderlineInfo  gui=undercurl guisp=LightBlue guibg=NONE
+  highlight DiagnosticUnderlineHint  gui=undercurl guisp=Gray guibg=NONE
+  highlight SignColumn guibg=NONE
 ]])

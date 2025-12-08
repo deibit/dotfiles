@@ -22,7 +22,10 @@ require("config.lspcommands") -- for Lsp*Commands*
 -- Lazy configuration
 require("lazy").setup("plugins")
 
-vim.cmd([[colorscheme kanagawa-wave]])
+-- vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme catppuccin-macchiato]])
+-- vim.cmd([[colorscheme tokyonight-storm]])
+vim.cmd([[colorscheme kanagawa]])
 
 -- LSP
 vim.lsp.enable({

@@ -268,7 +268,7 @@ return {
             desc = "Help Pages",
         },
         {
-            "<leader>K",
+            "<leader>sk",
             function()
                 Snacks.picker.man()
             end,
@@ -294,6 +294,22 @@ return {
                 Snacks.picker.undo()
             end,
             desc = "Undo search",
+        },
+
+        -- Diagnostics
+        {
+            "<leader>lx",
+            function()
+                Snacks.picker.diagnostics_buffer({ layout = diagnostics_layout })
+            end,
+            desc = "Diagnostics (buffer)",
+        },
+        {
+            "<leader>lX",
+            function()
+                Snacks.picker.diagnostics({ layout = diagnostics_layout })
+            end,
+            desc = "Diagnostics",
         },
     },
 }

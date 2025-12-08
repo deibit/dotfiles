@@ -28,11 +28,6 @@ return {
                 vendor = true,
             },
 
-            -- Formateo y sugerencias
-            format = {
-                enable = true,
-            },
-
             hints = {
                 assignVariableTypes = true,
                 compositeLiteralFields = true,

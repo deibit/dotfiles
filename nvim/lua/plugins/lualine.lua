@@ -311,13 +311,14 @@ return {
                         branch,
                         diff,
                     },
-                    lualine_c = { filename, dia },
+                    lualine_c = { filename },
                     lualine_x = {
                         "overseer",
                         "searchcount",
                         "selectioncount",
+                        progress,
                     },
-                    lualine_y = { filetype },
+                    lualine_y = { filetype, dia },
                     lualine_z = { lsp, python },
                 },
                 inactive_sections = {
