@@ -1,10 +1,10 @@
-theme = Monokai Pro
+theme = One Double Dark
 
 font-size = 16
 font-thicken = true
 font-family = "JetBrainsMono Nerd Font"
 
-cursor-style = "bar"
+cursor-style = "block"
 
 # No shadow looks cleaner.
 macos-window-shadow = false
@@ -14,3 +14,5 @@ quit-after-last-window-closed = true
 
 # This is done automatically by Hyprland on Linux so using this here.
 mouse-hide-while-typing = true
+
+split-divider-color = #e69112
