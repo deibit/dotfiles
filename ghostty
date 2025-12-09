@@ -4,8 +4,6 @@ font-size = 16
 font-thicken = true
 font-family = "JetBrainsMono Nerd Font"
 
-cursor-style = "block"
-
 # No shadow looks cleaner.
 macos-window-shadow = false
 
@@ -16,3 +14,5 @@ quit-after-last-window-closed = true
 mouse-hide-while-typing = true
 
 split-divider-color = #e69112
+
+cursor-style = bar
