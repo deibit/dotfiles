@@ -12,7 +12,7 @@ end
 
 local background_color = "#34373c"
 local colors = {
-    red = "#A52A2A",
+    red = "#FF2800",
     green = "#7FFF00",
     purple = "#8A2BE2",
     yellow = "#FFD700",
@@ -20,6 +20,7 @@ local colors = {
     teal = "#20B2AA",
     bg = background_color,
     fg = "#A9A9A9",
+    black = "#000000",
 }
 
 local modecolor = {
@@ -239,9 +240,16 @@ local function macro_recording()
     if recording_register == "" then
         return ""
     else
-        return "MACRO @" .. recording_register
+        return " REC @ [" .. recording_register .. "]"
     end
 end
+
+local macro = {
+    function()
+        return macro_recording()
+    end,
+    color = { bg = colors.bg, fg = colors.red },
+}
 
 return {
     {
@@ -306,7 +314,7 @@ return {
                     always_divide_middle = true,
                 },
                 sections = {
-                    lualine_a = { macro_recording, modes },
+                    lualine_a = { macro, modes },
                     lualine_b = {
                         branch,
                         diff,
