@@ -39,6 +39,7 @@ return {
                 "json-lsp",
                 "lua-language-server",
                 "prettier",
+                "pyrefly",
                 "ruff",
                 "shfmt",
                 "stylelint",

@@ -38,7 +38,7 @@ return {
         scroll = { enabled = true },
         scope = { enabled = true },
         statuscolumn = { enabled = true },
-        terminal = { enabled = true },
+        terminal = { enabled = true, win = { position = "float" } },
         toggle = { enabled = true },
         words = { enabled = true },
         picker = { enabled = true },
@@ -107,11 +107,11 @@ return {
         -- Common
 
         {
-            "<leader>T",
+            "<leader>t",
             function()
                 Snacks.terminal.open()
             end,
-            desc = "Toggle terminal",
+            desc = "Toggle terminal (float)",
         },
         -- {
         --     "<leader>e",
