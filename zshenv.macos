@@ -2,13 +2,12 @@
 
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Man pages
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER="bat -plman"
 
 # Set up neovim as the default editor.
 export EDITOR="$(which nvim)"
@@ -25,3 +24,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 # Disable Apple's save/restore mechanism.
 export SHELL_SESSIONS_DISABLE=1
+
+# Bat
+export BAT_THEME="base16"
