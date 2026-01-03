@@ -7,6 +7,6 @@ return {
     },
 
     keys = {
-        { "<leader>n", "<cmd>Neogit kind=split_below<cr>", desc = "Neo Git" },
+        { "<leader>gg", "<cmd>Neogit kind=split_below<cr>", desc = "Neo Git" },
     },
 }

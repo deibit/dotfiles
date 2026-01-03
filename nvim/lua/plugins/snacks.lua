@@ -138,21 +138,21 @@ return {
             desc = "Buffer picker",
         },
         {
-            "<leader>sS",
+            "<leader>fs",
             function()
                 Snacks.picker.smart()
             end,
             desc = "Smart file picker",
         },
         {
-            "<leader>F",
+            "<leader>fF",
             function()
                 Snacks.picker.recent()
             end,
             desc = "Recent file picker",
         },
         {
-            "<leader>f",
+            "<leader>ff",
             function()
                 Snacks.picker.files()
             end,
@@ -189,6 +189,13 @@ return {
             end,
             desc = "Visual selection or word",
             mode = { "n", "x" },
+        },
+        {
+            "<leader>sk",
+            function()
+                Snacks.picker.man()
+            end,
+            desc = "Man Pages",
         },
 
         -- Picker LSP
@@ -266,13 +273,6 @@ return {
                 Snacks.picker.help()
             end,
             desc = "Help Pages",
-        },
-        {
-            "<leader>sk",
-            function()
-                Snacks.picker.man()
-            end,
-            desc = "Man Pages",
         },
         {
             "<leader>r",
