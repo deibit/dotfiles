@@ -81,8 +81,10 @@ return {
             menu = {
                 draw = {
                     columns = {
-                        { "label", "kind_icon", "kind", gap = 2 },
-                        { "label_description", gap = 2 },
+                        { "label", gap = 1 },
+                        { "kind_icon", "kind", gap = 1 },
+                        { "label_description", gap = 1, width = "fill" },
+                        -- { "source_name" },
                     },
                     treesitter = { "lsp" },
                     -- from https://main.cmp.saghen.dev/recipes#nvim-web-devicons-lspkin
@@ -91,9 +93,19 @@ return {
                         kind_icon = {
                             ellipsis = false,
                             text = function(ctx)
-                                return require("lspkind").symbolic(ctx.kind, {
-                                    mode = "symbol",
-                                })
+                                local icon = ctx.kind_icon
+                                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                                    if dev_icon then
+                                        icon = dev_icon
+                                    end
+                                else
+                                    icon = require("lspkind").symbolic(ctx.kind, {
+                                        mode = "symbol",
+                                    })
+                                end
+
+                                return icon .. ctx.icon_gap
                             end,
 
                             -- Optionally, use the highlight groups from nvim-web-devicons

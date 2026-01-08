@@ -254,6 +254,13 @@ return {
             desc = "Commands",
         },
         {
+            "<leader>j",
+            function()
+                Snacks.picker.jumps()
+            end,
+            desc = "Jumps",
+        },
+        {
             "<leader>:",
             function()
                 Snacks.picker.command_history()
