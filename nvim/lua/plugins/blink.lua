@@ -70,18 +70,19 @@ return {
                         end,
                     },
                 },
+                lsp = { fallbacks = {} },
             },
         },
 
         fuzzy = { implementation = "prefer_rust_with_warning" },
         completion = {
+            documentation = { auto_show = true, auto_show_delay_ms = 500, window = { border = "single" } },
             list = { selection = { preselect = true } },
             menu = {
                 draw = {
-                    gap = 2,
                     columns = {
-                        { "kind_icon", "kind", gap = 1 },
-                        { "label", "label_description", gap = 1 },
+                        { "label", "kind_icon", "kind", gap = 2 },
+                        { "label_description", gap = 2 },
                     },
                     treesitter = { "lsp" },
                     -- from https://main.cmp.saghen.dev/recipes#nvim-web-devicons-lspkin

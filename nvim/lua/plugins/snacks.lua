@@ -138,25 +138,18 @@ return {
             desc = "Buffer picker",
         },
         {
-            "<leader>fs",
-            function()
-                Snacks.picker.smart()
-            end,
-            desc = "Smart file picker",
-        },
-        {
-            "<leader>fF",
-            function()
-                Snacks.picker.recent()
-            end,
-            desc = "Recent file picker",
-        },
-        {
-            "<leader>ff",
+            "<leader>f",
             function()
                 Snacks.picker.files()
             end,
             desc = "File picker",
+        },
+        {
+            "<leader>F",
+            function()
+                Snacks.picker.recent()
+            end,
+            desc = "Recent file picker",
         },
 
         -- Picker Search

@@ -1,8 +1,8 @@
 theme = Sonokai
 
-font-size = 18
+font-size = 14
 font-thicken = true
-font-family = "IosevkaTerm NFM"
+font-family = "JetBrains NFM"
 
 # No shadow looks cleaner.
 macos-window-shadow = false
