@@ -38,7 +38,7 @@ return {
         scroll = { enabled = true },
         scope = { enabled = true },
         statuscolumn = { enabled = true },
-        terminal = { enabled = true, win = { position = "float" } },
+        terminal = { enabled = true },
         toggle = { enabled = true },
         words = { enabled = true },
         picker = { enabled = true },
