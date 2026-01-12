@@ -2,6 +2,14 @@
 
 local M = {}
 
+local function get_lsp_client_names()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    local names = vim.tbl_map(function(client)
+        return client.name
+    end, clients)
+    return names
+end
+
 -- LspStart [name]
 vim.api.nvim_create_user_command("LspStart", function(opts)
     local name = opts.args ~= "" and opts.args or nil
@@ -9,14 +17,12 @@ vim.api.nvim_create_user_command("LspStart", function(opts)
         vim.lsp.enable({ name })
         print("Started LSP: " .. name)
     else
-        vim.lsp.enable()
-        print("Started all configured LSP servers")
+        local message = "configured LSP for this filetype: " .. table.concat(get_lsp_client_names(), ", ")
+        print(message)
     end
 end, {
     nargs = "?",
-    complete = function()
-        return vim.tbl_keys(vim.lsp.configs or {})
-    end,
+    complete = get_lsp_client_names,
 })
 
 -- LspStop [name]
@@ -56,14 +62,7 @@ vim.api.nvim_create_user_command("LspRestart", function(opts)
     end
 end, {
     nargs = "?",
-    complete = function()
-        local clients = vim.lsp.get_clients()
-        local names = {}
-        for _, c in ipairs(clients) do
-            table.insert(names, c.name)
-        end
-        return names
-    end,
+    complete = get_lsp_client_names,
 })
 
 -- LspInfo

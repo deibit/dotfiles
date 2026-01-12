@@ -21,13 +21,18 @@ return {
         -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            preset = "super-tab",
-            -- ["<Tab>"] = { "select_next", "fallback" },
-            -- ["<Down>"] = { "select_next" },
-            -- ["<S-Tab>"] = { "select_prev", "fallback" },
-            -- ["<Up>"] = { "select_prev" },
-            -- ["<CR>"] = { "accept" },
-            -- ["<C-c>"] = { "cancel" },
+            preset = "none", -- IMPORTANTE: desactiva presets por defecto
+
+            -- Navegación del menú
+            ["<Tab>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
+
+            -- Confirmar selección
+            ["<CR>"] = { "accept", "fallback" },
+
+            -- Opcional pero recomendable
+            ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<Esc>"] = { "hide", "fallback" },
         },
         -- cmdline = {
         --     keymap = {
@@ -77,7 +82,7 @@ return {
         fuzzy = { implementation = "prefer_rust_with_warning" },
         completion = {
             documentation = { auto_show = true, auto_show_delay_ms = 500, window = { border = "single" } },
-            list = { selection = { preselect = true } },
+            list = { selection = { preselect = true, auto_insert = false } },
             menu = {
                 draw = {
                     columns = {
