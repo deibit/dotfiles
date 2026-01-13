@@ -37,7 +37,7 @@ return {
     },
     settings = {
         basedpyright = {
-            reportMissingTrpeStubs = false,
+            reportMissingTypeStubs = false,
             analysis = {
                 autoSearchPaths = true,
                 disableOrganizeImports = true,
