@@ -33,7 +33,7 @@ vim.lsp.enable({
     "rust_analyzer",
     "gopls",
     "lua_ls",
-    "pyright",
+    "basedpyright",
     -- "pyrefly",
     "tsserver",
     "html",
