@@ -1,3 +1,4 @@
+atuin
 curl
 delta
 direnv
@@ -10,7 +11,7 @@ neovim
 node
 omz
 ripgrep
-starchip
+starship
 tmux
 uv
 yazi

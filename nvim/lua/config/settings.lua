@@ -16,10 +16,11 @@ vim.opt.ignorecase = true
 vim.opt.linebreak = true
 vim.opt.mouse = "a"
 vim.opt.number = true
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("sI")
 vim.opt.showcmd = false
 vim.opt.showmatch = true
+vim.opt.smartindent = true
 vim.opt.smartcase = true
 vim.opt.smarttab = true
 vim.opt.softtabstop = 4

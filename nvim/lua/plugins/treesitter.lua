@@ -6,8 +6,9 @@ return {
     branch = "main",
     build = ":TSUpdate",
     config = function()
-        local ts = require("nvim-treesitter.install")
-
+        local ts = require("nvim-treesitter")
+        require("nvim-treesitter.config").setup({ indent = { enable = false } })
+        -- Enable indentation
         -- Install core parsers at startup
         ts.install({
             "bash",
@@ -72,7 +73,7 @@ return {
                 pcall(vim.treesitter.start, buf, lang)
 
                 -- Enable treesitter indentation
-                vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                -- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
                 -- Install missing parsers (async, no-op if already installed)
                 -- ts.install({ lang })

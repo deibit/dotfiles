@@ -32,7 +32,7 @@ return {
 
             -- Opcional pero recomendable
             ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-            ["<Esc>"] = { "hide", "fallback" },
+            ["<C-c>"] = { "hide", "fallback" },
         },
         -- cmdline = {
         --     keymap = {
