@@ -7,7 +7,7 @@ return {
     build = ":TSUpdate",
     config = function()
         local ts = require("nvim-treesitter")
-        require("nvim-treesitter.config").setup({ indent = { enable = false } })
+        require("nvim-treesitter").setup({ indent = { enable = false } })
         -- Enable indentation
         -- Install core parsers at startup
         ts.install({
