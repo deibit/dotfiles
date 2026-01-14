@@ -15,7 +15,7 @@ local diagnostics_layout = {
     },
 }
 
-local explorer_window_picker = { win = { list = { keys = { ["w"] = { { "pick_win", "jump" } } } } } }
+-- local explorer_window_picker = { win = { list = { keys = { ["w"] = { { "pick_win", "jump" } } } } } }
 
 return {
     "folke/snacks.nvim",
@@ -113,13 +113,13 @@ return {
             end,
             desc = "Toggle terminal (float)",
         },
-        -- {
-        --     "<leader>e",
-        --     function()
-        --         Snacks.explorer(explorer_window_picker)
-        --     end,
-        --     desc = "Explorer",
-        -- },
+        {
+            "<leader>e",
+            function()
+                Snacks.explorer()
+            end,
+            desc = "Explorer",
+        },
         {
             "<leader>x",
             function()
