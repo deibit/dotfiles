@@ -1,53 +1,92 @@
+---@brief
+---
+--- https://github.com/luals/lua-language-server
+---
+--- Lua language server.
+---
+--- `lua-language-server` can be installed by following the instructions [here](https://luals.github.io/#neovim-install).
+---
+--- The default `cmd` assumes that the `lua-language-server` binary can be found in `$PATH`.
+---
+--- If you primarily use `lua-language-server` for Neovim, and want to provide completions,
+--- analysis, and location handling for plugins on runtime path, you can use the following
+--- settings.
+---
+--- ```lua
+--- vim.lsp.config('lua_ls', {
+---   on_init = function(client)
+---     if client.workspace_folders then
+---       local path = client.workspace_folders[1].name
+---       if
+---         path ~= vim.fn.stdpath('config')
+---         and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+---       then
+---         return
+---       end
+---     end
+---
+---     client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+---       runtime = {
+---         -- Tell the language server which version of Lua you're using (most
+---         -- likely LuaJIT in the case of Neovim)
+---         version = 'LuaJIT',
+---         -- Tell the language server how to find Lua modules same way as Neovim
+---         -- (see `:h lua-module-load`)
+---         path = {
+---           'lua/?.lua',
+---           'lua/?/init.lua',
+---         },
+---       },
+---       -- Make the server aware of Neovim runtime files
+---       workspace = {
+---         checkThirdParty = false,
+---         library = {
+---           vim.env.VIMRUNTIME
+---           -- Depending on the usage, you might want to add additional paths
+---           -- here.
+---           -- '${3rd}/luv/library'
+---           -- '${3rd}/busted/library'
+---         }
+---         -- Or pull in all of 'runtimepath'.
+---         -- NOTE: this is a lot slower and will cause issues when working on
+---         -- your own configuration.
+---         -- See https://github.com/neovim/nvim-lspconfig/issues/3189
+---         -- library = {
+---         --   vim.api.nvim_get_runtime_file('', true),
+---         -- }
+---       }
+---     })
+---   end,
+---   settings = {
+---     Lua = {}
+---   }
+--- })
+--- ```
+---
+--- See `lua-language-server`'s [documentation](https://luals.github.io/wiki/settings/) for an explanation of the above fields:
+--- * [Lua.runtime.path](https://luals.github.io/wiki/settings/#runtimepath)
+--- * [Lua.workspace.library](https://luals.github.io/wiki/settings/#workspacelibrary)
+---
+
+---@type vim.lsp.Config
 return {
-    name = "lua_ls",
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
-    root_dir = vim.fs.root(0, { ".luarc.json", ".luacheckrc", ".git" }),
-
+    root_markers = {
+        ".emmyrc.json",
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "stylua.toml",
+        "selene.toml",
+        "selene.yml",
+        ".git",
+    },
     settings = {
         Lua = {
-            runtime = {
-                -- Usamos LuaJIT, que es lo que Neovim emplea internamente
-                version = "LuaJIT",
-                -- Añade tus rutas personalizadas (opcional)
-                path = vim.split(package.path, ";"),
-            },
-            diagnostics = {
-                -- Reconoce las variables globales de Neovim y tus propias globales
-                globals = { "vim", "require" },
-                -- Desactiva warnings por variables no usadas, si lo prefieres
-                unusedLocalExclude = { "_*" },
-            },
-            workspace = {
-                -- Aumenta la precisión de la autocompletación y saltos
-                library = vim.api.nvim_get_runtime_file("", true),
-                -- Evita que el servidor escanee todo tu sistema
-                checkThirdParty = false,
-            },
-            completion = {
-                callSnippet = "Replace", -- mejora los snippets de funciones
-            },
-            telemetry = {
-                enable = false,
-            },
-            hint = {
-                enable = true, -- activa hints en línea
-                setType = true, -- muestra tipos inferidos
-                arrayIndex = "Auto",
-                paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                space = true,
-            },
-            format = {
-                enable = true,
-                defaultConfig = {
-                    indent_style = "space",
-                    indent_size = "4",
-                    continuation_indent_size = "4",
-                    quote_style = "double",
-                },
-            },
+            codeLens = { enable = true },
+            hint = { enable = true, semicolon = "Disable" },
         },
     },
 }

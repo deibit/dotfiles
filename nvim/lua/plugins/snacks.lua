@@ -41,7 +41,18 @@ return {
         terminal = { enabled = true },
         toggle = { enabled = true },
         words = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            --FIXME: Does not work. Default Snacks icons still there: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
+            icons = {
+                diagnostics = {
+                    Error = " ",
+                    Warning = " ",
+                    Hint = " ",
+                    Info = " ",
+                },
+            },
+        },
     },
     keys = {
 

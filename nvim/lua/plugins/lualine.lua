@@ -21,6 +21,7 @@ local colors = {
     bg = background_color,
     fg = "#A9A9A9",
     black = "#000000",
+    orange = "#FF8400",
 }
 
 local modecolor = {
@@ -98,9 +99,9 @@ local location = {
     separator = { right_separator },
 }
 
-local progress = {
-    "progress",
-    color = { bg = colors.bg, fg = colors.orange },
+local filesize = {
+    "filesize",
+    color = { bg = colors.bg, fg = colors.fg },
     separator = { right_separator },
 }
 
@@ -199,7 +200,7 @@ local lsp = {
         return getLspName()
     end,
     separator = { left_separator },
-    color = { bg = colors.bg, fg = colors.purple, gui = "italic,bold" },
+    color = { bg = colors.bg, fg = colors.orange, gui = "italic,bold" },
 }
 
 -- diagnostics
@@ -319,14 +320,13 @@ return {
                         branch,
                         diff,
                     },
-                    lualine_c = { filename },
+                    lualine_c = { filesize, filename, filetype },
                     lualine_x = {
                         "overseer",
                         "searchcount",
                         "selectioncount",
-                        progress,
                     },
-                    lualine_y = { filetype, dia },
+                    lualine_y = { dia },
                     lualine_z = { lsp, python },
                 },
                 inactive_sections = {
