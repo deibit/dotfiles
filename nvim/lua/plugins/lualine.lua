@@ -91,7 +91,18 @@ local filename = {
     path = 1,
 }
 
--- location and progress
+-- location, lines and progress
+
+local lines = {
+    function()
+        return "%l/%L %p%%"
+    end,
+    color = { bg = colors.bg, fg = colors.fg },
+    separator = { right_separator },
+    cond = function()
+        return vim.bo.buftype == ""
+    end,
+}
 
 local location = {
     "location",
@@ -304,7 +315,7 @@ return {
                     -- },
                     icons_enabled = true,
                     component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
+                    section_separators = { left = "│", right = "│" },
                     disabled_filetypes = {
                         "neo-tree",
                         "trouble",
@@ -320,7 +331,7 @@ return {
                         branch,
                         diff,
                     },
-                    lualine_c = { filesize, filename, filetype },
+                    lualine_c = { filetype, filename, filesize, lines },
                     lualine_x = {
                         "overseer",
                         "searchcount",
