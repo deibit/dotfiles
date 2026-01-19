@@ -27,3 +27,6 @@ export SHELL_SESSIONS_DISABLE=1
 
 # Bat
 export BAT_THEME="base16"
+
+# uv
+export UV_MANAGED_PYTHON=1 # Work only with managed Pythons (do not allow system pythons)

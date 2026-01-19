@@ -61,7 +61,7 @@ bindkey "^[^[[C" forward-word
 # Starship prompt
 eval "$(starship init zsh)"
 
-# uv completions
+# uv
 eval "$(uv generate-shell-completion zsh)"
 
 # direnv
