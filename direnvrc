@@ -1,27 +1,36 @@
 layout_uv() {
-    if [[ -d ".venv" ]]; then
-        VIRTUAL_ENV="$(pwd)/.venv"
+    unset PYTHON_VERSION
+    unset VIRTUAL_ENV_NAME
+    local venv_path="$(pwd)/.venv"
+
+    if [[ -d "$venv_path" ]]; then
+        VIRTUAL_ENV="$venv_path"
     fi
 
     if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
-        log_status "No virtual environment exists. Executing \`uv venv\` to create one."
-        uv venv
-        VIRTUAL_ENV="$(pwd)/.venv"
+        log_status "No virtual environment exists. Creating one..."
+        UV_PYTHON_PREFERENCE=only-managed uv venv
+        VIRTUAL_ENV="$venv_path"
     fi
 
-    PATH_add "$VIRTUAL_ENV/bin"
-    export UV_ACTIVE=1  # or VENV_ACTIVE=1
     export VIRTUAL_ENV
+    PATH_add "$VIRTUAL_ENV/bin"
+    export UV_ACTIVE=1
 
-    if [ -f .venv/pyvenv.cfg ]; then
-        prompt=$(grep "^prompt" .venv/pyvenv.cfg | cut -d "=" -f2 | tr -d ' ')
-        if [ -n "$prompt" ]; then
-            export VIRTUAL_ENV_NAME=$prompt
+    if [[ -f "$VIRTUAL_ENV/pyvenv.cfg" ]]; then
+        local long_version=$(awk -F' *= *' '$1=="version" || $1=="version_info" {print $2}' "$VIRTUAL_ENV/pyvenv.cfg" | head -n 1 | tr -d ' ')
+        if [[ -n "$long_version" ]]; then
+            export PYTHON_VERSION="$long_version"
+        fi
+
+        local prompt=$(awk -F' *= *' '$1=="prompt"{print $2}' "$VIRTUAL_ENV/pyvenv.cfg" | tr -d ' ')
+        if [[ -n "$prompt" ]]; then
+            export VIRTUAL_ENV_NAME="$prompt"
         fi
     fi
 
-    if [ -f .python-version ]; then
-        python_version=$(cat .python-version)
-        export PYTHON_VERSION=$python_version
+    if [[ -z "$PYTHON_VERSION" && -f .python-version ]]; then
+        export PYTHON_VERSION=$(cat .python-version)
     fi
 }
+
