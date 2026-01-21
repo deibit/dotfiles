@@ -43,15 +43,6 @@ return {
         words = { enabled = true },
         picker = {
             enabled = true,
-            --FIXME: Does not work. Default Snacks icons still there: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
-            icons = {
-                diagnostics = {
-                    Error = " ",
-                    Warning = " ",
-                    Hint = " ",
-                    Info = " ",
-                },
-            },
         },
     },
     keys = {
@@ -118,7 +109,7 @@ return {
         -- Common
 
         {
-            "<leader>t",
+            "<leader>T",
             function()
                 Snacks.terminal.open()
             end,
@@ -305,22 +296,6 @@ return {
                 Snacks.picker.undo()
             end,
             desc = "Undo search",
-        },
-
-        -- Diagnostics
-        {
-            "<leader>lx",
-            function()
-                Snacks.picker.diagnostics_buffer({ layout = diagnostics_layout })
-            end,
-            desc = "Diagnostics (buffer)",
-        },
-        {
-            "<leader>lX",
-            function()
-                Snacks.picker.diagnostics({ layout = diagnostics_layout })
-            end,
-            desc = "Diagnostics",
         },
     },
 }

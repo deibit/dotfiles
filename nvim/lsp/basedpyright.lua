@@ -37,15 +37,13 @@ return {
     },
     settings = {
         basedpyright = {
-            reportMissingTypeStubs = false,
+            disableOrganizeImports = true,
             analysis = {
-                autoSearchPaths = true,
-                disableOrganizeImports = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "openFilesOnly",
                 autoImportCompletions = true,
-                reportMissingImportSummary = false,
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
                 libraryCodeAsTypes = true,
+                useLibraryCodeForTypes = true,
             },
         },
     },
