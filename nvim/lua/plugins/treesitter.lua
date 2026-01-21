@@ -5,7 +5,6 @@ return {
     lazy = false,
     branch = "main",
     build = ":TSUpdate",
-    dependencies = { "nvim-treesitter/nvim-treesitter-context" },
     config = function()
         require("nvim-treesitter").setup({
             auto_install = true,
@@ -49,9 +48,6 @@ return {
                 "vue",
                 "xml",
             },
-        })
-        require("treesitter-context").setup({
-            separator = "-",
         })
     end,
 }
