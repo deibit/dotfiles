@@ -34,7 +34,7 @@ return {
             desc = "lspsaga finder",
         },
         {
-            "<leader>K",
+            "K",
             "<cmd>Lspsaga hover_doc<cr>",
             desc = "Hover doc",
         },

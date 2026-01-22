@@ -23,10 +23,11 @@ return {
             preset = "none", -- IMPORTANTE: desactiva presets por defecto
 
             -- Navegación del menú
-            ["<Tab>"] = { "select_next", "fallback" },
-            ["<S-Tab>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<Up>"] = { "select_prev", "fallback" },
 
             -- Confirmar selección
+            ["<Tab>"] = { "accept", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
 
             -- Opcional pero recomendable
