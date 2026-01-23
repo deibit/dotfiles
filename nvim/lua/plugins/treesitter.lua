@@ -52,6 +52,7 @@ return {
     end,
 }
 
+-- Disable as Snacks has this
 -- Snippet for disable TS when buffer is too heavy
 -- disable = function(lang, buf)
 --     local max_filesize = 100 * 1024 -- 100 KB
