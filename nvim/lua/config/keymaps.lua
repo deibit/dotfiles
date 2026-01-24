@@ -107,3 +107,7 @@ vim.api.nvim_set_keymap(
 -- Space as /, Space as #
 vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "<space> as /" })
 vim.api.nvim_set_keymap("n", "<C-space>", "?", { noremap = true, silent = true, desc = "C-<space> as #" })
+
+-- Better QuickFix navigation
+vim.api.nvim_set_keymap("n", "[q", ":cprev<CR>", { noremap = true, silent = true, desc = "QF prev" })
+vim.api.nvim_set_keymap("n", "]q", ":cnext<CR>", { noremap = true, silent = true, desc = "QF next" })

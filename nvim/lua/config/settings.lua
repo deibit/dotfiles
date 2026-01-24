@@ -9,6 +9,7 @@ vim.opt.emoji = true
 vim.opt.expandtab = true
 vim.opt.foldmethod = "marker"
 vim.opt.grepprg = "rg --vimgrep --smart-case --follow"
+vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.hidden = true
 vim.opt.history = 1000
 vim.opt.hlsearch = false
