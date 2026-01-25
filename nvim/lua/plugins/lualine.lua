@@ -252,7 +252,7 @@ local function macro_recording()
     if recording_register == "" then
         return ""
     else
-        return " REC @ [" .. recording_register .. "]"
+        return " REC@" .. recording_register
     end
 end
 
