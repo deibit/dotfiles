@@ -1,15 +1,45 @@
-return {
-    name = "html",
-    cmd = { "vscode-html-language-server", "--stdio" },
-    filetypes = { "html", "htmldjango", "templ", "blade" },
-    root_dir = vim.fs.root(0, { "index.html", ".git" }),
+---@brief
+---
+--- https://github.com/hrsh7th/vscode-langservers-extracted
+---
+--- `vscode-html-language-server` can be installed via `npm`:
+--- ```sh
+--- npm i -g vscode-langservers-extracted
+--- ```
+---
+--- Neovim does not currently include built-in snippets. `vscode-html-language-server` only provides completions when snippet support is enabled.
+--- To enable completion, install a snippet plugin and add the following override to your language client capabilities during setup.
+---
+--- The code-formatting feature of the lsp can be controlled with the `provideFormatter` option.
+---
+--- ```lua
+--- --Enable (broadcasting) snippet capability for completion
+--- local capabilities = vim.lsp.protocol.make_client_capabilities()
+--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+---
+--- vim.lsp.config('html', {
+---   capabilities = capabilities,
+--- })
+--- ```
 
+---@type vim.lsp.Config
+
+return {
+    cmd = { "vscode-html-language-server", "--stdio" },
+    filetypes = { "html", "htmldjango" },
+    root_markers = { "package.json", ".git" },
+    capabilities = (function()
+        local caps = vim.lsp.protocol.make_client_capabilities()
+        caps.textDocument.completion.completionItem.snippetSupport = true
+        return caps
+    end)(),
     settings = {
         html = {
-            format = { enable = true },
-            hover = { documentation = true, references = true },
-            validate = { scripts = true, styles = true },
-            suggest = { html5 = true },
+            init_options = {
+                provideFormatter = true,
+                embeddedLanguages = { css = true, javascript = true },
+                configurationSection = { "html", "css", "javascript" },
+            },
         },
     },
 }

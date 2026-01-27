@@ -26,6 +26,7 @@ return {
             cpp = { name = "clangd", timeout_ms = 500, lsp_format = "prefer" },
             go = { name = "gopls", timeout_ms = 500, lsp_format = "prefer" },
             html = { "prettier" },
+            htmldjango = { "prettier" },
             javascript = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
             json = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
             lua = { "stylua" },

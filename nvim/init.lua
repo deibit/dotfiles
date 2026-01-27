@@ -37,6 +37,7 @@ vim.lsp.enable({
     -- "pyrefly",
     "tsserver",
     "html",
+    -- "jinja",
     "css",
     "tailwindcss",
     "clangd",
