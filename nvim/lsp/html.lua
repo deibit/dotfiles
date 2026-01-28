@@ -23,23 +23,14 @@
 --- ```
 
 ---@type vim.lsp.Config
-
 return {
     cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html", "htmldjango" },
     root_markers = { "package.json", ".git" },
-    capabilities = (function()
-        local caps = vim.lsp.protocol.make_client_capabilities()
-        caps.textDocument.completion.completionItem.snippetSupport = true
-        return caps
-    end)(),
-    settings = {
-        html = {
-            init_options = {
-                provideFormatter = true,
-                embeddedLanguages = { css = true, javascript = true },
-                configurationSection = { "html", "css", "javascript" },
-            },
-        },
+    settings = {},
+    init_options = {
+        provideFormatter = true,
+        embeddedLanguages = { css = true, javascript = true },
+        configurationSection = { "html", "css", "javascript" },
     },
 }
