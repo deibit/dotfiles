@@ -6,59 +6,56 @@ return {
     branch = "main",
     build = ":TSUpdate",
     config = function()
-        require("nvim-treesitter").setup({
+        local configs = require("nvim-treesitter")
+
+        configs.setup({
             auto_install = true,
-            indent = { enable = false },
+
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = false,
             },
+
+            indent = { enable = false },
+
             ensure_installed = {
-                "bash",
-                "comment",
+                -- Web Dev
+                "html",
                 "css",
-                "diff",
+                "scss",
+                "javascript",
+                "typescript",
+                "svelte",
+                "vue",
+                "json",
+                "yaml",
+                "xml",
+                -- System & Tools
+                "bash",
+                "python",
+                "go",
+                "rust",
                 "cmake",
+                "make",
                 "dockerfile",
-                "dot",
+                "toml",
+                -- Git & Utils
                 "git_config",
                 "git_rebase",
                 "gitcommit",
                 "gitignore",
-                "go",
-                "html",
-                "javascript",
-                "json",
-                "lua",
-                "luadoc",
-                "make",
+                "diff",
+                -- Documentation
                 "markdown",
                 "markdown_inline",
-                "python",
-                "query",
-                "rust",
-                "regex",
-                "scss",
-                "svelte",
-                "toml",
-                "typescript",
-                "yaml",
+                "comment",
+                -- Neovim
+                "lua",
+                "luadoc",
                 "vim",
                 "vimdoc",
-                "vue",
-                "xml",
+                "query",
             },
         })
     end,
 }
-
--- Disable as Snacks has this
--- Snippet for disable TS when buffer is too heavy
--- disable = function(lang, buf)
---     local max_filesize = 100 * 1024 -- 100 KB
---     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
---     if ok and stats and stats.size > max_filesize then
---         return true
---     end
--- end,
---

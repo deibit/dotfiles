@@ -19,7 +19,7 @@ return {
         -- require("mini.jump").setup()
         -- require("mini.jump2d").setup()
         -- require("mini.move").setup()
-        require("mini.notify").setup()
+        -- require("mini.notify").setup()
         -- require("mini.operators").setup()
         require("mini.pairs").setup()
         -- require("mini.pick").setup()
