@@ -31,7 +31,6 @@ return {
         indent = { enabled = true },
         gitbrowse = { enabled = true },
         input = { enabled = true },
-        -- lazygit = { enabled = true },
         notifier = { enabled = true },
         notify = { enabled = true },
         rename = { enabled = true },
@@ -108,6 +107,13 @@ return {
         },
 
         -- Common
+        {
+            "<leader>E",
+            function()
+                Snacks.picker.cliphist()
+            end,
+            desc = "system clipboard hist.",
+        },
 
         {
             "<leader>T",
@@ -119,7 +125,7 @@ return {
         {
             "<leader>e",
             function()
-                Snacks.explorer()
+                Snacks.explorer({ follow_file = false })
             end,
             desc = "Explorer",
         },
@@ -143,7 +149,7 @@ return {
         {
             "<leader>f",
             function()
-                Snacks.picker.files()
+                Snacks.picker.files({ hidden = true, ignored = true })
             end,
             desc = "File picker",
         },
@@ -238,6 +244,22 @@ return {
                 Snacks.picker.treesitter()
             end,
             desc = "Treesitter picker",
+        },
+
+        -- Diagnostics
+        {
+            "<leader>lx",
+            function()
+                Snacks.picker.diagnostics_buffer({ layout = diagnostics_layout })
+            end,
+            desc = "Diagnostics (buffer)",
+        },
+        {
+            "<leader>lX",
+            function()
+                Snacks.picker.diagnostics({ layout = diagnostics_layout })
+            end,
+            desc = "Diagnostics",
         },
 
         -- Picker others
