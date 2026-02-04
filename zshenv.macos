@@ -6,8 +6,8 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Man pages
-export MANPAGER="bat -plman"
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Set up neovim as the default editor.
 export EDITOR="$(which nvim)"

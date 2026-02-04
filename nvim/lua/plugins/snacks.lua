@@ -26,7 +26,7 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        bigfile = { enabled = true },
+        bigfile = { enabled = true, line_length = 100000 },
         bufdelete = { enabled = true },
         indent = { enabled = true },
         gitbrowse = { enabled = true },
