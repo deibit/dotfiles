@@ -111,3 +111,17 @@ vim.api.nvim_set_keymap("n", "<C-space>", "?", { noremap = true, silent = true, 
 -- Better QuickFix navigation
 vim.api.nvim_set_keymap("n", "[q", ":cprev<CR>", { noremap = true, silent = true, desc = "QF prev" })
 vim.api.nvim_set_keymap("n", "]q", ":cnext<CR>", { noremap = true, silent = true, desc = "QF next" })
+
+-- Open symbol definition on a split
+local function open_definition_on_split(split_type)
+    vim.cmd(split_type)
+    vim.lsp.buf.definition()
+end
+
+vim.keymap.set("n", "gv", function()
+    open_definition_on_split("vsplit")
+end, { desc = "Definición en split vertical" })
+vim.keymap.set("n", "gs", function()
+    open_definition_on_split("split")
+end, { desc = "Definición en split horizontal" })
+
