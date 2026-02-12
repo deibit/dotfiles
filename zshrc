@@ -81,3 +81,10 @@ export PATH="$PATH:/Users/davidgarcia/.cache/lm-studio/bin"
 fpath=("$HOME/.zfunc" $fpath)
 autoload -Uz compinit
 compinit
+
+# bun completions
+[ -s "/Users/davidgarcia/.bun/_bun" ] && source "/Users/davidgarcia/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
