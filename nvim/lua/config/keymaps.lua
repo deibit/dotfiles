@@ -118,10 +118,9 @@ local function open_definition_on_split(split_type)
     vim.lsp.buf.definition()
 end
 
-vim.keymap.set("n", "gv", function()
+vim.keymap.set("n", "gS", function()
     open_definition_on_split("vsplit")
 end, { desc = "Definición en split vertical" })
 vim.keymap.set("n", "gs", function()
     open_definition_on_split("split")
 end, { desc = "Definición en split horizontal" })
-
