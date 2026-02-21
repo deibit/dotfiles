@@ -3,7 +3,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
-plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting docker fzf)
+plugins=(zsh-completions zsh-syntax-highlighting docker fzf ssh)
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'

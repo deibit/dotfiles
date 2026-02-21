@@ -46,3 +46,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
+
+-- Start TS
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        local ft = vim.bo[args.buf].filetype
+        pcall(vim.treesitter.start, args.buf, ft)
+    end,
+})

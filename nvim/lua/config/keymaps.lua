@@ -59,7 +59,7 @@ vim.api.nvim_set_keymap("n", "<leader>p", "o<Esc>p", { noremap = true, silent = 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "fast escape / write" })
 
 -- Fast search / and ?
-vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "fast /" })
+-- vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "fast /" })
 
 -- Redo with 'U'
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })

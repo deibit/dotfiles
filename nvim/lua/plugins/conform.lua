@@ -37,6 +37,8 @@ return {
             typescript = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
             vue = { "prettier" },
             yaml = { "yamlfmt" },
+            html = { "djlint", "prettier" },
+            jinja = { "djlint" },
         },
 
         format_after_save = function()

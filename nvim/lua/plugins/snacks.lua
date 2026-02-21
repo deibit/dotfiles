@@ -140,7 +140,7 @@ return {
         -- Picker buffer and files
 
         {
-            "<leader>b",
+            "<space>",
             function()
                 Snacks.picker.buffers()
             end,
