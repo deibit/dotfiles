@@ -49,5 +49,4 @@ vim.lsp.enable({
     "yamlls",
     "taplo",
     "dotls",
-    "vue",
 })
