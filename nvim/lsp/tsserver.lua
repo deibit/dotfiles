@@ -73,17 +73,27 @@
 --- If DENO ROOT is found, and it's longer than or equal to PROJECT ROOT, then this is a Deno file, and we abort.
 --- Otherwise, attach at PROJECT ROOT, or the cwd if not found.
 
+local vue_language_server_path = vim.fn.expand("$MASON/packages")
+    .. "/vue-language-server"
+    .. "/node_modules/@vue/language-server"
+
+local vue_plugin = {
+    name = "@vue/typescript-plugin",
+    location = vue_language_server_path,
+    languages = { "vue" },
+    configNamespace = "typescript",
+}
+
 ---@type vim.lsp.Config
 return {
-    init_options = { hostInfo = "neovim" },
+    init_options = { hostInfo = "neovim", plugins = { vue_plugin } },
     cmd = { "typescript-language-server", "--stdio" },
     filetypes = {
         "javascript",
         "javascriptreact",
-        "javascript.jsx",
         "typescript",
         "typescriptreact",
-        "typescript.tsx",
+        "vue",
     },
     root_dir = function(bufnr, on_dir)
         -- The project root is where the LSP can be started from

@@ -35,7 +35,7 @@ return {
             sql = { "sqlfmt" },
             toml = { "taplo" },
             typescript = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
-            vue = { "prettier" },
+            vue = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
             yaml = { "yamlfmt" },
             html = { "djlint", "prettier" },
             jinja = { "djlint" },
