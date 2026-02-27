@@ -73,4 +73,17 @@ vim.api.nvim_create_user_command("LspStatus", function()
     end
 end, {})
 
+vim.api.nvim_create_user_command("LspCapabilities", function()
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    if #clients == 0 then
+        print("No hay LSPs adjuntos a este buffer")
+        return
+    end
+
+    for i, client in ipairs(clients) do
+        print(string.format("\n=== %d. %s (id: %d) ===", i, client.name, client.id))
+        print(vim.inspect(client.server_capabilities))
+    end
+end, {})
+
 return M
