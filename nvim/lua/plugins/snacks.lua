@@ -314,7 +314,7 @@ return {
             desc = "Keymaps",
         },
         {
-            "<leader>u",
+            "<leader>U",
             function()
                 Snacks.picker.undo()
             end,
