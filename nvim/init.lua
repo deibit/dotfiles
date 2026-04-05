@@ -53,4 +53,5 @@ vim.lsp.enable({
 
 -- Builtin plugins
 vim.cmd("packadd nvim.undotree")
+vim.cmd("packadd nvim.difftool")
 vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "undotree" })
