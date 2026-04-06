@@ -17,7 +17,6 @@ require("config.autocommands")
 require("config.commands")
 require("config.keymaps")
 require("config.searchingoogle")
-require("config.lspcommands") -- for Lsp*Commands*
 
 -- Lazy configuration
 require("lazy").setup("plugins")
