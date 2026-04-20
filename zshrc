@@ -18,8 +18,6 @@ alias rm="rm -I"
 
 # cd alias
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
 
 # ls alias
 alias l="ls -lh"
@@ -28,10 +26,6 @@ alias ll="ls -lhA"
 
 # cmds alias
 alias c="clear"
-alias t="tree -L 2"
-alias k9="kill -9"
-alias top10mem="ps aux --sort=-%mem | head -n 10"
-alias top10cpu="ps aux --sort=-%cpu | head -n 10"
 alias brewup='brew update && brew upgrade && brew cleanup'
 
 # Git alias
@@ -88,3 +82,6 @@ compinit
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# codex completions
+eval "$(codex completion zsh)"
