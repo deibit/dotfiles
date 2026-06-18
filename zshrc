@@ -3,7 +3,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
-plugins=(zsh-completions zsh-syntax-highlighting docker fzf ssh)
+plugins=(zsh-completions zsh-syntax-highlighting docker fzf ssh git docker docker-compose)
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .ccls-cache'
@@ -27,21 +27,6 @@ alias ll="ls -lhA"
 # cmds alias
 alias c="clear"
 alias brewup='brew update && brew upgrade && brew cleanup'
-
-# Git alias
-alias gc="git commit -m"
-alias gca="git commit -a -m"
-alias gp="git push origin HEAD"
-alias gpu="git pull origin"
-alias gst="git status"
-alias glog="git log --graph ..."
-
-# Docker alias
-alias dco="docker compose"
-alias dps="docker ps"
-alias dpa="docker ps -a"
-alias dl="docker ps -l -q"
-alias dx="docker exec -it"
 
 # Misc alias
 alias vim="nvim"
