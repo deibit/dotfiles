@@ -37,7 +37,7 @@ Linux)
 esac
 
 # Crear directorios
-for i in lazygit eza tmux direnv yazi uv; do
+for i in lazygit eza tmux direnv yazi uv ghostty; do
     d="$XDG_CONFIG_HOME/$i"
     echo "${FOLDER} ${GREEN}Creando directorio:${RESET} $d"
     mkdir -p "$d"
@@ -54,6 +54,7 @@ ln -sfn "$SCRIPT_DIR/yazi/yazi.toml" "$XDG_CONFIG_HOME/yazi/yazi.toml" && echo "
 ln -sfn "$SCRIPT_DIR/yazi/init.lua" "$XDG_CONFIG_HOME/yazi/init.lua" && echo "$LINK $XDG_CONFIG_HOME/yazi/init.lua $CHECK"
 ln -sfn "$SCRIPT_DIR/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf" && echo "$LINK $XDG_CONFIG_HOME/tmux/tmux.conf $CHECK"
 ln -sfn "$SCRIPT_DIR/uv/uv.toml" "$XDG_CONFIG_HOME/uv/uv.toml" && echo "$LINK $XDG_CONFIG_HOME/uv/uv.toml $CHECK"
+ln -sfn "$SCRIPT_DIR/ghostty" "$XDG_CONFIG_HOME/ghostty/config" && echo "$LINK $XDG_CONFIG_HOME/ghostty/config $CHECK"
 
 # Crear enlaces simbólicos variables (zshenv, zprofile)
 echo "${INFO} ${BLUE}Creando enlaces según el sistema: $SUFFIX...${RESET}"
