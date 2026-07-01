@@ -69,3 +69,8 @@ for file in zshenv zprofile; do
 done
 
 echo "${GREEN}🎉 Todo listo.${RESET}"
+
+# zsh plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions.git \
+    ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
