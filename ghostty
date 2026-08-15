@@ -1,11 +1,12 @@
 theme = Sonokai
 
-font-size = 16
+font-size = 14
 font-thicken = true
 font-family = "Hack Nerd Font Mono"
 
 # No shadow looks cleaner.
 macos-window-shadow = false
+macos-option-as-alt = true
 
 # Stop Ghostty when I close everything.
 quit-after-last-window-closed = true
