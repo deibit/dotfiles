@@ -11,9 +11,9 @@ cd ~/dotfiles && ./install.sh
 
 Estas son las dos operaciones: clonar y ejecutar el instalador. Se puede repetir la segunda después de actualizar el repositorio: solo instala paquetes ausentes y los enlaces ya correctos no se vuelven a crear. Repetirla no actualiza las versiones instaladas.
 
-El instalador instala Git, zsh, Oh My Zsh, tmux, Neovim, fzf, fd, ripgrep, direnv, Starship, uv, zoxide, Node y el resaltado de sintaxis de zsh. En macOS instala zsh con Homebrew, registra su ruta en `/etc/shells` y la activa como shell de inicio. En Linux instala zsh con `apt` y también la activa como shell de inicio. El cambio de shell puede pedir la contraseña del usuario. Homebrew se instala si falta.
+El instalador instala Git, zsh, Oh My Zsh, tmux, Neovim, fzf, fd, ripgrep, direnv, Starship, uv, zoxide, Node, Go, tree-sitter CLI, cppcheck y el resaltado de sintaxis de zsh. En macOS instala zsh con Homebrew, registra su ruta en `/etc/shells` y la activa como shell de inicio. En Linux instala zsh con `apt` y también la activa como shell de inicio. El cambio de shell puede pedir la contraseña del usuario. Homebrew se instala si falta.
 
-En Linux se usa `apt` para la base y los instaladores o archivos oficiales para Neovim, uv, Starship y zoxide. Neovim se descarga del [proyecto oficial](https://neovim.io/doc/install/) para x86_64 o arm64, sin compilarlo.
+En Linux se usa `apt` para la base y los instaladores o archivos oficiales para Neovim, Go, tree-sitter CLI, uv, Starship y zoxide. Neovim se descarga del [proyecto oficial](https://neovim.io/doc/install/) para x86_64 o arm64, sin compilarlo. El instalador también prepara los plugins, analizadores, servidores, formateadores y linters de Neovim; la primera ejecución requiere conexión a Internet y puede tardar unos minutos. Los plugins usan las revisiones guardadas en `nvim/lazy-lock.json`.
 
 Las configuraciones se enlazan al repositorio. Si ya existe un archivo o directorio en el destino, se mueve a `*.backup.FECHA` antes de crear el enlace. El instalador respeta `XDG_CONFIG_HOME`. Para revisar solo los enlaces sin instalar paquetes: `./install.sh --link-only`.
 

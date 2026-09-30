@@ -2,7 +2,7 @@ return {
     name = "cssls",
     cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = { "css", "scss", "less" },
-    root_dir = vim.fs.root(0, { "package.json", ".git" }),
+    root_markers = { "package.json", ".git" },
 
     settings = {
         css = {

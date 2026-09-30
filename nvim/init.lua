@@ -18,6 +18,8 @@ require("config.commands")
 require("config.keymaps")
 require("config.searchingoogle")
 
+vim.filetype.add({ extension = { jinja = "jinja", jinja2 = "jinja", j2 = "jinja" } })
+
 -- Lazy configuration
 require("lazy").setup("plugins")
 
@@ -32,11 +34,8 @@ vim.lsp.enable({
     "rust_analyzer",
     "gopls",
     "lua_ls",
-    -- "basedpyright",
     "ty",
-    -- "pyrefly",
     "tsserver",
-    -- "vtsls",
     "html",
     "css",
     "tailwindcss",
@@ -47,7 +46,6 @@ vim.lsp.enable({
     "dockerls",
     "yamlls",
     "taplo",
-    "dotls",
 })
 
 -- Builtin plugins

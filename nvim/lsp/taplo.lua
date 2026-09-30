@@ -2,7 +2,7 @@ return {
     name = "taplo",
     cmd = { "taplo", "lsp", "stdio" },
     filetypes = { "toml" },
-    root_dir = vim.fs.root(0, { "Cargo.toml", "pyproject.toml", ".git" }),
+    root_markers = { "Cargo.toml", "pyproject.toml", ".git" },
 
     settings = {
         evenBetterToml = {

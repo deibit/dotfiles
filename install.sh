@@ -54,7 +54,7 @@ install_packages() {
                 fi
             fi
             set --
-            for package in git zsh tmux neovim fzf fd ripgrep direnv starship uv zoxide node; do
+            for package in git zsh tmux neovim fzf fd ripgrep direnv starship uv zoxide node go python tree-sitter-cli cppcheck; do
                 if ! brew list --versions "$package" >/dev/null 2>&1; then
                     set -- "$@" "$package"
                 fi
@@ -73,7 +73,7 @@ install_packages() {
                 exit 1
             fi
             set --
-            for package in ca-certificates curl git zsh tmux fzf ripgrep fd-find direnv nodejs ncurses-term unzip build-essential; do
+            for package in ca-certificates curl git zsh tmux fzf ripgrep fd-find direnv nodejs npm python3 python3-venv ncurses-term unzip build-essential cppcheck; do
                 if [ "$(dpkg-query -W -f='${Status}' "$package" 2>/dev/null || true)" != 'install ok installed' ]; then
                     set -- "$@" "$package"
                 fi
@@ -108,6 +108,34 @@ install_packages() {
                 mv "$tmp/nvim-linux-$arch" "$HOME/.local/opt/nvim"
             fi
             link_file "$HOME/.local/opt/nvim/bin/nvim" "$bin_home/nvim"
+
+            if [ ! -x "$HOME/.local/opt/go/bin/go" ]; then
+                log 'Instalando Go estable desde su archivo oficial'
+                go_version=$(curl -fsSL 'https://go.dev/VERSION?m=text' | sed -n '1p')
+                case "$go_version" in go[0-9]*.[0-9]*) ;; *) echo 'No se pudo determinar la versión de Go.' >&2; exit 1 ;; esac
+                case "$arch" in x86_64) go_arch=amd64 ;; arm64) go_arch=arm64 ;; esac
+                curl -fsSL "https://go.dev/dl/$go_version.linux-$go_arch.tar.gz" -o "$tmp/go.tar.gz"
+                tar -xzf "$tmp/go.tar.gz" -C "$tmp"
+                mkdir -p "$HOME/.local/opt"
+                if [ -e "$HOME/.local/opt/go" ]; then
+                    backup="$HOME/.local/opt/go.backup.$(date +%Y%m%d%H%M%S)"
+                    while [ -e "$backup" ]; do backup="$backup.1"; done
+                    mv "$HOME/.local/opt/go" "$backup"
+                    log "Copia previa: $backup"
+                fi
+                mv "$tmp/go" "$HOME/.local/opt/go"
+            fi
+            link_file "$HOME/.local/opt/go/bin/go" "$bin_home/go"
+            export GOROOT="$HOME/.local/opt/go"
+
+            if [ ! -x "$HOME/.local/opt/tree-sitter" ]; then
+                case "$arch" in x86_64) tree_sitter_arch=x64 ;; arm64) tree_sitter_arch=arm64 ;; esac
+                log 'Instalando tree-sitter CLI desde su archivo oficial'
+                curl -fsSL "https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-cli-linux-$tree_sitter_arch.zip" -o "$tmp/tree-sitter.zip"
+                unzip -q "$tmp/tree-sitter.zip" -d "$tmp/tree-sitter"
+                install -m 755 "$tmp/tree-sitter/tree-sitter" "$HOME/.local/opt/tree-sitter"
+            fi
+            link_file "$HOME/.local/opt/tree-sitter" "$bin_home/tree-sitter"
 
             if ! command -v uv >/dev/null 2>&1; then
                 log 'Instalando uv'
@@ -144,7 +172,7 @@ install_packages() {
         git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$syntax_dir"
     fi
 
-    for cmd in git zsh tmux nvim fzf fd rg direnv starship uv zoxide node; do
+    for cmd in git zsh tmux nvim fzf fd rg direnv starship uv zoxide node npm python3 go tree-sitter cppcheck; do
         if ! command -v "$cmd" >/dev/null 2>&1; then
             echo "La instalación terminó sin el comando esperado: $cmd" >&2
             exit 1
@@ -173,6 +201,11 @@ link_file "$repo/starship.toml" "$config_home/starship.toml"
 link_file "$repo/direnvrc" "$config_home/direnv/direnvrc"
 link_file "$repo/ghostty" "$config_home/ghostty/config"
 link_file "$repo/gitconfig.common" "$config_home/git/config"
+
+if [ "${1:-}" != --link-only ]; then
+    log 'Preparando plugins, analizadores y herramientas de Neovim'
+    DOTFILES_BOOTSTRAP=1 nvim --headless -c 'lua local ok, err = pcall(require("config.bootstrap").run); if not ok then vim.api.nvim_err_writeln(err); vim.cmd("cquit 1") end' -c qa
+fi
 
 if ! git config --global user.name >/dev/null 2>&1 || ! git config --global user.email >/dev/null 2>&1; then
     log 'Git: configura tu nombre y correo con git config --global user.name/user.email antes de crear commits.'

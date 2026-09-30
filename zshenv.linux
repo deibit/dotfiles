@@ -7,6 +7,7 @@ export VISUAL="$EDITOR"
 export UV_MANAGED_PYTHON=1
 
 # Go
+[[ -x "$HOME/.local/opt/go/bin/go" ]] && export GOROOT="$HOME/.local/opt/go"
 export GOPATH="$HOME/go"
 export GOBIN="$HOME/go/bin"
 export PATH="$GOBIN:$PATH"

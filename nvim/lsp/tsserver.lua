@@ -73,7 +73,7 @@
 --- If DENO ROOT is found, and it's longer than or equal to PROJECT ROOT, then this is a Deno file, and we abort.
 --- Otherwise, attach at PROJECT ROOT, or the cwd if not found.
 
-local vue_language_server_path = vim.fn.expand("$MASON/packages")
+local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages"
     .. "/vue-language-server"
     .. "/node_modules/@vue/language-server"
 

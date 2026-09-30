@@ -12,14 +12,14 @@ return {
         "vue",
         "svelte",
     },
-    root_dir = vim.fs.root(0, {
+    root_markers = {
         "tailwind.config.js",
         "tailwind.config.cjs",
         "tailwind.config.ts",
         "postcss.config.js",
         "package.json",
         ".git",
-    }),
+    },
 
     settings = {
         tailwindCSS = {

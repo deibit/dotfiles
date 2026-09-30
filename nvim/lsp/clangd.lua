@@ -11,12 +11,12 @@ return {
         "--cross-file-rename=true",
     },
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-    root_dir = vim.fs.root(0, {
+    root_markers = {
         "compile_commands.json",
         "compile_flags.txt",
         ".clangd",
         ".git",
-    }),
+    },
 
     settings = {
         clangd = {

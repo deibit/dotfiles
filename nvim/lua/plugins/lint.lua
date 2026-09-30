@@ -10,8 +10,8 @@ return {
             c = { "cppcheck" },
             cpp = { "cppcheck" },
             go = { "golangcilint" },
-            javascript = { "eslint" },
-            vue = { "eslint" },
+            javascript = { "eslint_d" },
+            vue = { "eslint_d" },
             python = { "ruff" },
         }
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

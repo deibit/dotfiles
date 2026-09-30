@@ -2,7 +2,7 @@ return {
     name = "yamlls",
     cmd = { "yaml-language-server", "--stdio" },
     filetypes = { "yaml", "yml" },
-    root_dir = vim.fs.root(0, { ".git", "docker-compose.yml", "docker-compose.yaml" }),
+    root_markers = { ".git", "docker-compose.yml", "docker-compose.yaml" },
 
     settings = {
         yaml = {
