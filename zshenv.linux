@@ -1,21 +1,15 @@
 # ~/.zshenv (Linux)
 
 export PATH="$HOME/.local/bin:$PATH"
-export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export EDITOR="nvim"
-export LANG="en_US.UTF-8"
+export VISUAL="$EDITOR"
+export UV_MANAGED_PYTHON=1
 
 # Go
 export GOPATH="$HOME/go"
 export GOBIN="$HOME/go/bin"
-export PATH="$PATH:$GOBIN"
+export PATH="$GOBIN:$PATH"
 
 # Rust (cargo)
-export PATH="$PATH:$HOME/.cargo/bin"
-
-# Poetry
-export POETRY_VIRTUALENVS_IN_PROJECT=true
-export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
-
-# Flatpak
-export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+export PATH="$HOME/.cargo/bin:$PATH"

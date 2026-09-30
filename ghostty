@@ -1,18 +1,21 @@
 theme = Sonokai
 
-font-size = 14
+font-size = 16
 font-thicken = true
 font-family = "Hack Nerd Font Mono"
 
 # No shadow looks cleaner.
 macos-window-shadow = false
-macos-option-as-alt = true
+#macos-option-as-alt = true
 
 # Stop Ghostty when I close everything.
 quit-after-last-window-closed = true
 
 # This is done automatically by Hyprland on Linux so using this here.
 mouse-hide-while-typing = true
+
+# Instala terminfo al conectar por SSH para mantener las funciones del terminal.
+shell-integration-features = ssh-env,ssh-terminfo
 
 split-divider-color = #e69112
 

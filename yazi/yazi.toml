@@ -1,5 +1,0 @@
-[manager]
-ratio = [2, 3, 3]
-sort = "natural"
-sort_dir_first = true
-linemode = "size_and_mtime"

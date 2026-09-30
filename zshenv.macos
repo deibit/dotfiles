@@ -1,32 +1,22 @@
 # ~/.zshenv
 
-export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
 export PATH="$HOME/.local/bin:$PATH"
-export XDG_CONFIG_HOME="$HOME/.config"
-
-
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Set up neovim as the default editor.
-export EDITOR="$(which nvim)"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export LANG="en_US.UTF-8"
 
 # GOPATH y GOBIN
 export GOPATH="$HOME/go"
 export GOBIN="$HOME/go/bin"
-export PATH="$PATH:$GOBIN"
+export PATH="$GOBIN:$PATH"
 
 # Cargo
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Disable Apple's save/restore mechanism.
 export SHELL_SESSIONS_DISABLE=1
-
-# Bat
-export BAT_THEME="base16"
 
 # uv
 export UV_MANAGED_PYTHON=1 # Work only with managed Pythons (do not allow system pythons)
