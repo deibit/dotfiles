@@ -19,4 +19,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export SHELL_SESSIONS_DISABLE=1
 
 # uv
-export UV_MANAGED_PYTHON=1 # Work only with managed Pythons (do not allow system pythons)
+# Work only with managed Pythons (do not allow system pythons)
+export UV_MANAGED_PYTHON=1
