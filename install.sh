@@ -73,7 +73,7 @@ install_packages() {
                 exit 1
             fi
             set --
-            for package in ca-certificates curl git zsh tmux fzf ripgrep fd-find direnv nodejs npm python3 python3-venv ncurses-term unzip build-essential cppcheck; do
+            for package in ca-certificates curl git zsh tmux fzf ripgrep fd-find direnv nodejs python3 python3-venv ncurses-term unzip build-essential cppcheck; do
                 if [ "$(dpkg-query -W -f='${Status}' "$package" 2>/dev/null || true)" != 'install ok installed' ]; then
                     set -- "$@" "$package"
                 fi
@@ -82,6 +82,11 @@ install_packages() {
                 log 'Instalando herramientas ausentes con apt'
                 sudo apt-get update
                 sudo apt-get install -y "$@"
+            fi
+            # NodeSource incluye npm en nodejs; Ubuntu lo distribuye por separado.
+            if ! command -v npm >/dev/null 2>&1; then
+                log 'Instalando npm ausente con apt'
+                sudo apt-get install -y npm
             fi
             mkdir -p "$bin_home"
             if ! command -v fd >/dev/null 2>&1; then
