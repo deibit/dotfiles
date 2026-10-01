@@ -27,6 +27,7 @@ alias la='ls -A'
 alias ll='ls -lhA'
 alias c='clear'
 alias vim='nvim'
+alias brewup='brew update && brew upgrade && brew cleanup'
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
