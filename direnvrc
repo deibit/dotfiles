@@ -3,15 +3,12 @@ layout_uv() {
     unset VIRTUAL_ENV_NAME
     local venv_path="$(pwd)/.venv"
 
-    if [[ -d "$venv_path" ]]; then
-        VIRTUAL_ENV="$venv_path"
-    fi
-
-    if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+    # Cada proyecto usa su propia .venv, incluso dentro de otro entorno activo.
+    if [[ ! -d "$venv_path" ]]; then
         log_status "No virtual environment exists. Creating one..."
-        UV_MANAGED_PYTHON=1 uv venv
-        VIRTUAL_ENV="$venv_path"
+        UV_MANAGED_PYTHON=1 uv venv "$venv_path" || return $?
     fi
+    VIRTUAL_ENV="$venv_path"
 
     export VIRTUAL_ENV
     PATH_add "$VIRTUAL_ENV/bin"

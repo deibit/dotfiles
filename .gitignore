@@ -2,3 +2,4 @@
 Session.vim
 .luarc.json
 gitconfig
+__pycache__/

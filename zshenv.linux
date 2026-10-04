@@ -3,6 +3,14 @@
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export EDITOR="nvim"
+if [[ -r "$XDG_CONFIG_HOME/dotfiles/profile" ]] &&
+    [[ "$(<"$XDG_CONFIG_HOME/dotfiles/profile")" == slim ]]; then
+    export EDITOR="vslim"
+    # nvim, incluso fuera de un shell interactivo, usa los datos aislados de slim.
+    export NVIM_APPNAME="nvim-slim"
+elif [[ ${NVIM_APPNAME:-} == nvim-slim ]]; then
+    unset NVIM_APPNAME
+fi
 export VISUAL="$EDITOR"
 export UV_MANAGED_PYTHON=1
 

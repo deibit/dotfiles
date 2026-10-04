@@ -1,6 +1,11 @@
 # Oh My Zsh gestiona las funciones de zsh; Starship dibuja el prompt.
 export ZSH="$HOME/.oh-my-zsh"
+DOTFILES_PROFILE=fat
+[[ -r "$XDG_CONFIG_HOME/dotfiles/profile" ]] &&
+    IFS= read -r DOTFILES_PROFILE < "$XDG_CONFIG_HOME/dotfiles/profile"
+[[ "$DOTFILES_PROFILE" == slim ]] || DOTFILES_PROFILE=fat
 ZSH_THEME=''
+[[ "$DOTFILES_PROFILE" == slim ]] && ZSH_THEME='robbyrussell'
 plugins=(git)
 
 fpath=("$HOME/.zfunc" $fpath)
@@ -27,15 +32,18 @@ alias la='ls -A'
 alias ll='ls -lhA'
 alias c='clear'
 alias vim='nvim'
-alias brewup='brew update && brew upgrade && brew cleanup'
+(( $+commands[brew] )) && alias brewup='brew update && brew upgrade && brew cleanup'
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
 
-(( $+commands[starship] )) && eval "$(starship init zsh)"
+[[ "$DOTFILES_PROFILE" == fat ]] && (( $+commands[starship] )) && eval "$(starship init zsh)"
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
-(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+[[ "$DOTFILES_PROFILE" == fat ]] && (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # La sintaxis se carga al final para que sus widgets no se sobrescriban.
 [[ -f "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
     source "$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Ajustes privados de esta máquina.
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
