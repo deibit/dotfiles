@@ -15,21 +15,11 @@ local function get_visual_selection()
         return nil
     end
 
-    local save_reg = vim.fn.getreg('"')
-    vim.cmd('normal! "vy')
-    local selected_text = vim.fn.getreg('"')
-    vim.fn.setreg('"', save_reg)
-
-    return selected_text
-end
-
-local function get_url_launcher()
-    local uname = jit.os
-    if uname == "OSX" then
-        return "open"
-    else
-        return "xdg-open"
-    end
+    local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), {
+        type = mode,
+        exclusive = vim.o.selection == "exclusive",
+    })
+    return table.concat(lines, "\n")
 end
 
 local function google_search()
@@ -42,9 +32,10 @@ local function google_search()
     end
 
     local url = "https://www.google.com/search?q=" .. urlencode(query)
-    local launcher = get_url_launcher()
-
-    vim.fn.jobstart({ launcher, url }, { detach = true })
+    local _, err = vim.ui.open(url)
+    if err then
+        vim.notify(err, vim.log.levels.ERROR)
+    end
 end
 
 vim.keymap.set({ "n", "v" }, "<leader>sg", google_search, { desc = "Buscar en Google" })

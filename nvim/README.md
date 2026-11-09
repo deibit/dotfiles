@@ -4,7 +4,7 @@ Configuración para edición y búsqueda de archivos. Se instala con `../install
 
 ## Herramientas y mantenimiento
 
-`lua/config/tooling.lua` define los parsers de Tree-sitter que prepara el instalador.
+`lua/config/tooling.lua` define los parsers de Tree-sitter que prepara el instalador. Para añadir uno desde Neovim, usa `:TSInstall <parser>`.
 
 Los plugins están fijados en `lazy-lock.json`. Tras actualizar el repositorio, `:Lazy restore` aplica esas revisiones.
 

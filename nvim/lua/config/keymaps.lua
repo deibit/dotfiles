@@ -1,5 +1,3 @@
-vim.g.mapleader = ","
-
 -- Package manager
 vim.api.nvim_set_keymap("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
@@ -58,9 +56,6 @@ vim.api.nvim_set_keymap("n", "<leader>p", "o<Esc>p", { noremap = true, silent = 
 -- Fast escape
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "fast escape / write" })
 
--- Fast search / and ?
--- vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "fast /" })
-
 -- Redo with 'U'
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })
 
@@ -80,13 +75,13 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, desc = "Copy buffer to clipboard" }
 )
 
--- Delete buffer and paste clipboard
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>B",
-    "<cmd>1,$d | 0put +<cr>",
-    { noremap = true, silent = true, desc = "Delete buffer and paste clipboard" }
-)
+vim.keymap.set("n", "<leader>B", function()
+    local lines = vim.fn.getreg("+", 1, true)
+    if #lines > 0 then
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+        vim.api.nvim_win_set_cursor(0, { #lines, 0 })
+    end
+end, { silent = true, desc = "Replace buffer with clipboard" })
 
 -- Delete inside "<content>" and replace it with the clipboard
 vim.api.nvim_set_keymap(
@@ -96,10 +91,5 @@ vim.api.nvim_set_keymap(
     { noremap = true, silent = true, desc = 'Replace "<txt>" with clipboard' }
 )
 
--- Space as /, Space as #
-vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true, desc = "<space> as /" })
+-- Search backwards
 vim.api.nvim_set_keymap("n", "<C-space>", "?", { noremap = true, silent = true, desc = "C-<space> as #" })
-
--- Better QuickFix navigation
-vim.api.nvim_set_keymap("n", "[q", ":cprev<CR>", { noremap = true, silent = true, desc = "QF prev" })
-vim.api.nvim_set_keymap("n", "]q", ":cnext<CR>", { noremap = true, silent = true, desc = "QF next" })

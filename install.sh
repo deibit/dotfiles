@@ -286,7 +286,7 @@ printf '%s\n' "$profile" > "$config_home/dotfiles/profile"
 
 if [ "$link_only" = false ] && [ "$profile" = fat ]; then
     log 'Preparando plugins, analizadores y herramientas de Neovim'
-    DOTFILES_BOOTSTRAP=1 NVIM_APPNAME=nvim nvim --headless -c 'lua local ok, err = pcall(require("config.bootstrap").run); if not ok then vim.api.nvim_err_writeln(err); vim.cmd("cquit 1") end' -c qa
+    NVIM_APPNAME=nvim nvim --headless -c 'lua local ok, err = pcall(require("config.bootstrap").run); if not ok then vim.api.nvim_err_writeln(err); vim.cmd("cquit 1") end' -c qa
 fi
 
 if ! git config --global user.name >/dev/null 2>&1 || ! git config --global user.email >/dev/null 2>&1; then

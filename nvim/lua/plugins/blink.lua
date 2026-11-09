@@ -1,58 +1,32 @@
 return {
     "saghen/blink.cmp",
     event = "InsertEnter",
-    -- optional: provides snippets for the snippet source
-    -- dependencies = 'rafamadriz/friendly-snippets',
 
-    -- La versión estable incluye binarios precompilados; no requiere Rust nightly.
     version = "*",
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        -- 'default' for mappings similar to built-in completion
-        -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-        -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-        -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
-            preset = "none", -- IMPORTANTE: desactiva presets por defecto
+            preset = "none",
 
-            -- Navegación del menú
             ["<Down>"] = { "select_next", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
 
-            -- Confirmar selección
             ["<Tab>"] = { "accept", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
 
-            -- Opcional pero recomendable
             ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
             ["<C-c>"] = { "hide", "fallback" },
         },
-        -- cmdline = {
-        --     keymap = {
-        --         preset = "default",
-        --         ["<Tab>"] = { "select_next", "fallback" },
-        --         ["<S-Tab>"] = { "select_prev", "fallback" },
-        --         ["<CR>"] = { "accept_and_enter", "fallback" },
-        --         ["<C-c>"] = { "cancel" },
-        --     },
-        -- },
 
         appearance = {
-            -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-            -- Useful for when your theme doesn't support blink.cmp
-            -- Will be removed in a future release
             use_nvim_cmp_as_default = true,
-            -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-            -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = "mono",
         },
 
         signature = { enabled = false, window = { border = "single" } },
 
-        -- Default list of enabled providers defined so that you can extend it
-        -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { "path", "snippets", "buffer" },
 
@@ -77,7 +51,6 @@ return {
                         { "label", gap = 1 },
                         { "kind_icon", "kind", gap = 1 },
                         { "label_description", gap = 1, width = "fill" },
-                        -- { "source_name" },
                     },
                     components = {
                         kind_icon = {
@@ -85,14 +58,12 @@ return {
                                 local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return kind_icon
                             end,
-                            -- (optional) use highlights from mini.icons
                             highlight = function(ctx)
                                 local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return hl
                             end,
                         },
                         kind = {
-                            -- (optional) use highlights from mini.icons
                             highlight = function(ctx)
                                 local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                 return hl

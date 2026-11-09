@@ -38,8 +38,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufReadPost", {
     group = user_group,
     callback = function(args)
-        local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line("$")
-        local not_commit = vim.b[args.buf].filetype ~= "commit"
+        local line = vim.fn.line([['"]])
+        local valid_line = line >= 1 and line <= vim.api.nvim_buf_line_count(args.buf)
+        local not_commit = vim.bo[args.buf].filetype ~= "gitcommit"
 
         if valid_line and not_commit then
             vim.cmd([[normal! g`"]])

@@ -24,9 +24,6 @@ vim.filetype.add({ extension = { jinja = "jinja", jinja2 = "jinja", j2 = "jinja"
 require("lazy").setup("plugins")
 require("config.statusline")
 
--- vim.cmd([[colorscheme onedark]])
--- vim.cmd([[colorscheme catppuccin-macchiato]])
--- vim.cmd([[colorscheme tokyonight-storm]])
 vim.cmd([[colorscheme kanagawa]])
 
 -- Builtin plugins
