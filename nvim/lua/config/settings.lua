@@ -65,26 +65,6 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
--- Diagnostics
-vim.diagnostic.config({
-    virtual_text = false,
-    underline = true,
-    update_in_insert = false,
-    severity_sort = true,
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
-        },
-    },
-})
-
 vim.cmd([[
-  highlight DiagnosticUnderlineError gui=undercurl guisp=Red guibg=NONE
-  highlight DiagnosticUnderlineWarn  gui=undercurl guisp=Orange guibg=NONE
-  highlight DiagnosticUnderlineInfo  gui=undercurl guisp=LightBlue guibg=NONE
-  highlight DiagnosticUnderlineHint  gui=undercurl guisp=Gray guibg=NONE
   highlight SignColumn guibg=NONE
 ]])

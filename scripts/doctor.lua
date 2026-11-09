@@ -14,9 +14,6 @@ if fat then
         check(vim.fn.isdirectory(data .. "/lazy/" .. name) == 1, "Plugin ausente: " .. name)
     end
     local tooling = dofile(repo .. "/nvim/lua/config/tooling.lua")
-    for _, name in ipairs(tooling.mason) do
-        check(vim.fn.isdirectory(data .. "/mason/packages/" .. name) == 1, "Herramienta Mason ausente: " .. name)
-    end
     for _, name in ipairs(tooling.parsers) do
         check(vim.fn.filereadable(data .. "/site/parser/" .. name .. ".so") == 1, "Parser ausente: " .. name)
     end

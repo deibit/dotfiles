@@ -1,20 +1,3 @@
-local diagnostics_layout = {
-    layout = {
-        backdrop = false,
-        width = 0.9,
-        min_width = 80,
-        height = 0.8,
-        min_height = 30,
-        box = "vertical",
-        border = "rounded",
-        title = "{title} {live} {flags}",
-        title_pos = "center",
-        { win = "input", height = 1, border = "bottom" },
-        { win = "list", border = "none" },
-        { win = "preview", title = "{preview}", height = 0.4, border = "top" },
-    },
-}
-
 -- local explorer_window_picker = { win = { list = { keys = { ["w"] = { { "pick_win", "jump" } } } } } }
 
 return {
@@ -29,7 +12,6 @@ return {
         bigfile = { enabled = true, line_length = 100000 },
         bufdelete = { enabled = true },
         indent = { enabled = true },
-        gitbrowse = { enabled = true },
         input = { enabled = true },
         notifier = { enabled = true },
         notify = { enabled = true },
@@ -38,74 +20,13 @@ return {
         scroll = { enabled = true },
         scope = { enabled = true },
         statuscolumn = { enabled = true },
-        terminal = { enabled = true },
         toggle = { enabled = true },
-        words = { enabled = true },
         picker = {
             enabled = true,
+            sources = { explorer = { git_status = false } },
         },
     },
     keys = {
-
-        -- Git
-
-        {
-            "<leader>gl",
-            function()
-                Snacks.picker.git_log()
-            end,
-            desc = "Git log picker",
-        },
-        {
-            "<leader>gd",
-            function()
-                Snacks.picker.git_diff()
-            end,
-            desc = "Git diff picker",
-        },
-        {
-            "<leader>gL",
-            function()
-                Snacks.picker.git_log_line()
-            end,
-            desc = "Git log line picker",
-        },
-        {
-            "<leader>gf",
-            function()
-                Snacks.picker.git_log_file()
-            end,
-            desc = "Git log file picker",
-        },
-        {
-            "<leader>gb",
-            function()
-                Snacks.picker.git_branches()
-            end,
-            desc = "Git branches picker",
-        },
-        {
-            "<leader>gs",
-            function()
-                Snacks.picker.git_status()
-            end,
-            desc = "Gitstatus picker",
-        },
-        {
-            "<leader>gu",
-            function()
-                Snacks.gitbrowse.open()
-            end,
-            desc = "Open line in browser",
-        },
-        {
-            "<leader>gU",
-            function()
-                Snacks.gitbrowse()
-            end,
-            desc = "Open file in browser",
-        },
-
         -- Common
         {
             "<leader>E",
@@ -115,13 +36,6 @@ return {
             desc = "system clipboard hist.",
         },
 
-        {
-            "<leader>T",
-            function()
-                Snacks.terminal.open()
-            end,
-            desc = "Toggle terminal (float)",
-        },
         {
             "<leader>e",
             function()
@@ -200,66 +114,12 @@ return {
             desc = "Man Pages",
         },
 
-        -- Picker LSP
-
-        {
-            "<leader>ld",
-            function()
-                Snacks.picker.lsp_definitions()
-            end,
-            desc = "Goto Definition",
-        },
-        {
-            "<leader>lr",
-            function()
-                Snacks.picker.lsp_references()
-            end,
-            nowait = true,
-            desc = "References",
-        },
-        {
-            "<leader>lI",
-            function()
-                Snacks.picker.lsp_implementations()
-            end,
-            desc = "Goto Implementation",
-        },
-        {
-            "<leader>le",
-            function()
-                Snacks.picker.lsp_type_definitions()
-            end,
-            desc = "Goto T[y]pe Definition",
-        },
-        {
-            "<leader>ls",
-            function()
-                Snacks.picker.lsp_symbols()
-            end,
-            desc = "LSP Symbols",
-        },
         {
             "<leader>lt",
             function()
                 Snacks.picker.treesitter()
             end,
             desc = "Treesitter picker",
-        },
-
-        -- Diagnostics
-        {
-            "<leader>lx",
-            function()
-                Snacks.picker.diagnostics_buffer({ layout = diagnostics_layout })
-            end,
-            desc = "Diagnostics (buffer)",
-        },
-        {
-            "<leader>lX",
-            function()
-                Snacks.picker.diagnostics({ layout = diagnostics_layout })
-            end,
-            desc = "Diagnostics",
         },
 
         -- Picker others

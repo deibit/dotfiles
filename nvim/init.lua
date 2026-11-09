@@ -22,31 +22,12 @@ vim.filetype.add({ extension = { jinja = "jinja", jinja2 = "jinja", j2 = "jinja"
 
 -- Lazy configuration
 require("lazy").setup("plugins")
+require("config.statusline")
 
 -- vim.cmd([[colorscheme onedark]])
 -- vim.cmd([[colorscheme catppuccin-macchiato]])
 -- vim.cmd([[colorscheme tokyonight-storm]])
 vim.cmd([[colorscheme kanagawa]])
-
--- LSP
-vim.lsp.enable({
-    "bashls",
-    "rust_analyzer",
-    "gopls",
-    "lua_ls",
-    "ty",
-    "tsserver",
-    "html",
-    "css",
-    "tailwindcss",
-    "clangd",
-    "jsonls",
-    "jinja",
-    "docker_compose",
-    "dockerls",
-    "yamlls",
-    "taplo",
-})
 
 -- Builtin plugins
 vim.cmd("packadd nvim.undotree")

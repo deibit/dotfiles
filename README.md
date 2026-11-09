@@ -55,7 +55,7 @@ El perfil se guarda como texto en `$XDG_CONFIG_HOME/dotfiles/profile`. Cambiar d
 
 En Linux se descargan archivos oficiales de Neovim y Go; fat también descarga Tree-sitter CLI. Las herramientas ausentes se instalan con la versión disponible en el gestor de paquetes o con la estable publicada. Las herramientas ya instaladas no se actualizan automáticamente: el instalador comprueba el mínimo de Neovim y avisa si no se cumple.
 
-Los plugins fat están fijados en `nvim/lazy-lock.json`; usa `:Lazy restore` para restaurarlos. Mini para slim está fijado en `nvim-slim/mini.version`: reinstalar cualquiera de los perfiles aplica esa revisión, siempre que no haya cambios locales en su copia. Mason y los parsers no tienen versiones fijadas; dos instalaciones nuevas pueden diferir en esas herramientas.
+Los plugins fat están fijados en `nvim/lazy-lock.json`; usa `:Lazy restore` para restaurarlos. Mini para slim está fijado en `nvim-slim/mini.version`: reinstalar cualquiera de los perfiles aplica esa revisión, siempre que no haya cambios locales en su copia. Los parsers de Tree-sitter pueden variar entre instalaciones nuevas.
 
 ## Neovim
 

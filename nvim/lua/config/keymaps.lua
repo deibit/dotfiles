@@ -64,14 +64,6 @@ vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true, silent = true, des
 -- Redo with 'U'
 vim.api.nvim_set_keymap("n", "U", "<C-r>", { noremap = true, silent = true, desc = "redo" })
 
--- LSP
--- vim.api.nvim_set_keymap(
---     "n",
---     "gd",
---     "",
---     { callback = vim.lsp.buf.definition, noremap = true, silent = true, desc = "Goto definition" }
--- )
-
 -- Copy filepath to clipboard
 vim.api.nvim_set_keymap(
     "n",
@@ -111,16 +103,3 @@ vim.api.nvim_set_keymap("n", "<C-space>", "?", { noremap = true, silent = true, 
 -- Better QuickFix navigation
 vim.api.nvim_set_keymap("n", "[q", ":cprev<CR>", { noremap = true, silent = true, desc = "QF prev" })
 vim.api.nvim_set_keymap("n", "]q", ":cnext<CR>", { noremap = true, silent = true, desc = "QF next" })
-
--- Open symbol definition on a split
-local function open_definition_on_split(split_type)
-    vim.cmd(split_type)
-    vim.lsp.buf.definition()
-end
-
-vim.keymap.set("n", "gS", function()
-    open_definition_on_split("vsplit")
-end, { desc = "Definición en split vertical" })
-vim.keymap.set("n", "gs", function()
-    open_definition_on_split("split")
-end, { desc = "Definición en split horizontal" })

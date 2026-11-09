@@ -1,5 +1,6 @@
 return {
     "stevearc/conform.nvim",
+    cmd = "ConformInfo",
     event = "BufWritePre",
     init = function()
         vim.api.nvim_create_user_command("ConformToggle", function()
@@ -10,21 +11,22 @@ return {
         })
     end,
     opts = {
+        notify_no_formatters = true,
         formatters_by_ft = {
-            c = { "clang_format", lsp_format = "fallback" },
-            cpp = { "clang_format", lsp_format = "fallback" },
-            go = { lsp_format = "prefer" },
-            javascript = { "prettier", lsp_format = "fallback" },
-            json = { "prettier", lsp_format = "fallback" },
+            c = { "clang_format" },
+            cpp = { "clang_format" },
+            go = { "gofmt" },
+            javascript = { "prettier" },
+            json = { "prettier" },
             lua = { "stylua" },
             markdown = { "prettier" },
             python = { "isort", "ruff_format" },
-            rust = { lsp_format = "prefer" },
+            rust = { "rustfmt" },
             sh = { "shfmt" },
             sql = { "sqlfmt" },
             toml = { "taplo" },
-            typescript = { "prettier", lsp_format = "fallback" },
-            vue = { "prettier", lsp_format = "fallback" },
+            typescript = { "prettier" },
+            vue = { "prettier" },
             yaml = { "yamlfmt" },
             html = { "djlint", "prettier" },
             jinja = { "djlint" },
@@ -34,7 +36,7 @@ return {
             if vim.g.disable_autoformat then
                 return
             end
-            return { lsp_format = "fallback" }
+            return {}
         end,
 
         formatters = {
